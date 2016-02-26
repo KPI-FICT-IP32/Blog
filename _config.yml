@@ -24,4 +24,4 @@ markdown: kramdown
 collections:
     lectures:
         output: true
-        permalink: /kpi/lectures/:path/
+        permalink: /kpi/lectures/:path

@@ -9,6 +9,9 @@
 
     <div class="page-content">
       <div class="wrapper">
+        {% for collection in  site.collections %}
+		{{ collection.path }}
+	{% endfor %}	
         {{ content }}
       </div>
     </div>
