@@ -19,3 +19,9 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+# We use collections
+collections:
+    lectures:
+        output: true
+        permalink: /kpi/lectures/:path/
