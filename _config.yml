@@ -7,15 +7,12 @@
 
 # Site settings
 title: IP-32. Code for life.
-email: ip32group+blog@gmail.com
+email: ip32group@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This is a site of the awesome group IP-32, FICT, KPI.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://KPI-FICT-IP32.github.io" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  KPI-FICT-IP32
 
 # Build settings
 markdown: kramdown

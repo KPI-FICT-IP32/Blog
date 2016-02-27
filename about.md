@@ -3,13 +3,10 @@ layout: page
 title: About
 permalink: /about/
 ---
+This is a site of the group IP-32, where you can:
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+* find different information about all subjects, that we study;
+* find tasks for laboratory works;
+* read the latest news about our group.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
