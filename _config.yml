@@ -16,9 +16,3 @@ github_username:  KPI-FICT-IP32
 
 # Build settings
 markdown: kramdown
-
-# We use collections
-collections:
-    lectures:
-        output: true
-        permalink: /kpi/lectures/:path
