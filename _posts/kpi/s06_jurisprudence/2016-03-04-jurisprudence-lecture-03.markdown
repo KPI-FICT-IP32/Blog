@@ -2,7 +2,7 @@
 layout: post
 title:  "Лекція №3. Суспільний устрій. Влада. Управління."
 date:   2016-03-04 10:20:00 +0200
-categories: lectures jurispurdence
+categories: kpi_s06_jurisprudence
 ---
 
 # Лекція №3. Суспільний устрій. Влада. Управління.

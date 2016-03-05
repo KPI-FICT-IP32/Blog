@@ -2,7 +2,7 @@
 layout: post
 title:  "Лекція №1. Теорія держави і права, як юридична наука"
 date:   2016-02-19 10:20:00 +0200
-categories: lectures jurispurdence
+categories: kpi_s06_jurisprudence
 ---
 
 # Теорія держави і права, як юридична наука

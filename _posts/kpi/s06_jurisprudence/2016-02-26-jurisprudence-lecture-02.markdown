@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Лекція 2. Місце ТДП в системі суспільних та юридичних норм."
+title:  "Лекція №2. Місце ТДП в системі суспільних та юридичних норм."
 date:   2016-02-25 10:20:00 +0200
-categories: lectures jurisprudence
+categories: kpi_s06_jurisprudence
 ---
 
 ## Методологія ТДП
