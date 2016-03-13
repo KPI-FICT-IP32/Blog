@@ -239,4 +239,18 @@
             font-size: 18px;
         }
     }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border:1px solid $grey-color-dark;
+    }
+
+    th, td{
+        border:1px solid $grey-color-dark;
+    }
+
+    th {
+        background-color: $grey-color-light;
+    }
 }
