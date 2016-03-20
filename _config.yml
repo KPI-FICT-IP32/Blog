@@ -9,10 +9,11 @@
 title: IP-32. Code for life.
 email: ip32group@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  This is a site of the awesome group IP-32, FICT, KPI.
+    Блог групи ІП-32, КПІ, ФІОТ.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://KPI-FICT-IP32.github.io" # the base hostname & protocol for your site
 github_username:  KPI-FICT-IP32
+github_repo: KPI-FICT-IP32.github.io
 
 # Build settings
 markdown: kramdown
