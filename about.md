@@ -1,12 +1,12 @@
 ---
 layout: page
-title: About
+title: Про нас 
 permalink: /about/
 ---
-This is a site of the group IP-32, where you can:
 
-* find different information about all subjects, that we study;
-* find tasks for laboratory works;
-* read the latest news about our group.
+Це блог групи ІП-32 факультету інформатики та обчислювальної техніки Національного технічного університету України "Київський політехнічний інститут".
+Тут ви можете знайти:
 
-
+* різноманітні конспекти лекцій, які ми намагаємося писати;
+* завдання і виконання лабораторних робіт;
+* новини про життя групи (якщо хтось їх сюди писатиме).
