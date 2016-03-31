@@ -35,7 +35,6 @@ HTTP protocol up to version 1.1 (inclusive) is text protocol.
 HTTP 2.0 is binary
 
 HTTP request according to protocol consists of 3 parts
-
 - Request string (mandatory)
     Request string consists of
 
@@ -44,6 +43,7 @@ HTTP request according to protocol consists of 3 parts
     | GET/POST/PUT/PATCH/DELETE/...| in general it is URI | i.e HTTP/1.1|
 
     Example request string: `GET http://google.com.ua/ HTTP/1.1`
+
 - Request headers (optional)
 - message body (optional)
 
@@ -86,22 +86,20 @@ If we want to open `mlp.wikia.com`:
     ```foto IN A 77.77.77.77```
 - PTR associates IP address with domain name. **in-addrarpa**.
     (77.47.128.130)
-
-```
-    in-addrarpa
-     |  .... \ ...
-    77
-     |
-    47
-     |
-    128
-     |
-    130
-```
-
+    ```
+        in-addrarpa
+         |  .... \ ...
+        77
+         |
+        47
+         |
+        128
+         |
+        130
+    ```
 - TXT.
 - SOA. (Self-off authority). Describes DNS server responsibilities (authority)
-- NS. 
+- NS. name server.
     ```kpi.ua IN NS ...```
 - MX (Mail eXchange).
 
@@ -121,9 +119,10 @@ DNS lookup can be either interactive (DNS Server delegates to another DNS server
 
 ### IMAP
 This one is used to receive emails. This protocol is newer than POP3.
+IMAP loads only mail headers. And concrette message will be loaded as requested.
 
 ### POP3
-This one is used to receive emails
+This one is used to receive emails. It loads whole email messages at once.
 
 ### SMTP
-This protocol is used to send email
+This protocol is used to send email.
