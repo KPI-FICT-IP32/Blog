@@ -40,6 +40,8 @@ Connection speed can be increased using **link aggregation**: two cables on the 
 
 2.4 Ghz is used by wide variety of devices, hence if there is another device which works on this frequency nearby, the major loss of quality will occur due to signal interference.
 
+There are three channels which do not overlap at 2.4Ghz frequency. These are 1st, 6th and 11th channels.
+
 # Application level
 Main protocols:
 
