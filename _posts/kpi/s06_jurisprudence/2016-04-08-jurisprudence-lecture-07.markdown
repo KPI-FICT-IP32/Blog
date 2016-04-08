@@ -2,7 +2,7 @@
 layout: post
 title:  "Лекція №7. Принципи права"
 date:   2016-04-08 10:20:00 +0200
-categories: kpi_s08_jurisprudence
+categories: kpi_s06_jurisprudence
 ---
 # DISCLAIMER
 > Вона надто швидко диктувала, я дофіга не встигав. Тому позаповнюйте, пліз, пропуски.
