@@ -128,5 +128,5 @@ There are three _main_ types of messages:
 1. **Unicast**. Only one host is the recipient of mesage. 
 2. **Broadcast**. Message is sent to every available host in the broadcast domain. One broadcast domain is equal to one subnet. Broadcast messages do not pass through layer-3 devices.
 3. **Multicast**. Multicast messages are sent to specified group of devices.
-
-There is also **Anycast**. (_TODO: [google](http://lmgtfy.com/?q=anycast) about this_)
+4. **Anycast**. Messages are routed to the topologically nearest node in a group of potential receivers, though it may be sent to several nodes, all identified by the same destination address.
+5. **Geocast**. Message is sent to a group of destinations in a network identified by their geographical locations. It is a specialized form of multicast addressing used by some routing protocols for mobile ad hoc networks.
