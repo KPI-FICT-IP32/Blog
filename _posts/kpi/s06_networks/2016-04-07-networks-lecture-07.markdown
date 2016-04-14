@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lecture 7. Network layer. IPv4"
-date:   2016-04-04 08:30:00 +0200
+date:   2016-04-07 08:30:00 +0200
 categories: kpi_s06_networks
 ---
 
