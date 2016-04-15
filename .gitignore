@@ -1,3 +1,8 @@
+# Jekyll files
 _site
 .sass-cache
 .jekyll-metadata
+
+# Vi swap files:
+.*.swo
+.*.swp
