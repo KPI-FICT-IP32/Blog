@@ -11,5 +11,27 @@ layout: default
   <div class="post-content" itemprop="articleBody">
     {{ content }}
   </div>
-
 </article>
+
+<div id="next-post" class="post-content">
+  {% if page.next %}
+    <h2>Наступний пост</h2>
+      <span>{{ page.next.date | date_to_string }}</span> <a href="{{ page.next.url }}">{{ page.next.title }}</a>
+  {% endif%}
+</div>
+
+<div id="prev-post" class="post-content">
+  {% if page.previous %}
+    <h2>Попередній пост</h2>
+      <span>{{ page.previous.date | date_to_string }}</span> <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
+  {% endif%}
+</div>
+
+<div id="related" class="post-content">
+  <h2>Схожі пости</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
