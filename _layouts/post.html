@@ -1,6 +1,32 @@
 ---
 layout: default
 ---
+{% comment %}
+Jekyll does not support next/previous within categories.
+What is worse, Github pages run jekyll in safe mode, which means we cannot use plugins =(
+
+Here is a workaround for prev/next in categories.
+{% endcomment %}
+
+{% if page.categories %}
+  {% assign cat = page.categories[0] %}
+  {% assign cat_posts = site.categories[cat] %}
+  {% assign cat_prev = Nil %}
+  {% assign cat_next = Nil %}
+
+  {% for post in cat_posts %}
+    {% if post.date < page.date %}
+      {% if cat_prev == Nil or post.date > cat_prev.date %}
+        {% assign cat_prev = post %}    
+      {% endif %}
+    {% elsif post.date > page.date %}
+      {% if cat_next == Nil or post.date < cat_next.date %}
+        {% assign cat_next = post %}    
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
@@ -13,25 +39,15 @@ layout: default
   </div>
 </article>
 
-<div id="next-post" class="post-content">
-  {% if page.next %}
-    <h2>Наступний пост</h2>
-      <span>{{ page.next.date | date_to_string }}</span> <a href="{{ page.next.url }}">{{ page.next.title }}</a>
-  {% endif%}
-</div>
-
-<div id="prev-post" class="post-content">
-  {% if page.previous %}
-    <h2>Попередній пост</h2>
-      <span>{{ page.previous.date | date_to_string }}</span> <a href="{{ page.previous.url }}">{{ page.previous.title }}</a>
-  {% endif%}
-</div>
-
-<div id="related" class="post-content">
-  <h2>Схожі пости</h2>
-  <ul class="posts">
-    {% for post in site.related_posts limit:3 %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<nav class="prev-next h-hr-top h-padding-top-10">
+  {% if cat_prev %} 
+    <div class="h-width-40p h-float-left h-text-align-left">
+      <a href="{{ cat_prev.url }}"> {{ cat_prev.title }}</a> 
+    </div>
+  {% endif %}
+  {% if cat_next %} 
+    <div class="h-width-40p h-float-right h-text-align-right">
+      <a href="{{ cat_next.url }}"> {{ cat_next.title }}</a> 
+    </div>
+  {% endif %}
+</nav>
