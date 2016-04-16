@@ -1,0 +1,35 @@
+/* Custom styles */
+
+.h-width-40p {
+    width: 40%;
+}
+
+.h-float-left {
+    float: left;
+}
+
+.h-float-right {
+    float: right;
+}
+
+.h-hr-top {
+    border-top: 1px solid $grey-color-light;
+}
+
+.h-padding-top-10 {
+    padding-top: 10px;
+}
+
+.h-text-align-left {
+    text-align: left;
+}
+
+.h-text-align-right {
+    text-align: right;
+}
+
+nav.prev-next {
+    ::after {
+        clear: both;
+    }
+}
