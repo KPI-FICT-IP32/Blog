@@ -1,35 +1,61 @@
 /* Custom styles */
+@media all and (min-width: 720px){
+  .h-width-40p {
+      width: 40%;
+  }
 
-.h-width-40p {
-    width: 40%;
+  .h-float-left {
+      float: left;
+  }
+
+  .h-float-right {
+      float: right;
+  }
+
+  .h-hr-top {
+      border-top: 1px solid $grey-color-light;
+      padding-top: 10px;
+  }
+
+  .h-text-align-left {
+      text-align: left;
+  }
+
+  .h-text-align-right {
+      text-align: right;
+  }
+
+  nav.prev-next {
+      ::after {
+          clear: both;
+      }
+  }
 }
 
-.h-float-left {
-    float: left;
-}
+@media all and (min-width: 320px) and (max-width: 720px){
+  .h-width-40p {
+      width: 100%;
+  }
 
-.h-float-right {
-    float: right;
-}
+  .h-hr-top {
+      border-top: 1px solid $grey-color-light;
+      padding-top: 10px;
+  }
 
-.h-hr-top {
-    border-top: 1px solid $grey-color-light;
-}
+  nav a{
+    display: block;
+    text-align: center;
+    padding: 8px 0 8px 16px;
+  }
 
-.h-padding-top-10 {
-    padding-top: 10px;
-}
+  nav a:hover {
+      background-color: $grey-color-light;
+      color: #6A5ACD;
+  }
 
-.h-text-align-left {
-    text-align: left;
-}
-
-.h-text-align-right {
-    text-align: right;
-}
-
-nav.prev-next {
-    ::after {
-        clear: both;
-    }
+  nav.prev-next {
+      ::after {
+          clear: both;
+      }
+  }
 }

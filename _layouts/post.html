@@ -17,11 +17,11 @@ Here is a workaround for prev/next in categories.
   {% for post in cat_posts %}
     {% if post.date < page.date %}
       {% if cat_prev == Nil or post.date > cat_prev.date %}
-        {% assign cat_prev = post %}    
+        {% assign cat_prev = post %}
       {% endif %}
     {% elsif post.date > page.date %}
       {% if cat_next == Nil or post.date < cat_next.date %}
-        {% assign cat_next = post %}    
+        {% assign cat_next = post %}
       {% endif %}
     {% endif %}
   {% endfor %}
@@ -39,15 +39,15 @@ Here is a workaround for prev/next in categories.
   </div>
 </article>
 
-<nav class="prev-next h-hr-top h-padding-top-10">
-  {% if cat_prev %} 
+<nav class="prev-next h-hr-top">
+  {% if cat_prev %}
     <div class="h-width-40p h-float-left h-text-align-left">
-      <a href="{{ cat_prev.url }}"> {{ cat_prev.title }}</a> 
+      <a href="{{ cat_prev.url }}"> {{ cat_prev.title }}</a>
     </div>
   {% endif %}
-  {% if cat_next %} 
+  {% if cat_next %}
     <div class="h-width-40p h-float-right h-text-align-right">
-      <a href="{{ cat_next.url }}"> {{ cat_next.title }}</a> 
+      <a href="{{ cat_next.url }}"> {{ cat_next.title }}</a>
     </div>
   {% endif %}
 </nav>
