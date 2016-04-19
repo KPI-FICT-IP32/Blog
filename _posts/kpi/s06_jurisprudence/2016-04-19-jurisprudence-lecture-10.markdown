@@ -2,7 +2,7 @@
 layout: post
 title:  "Лекція №10. Джерела права"
 date:   2016-04-19 16:15:00 +0200
-categories: kpi_s10_jurisprudence
+categories: kpi_s06_jurisprudence
 ---
 
 #Лекція №10. Поняття та види джерел права
