@@ -39,14 +39,14 @@ Here is a workaround for prev/next in categories.
   </div>
 </article>
 
-<nav class="prev-next h-hr-top">
+<nav id="prev-next">
   {% if cat_prev %}
-    <div class="h-width-40p h-float-left h-text-align-left">
+    <div id="link-prev">
       <a href="{{ cat_prev.url }}"> {{ cat_prev.title }}</a>
     </div>
   {% endif %}
   {% if cat_next %}
-    <div class="h-width-40p h-float-right h-text-align-right">
+    <div id="link-next">
       <a href="{{ cat_next.url }}"> {{ cat_next.title }}</a>
     </div>
   {% endif %}
