@@ -1,61 +1,77 @@
 /* Custom styles */
-@media all and (min-width: 720px){
-  .h-width-40p {
-      width: 40%;
+
+nav#prev-next {
+  border-top: 1px solid $grey-color-light;
+  padding-top: 10px;
+
+  ::after {
+      clear: both;
   }
 
-  .h-float-left {
-      float: left;
-  }
-
-  .h-float-right {
-      float: right;
-  }
-
-  .h-hr-top {
-      border-top: 1px solid $grey-color-light;
-      padding-top: 10px;
-  }
-
-  .h-text-align-left {
-      text-align: left;
-  }
-
-  .h-text-align-right {
-      text-align: right;
-  }
-
-  nav.prev-next {
-      ::after {
-          clear: both;
-      }
-  }
-}
-
-@media all and (min-width: 320px) and (max-width: 720px){
-  .h-width-40p {
-      width: 100%;
-  }
-
-  .h-hr-top {
-      border-top: 1px solid $grey-color-light;
-      padding-top: 10px;
-  }
-
-  nav a{
-    display: block;
+  #link-prev, #link-next {
+    width: 100%;
+    margin: 5px auto;
     text-align: center;
-    padding: 8px 0 8px 16px;
   }
 
-  nav a:hover {
-      background-color: $grey-color-light;
-      color: #6A5ACD;
-  }
+  @media all and(min-width: 720px) {
+    #link-prev {
+      width: 40%;
+      float: left;
+      text-align: left;
+    }
 
-  nav.prev-next {
-      ::after {
-          clear: both;
-      }
+    #link-next {
+      width: 40%;
+      float: right;
+      text-align: right;
+    }
   }
 }
+
+/* Post formatting fixes */
+h2 {
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-bottom: 0px;
+}
+
+.updates {
+    margin-bottom: 15px;
+}
+
+ul.subject-list {
+    .course-info {
+        padding-left: 40px;
+        margin-bottom: 10px;
+    }
+
+    .lecturer-name, .assistant-name {
+        font-size: 12px;
+        color: $mid-grey;
+    } 
+
+    li > h4 {
+        margin-bottom: 0px;
+    } 
+
+    > li {
+        margin-bottom: 15px;
+    }
+}
+
+.post-content {
+    h1 {
+        font-size: 35px;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+    table {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
+} 
