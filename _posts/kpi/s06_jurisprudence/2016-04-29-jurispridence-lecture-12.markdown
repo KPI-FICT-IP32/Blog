@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Лекція №12. Правотворчість"
-date:   2016-02-29 10:20:00 +0200
+date:   2016-04-29 10:20:00 +0200
 categories: kpi_s06_jurisprudence
 ---
 
