@@ -152,4 +152,3 @@ categories: kpi_s06_jurisprudence
 Види обліку:
 
 - журнальний
-- 
