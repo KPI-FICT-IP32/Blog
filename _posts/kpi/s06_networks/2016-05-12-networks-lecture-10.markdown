@@ -38,23 +38,23 @@ Chief weaponry of dynamic routing protocols include such diverse things as
 
 ## Routing configuration protocols canbe divided into two groups:
 
-- **IGP** Internal gateway protocol
-- **EGP** External gateway protocol
+- **IGP** Interior gateway protocol
+- **EGP** Exterior gateway protocol
 
-**Autonomic system** is a network, whose address belongs to some organization.
+**Autonomic system** is a group of networks running under a single administrative control. This could be our company or a branch of company. Just like Subnetting AS is also used to break a large network in smaller networks.
 
 ## Classification
 
 - EGP
-  - BGP
+  - [BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)
 - IGP
   - distance-vector
-    - RIP
-    - IGRP
-    - EIGRP
+    - [RIP](https://en.wikipedia.org/wiki/Routing_Information_Protocol)
+    - [IGRP](https://en.wikipedia.org/wiki/Interior_Gateway_Routing_Protocol)
+    - [EIGRP](https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol)
   - link-state
-    - IS-IS (Intermediate system to intermediate system)
-    - OSPF (Open shortest path first)
+    - [IS-IS](https://en.wikipedia.org/wiki/IS-IS) (Intermediate system to intermediate system)
+    - [OSPF](https://en.wikipedia.org/wiki/Open_Shortest_Path_First) (Open shortest path first)
 
 Distance-vector protocol know nothing but the next hop and some metric, called distance.
 
@@ -73,7 +73,7 @@ Link-state protocols try to build a full network topology graph and then find pa
 |B - 0      |C - 0      |D - 0       |
 |-----------|-----------|------------|
 |_C: R2 - 1_|_D: R3 - 1_|_B: R2 - 1_ |
-|  |_A: R1 - 1_| |
+|           |_A: R1 - 1_|            |
 
 Every 30 seconds routers broadcast their routing table to their "neighbours".
 
