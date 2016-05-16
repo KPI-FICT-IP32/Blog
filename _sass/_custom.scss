@@ -1,27 +1,38 @@
 /* Custom styles */
 
-nav#prev-next {
-  border-top: 1px solid $grey-color-light;
+.wrapper {
+  
+  >nav:last-child {
+    border-top: 1px solid $grey-color-light;
+  }
+
+  >nav:first-child {
+    border-bottom: 1px solid $grey-color-light;
+  }
+}
+
+nav.prev-next {
   padding-top: 10px;
+  display: table;
 
   ::after {
       clear: both;
   }
 
-  #link-prev, #link-next {
+  .link-prev, .link-next {
     width: 100%;
     margin: 5px auto;
     text-align: center;
   }
 
   @media all and(min-width: 720px) {
-    #link-prev {
+    .link-prev {
       width: 40%;
       float: left;
       text-align: left;
     }
 
-    #link-next {
+    .link-next {
       width: 40%;
       float: right;
       text-align: right;
