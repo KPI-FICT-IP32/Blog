@@ -1,19 +1,27 @@
 /* Custom styles */
 
+.page-content {
+  padding: 10px, 0;
+}
+
+
 .wrapper {
-  
-  >nav:last-child {
+  >nav.prev-next:last-child {
     border-top: 1px solid $grey-color-light;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 
-  >nav:first-child {
+  >nav.prev-next:first-child {
     border-bottom: 1px solid $grey-color-light;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
   }
 }
 
+
 nav.prev-next {
-  padding-top: 10px;
-  display: table;
+  overflow: hidden;
 
   ::after {
       clear: both;
@@ -39,6 +47,7 @@ nav.prev-next {
     }
   }
 }
+
 
 /* Post formatting fixes */
 h2 {
