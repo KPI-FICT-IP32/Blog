@@ -11,3 +11,9 @@
       - title:  Архітектура програмного забезпечення
         teacher: Шемсединов Тимур Гафарович
         category: kpi_s06_swarch
+- title: Семестр 7 (4 курс 1 семестр)
+  courses:
+      - title: Безпека програм та даних
+        teacher: Мухін Вадим Євгенович
+        assistant: Долголенко Олександр Миколайович
+        category: kpi_s07_data_security
