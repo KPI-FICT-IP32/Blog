@@ -69,6 +69,7 @@ ul.subject-list {
     }
 
     .lecturer-name, .assistant-name {
+        display: block;
         font-size: 12px;
         color: $mid-grey;
     } 
