@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Лекція 2. Основні поняття"
+title:  "Лекція 2. Канали витоку інформації"
 date:   2016-09-08 14:15:00 +0300
 categories: kpi_s07_data_security
 ---
