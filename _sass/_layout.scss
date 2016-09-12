@@ -105,7 +105,7 @@
 /**
  * Site footer
  */
-.site-footer {
+.blg-footer {
   border-top: 1px solid $grey-color-light;
   padding: $spacing-unit 0;
 }
@@ -115,56 +115,53 @@
   margin-bottom: $spacing-unit / 2;
 }
 
-.contact-list,
-.social-media-list {
+.blg-contact-list {
   list-style: none;
   margin-left: 0;
 }
 
-.footer-col-wrapper {
+.blg-footer-wrap {
   font-size: 15px;
   color: $grey-color;
   margin-left: -$spacing-unit / 2;
   @extend %clearfix;
 }
 
-.footer-col {
+.blg-footer-column {
   float: left;
   margin-bottom: $spacing-unit / 2;
   padding-left: $spacing-unit / 2;
-}
 
-.footer-col-1 {
-  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width: calc(35% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width: calc(20% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width: calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-  .footer-col-1,
-  .footer-col-2 {
-    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-    width: calc(50% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-3 {
+  @include media-query($on-palm){
+    float: none;
     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
     width: calc(100% - (#{$spacing-unit} / 2));
   }
 }
 
-@include media-query($on-palm) {
-  .footer-col {
-    float: none;
+.blg-footer-column_1 {
+  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
+  width: calc(35% - (#{$spacing-unit} / 2));
+}
+
+.blg-footer-column_2 {
+  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+  width: calc(20% - (#{$spacing-unit} / 2));
+}
+
+.blg-footer-column_3 {
+  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
+  width: calc(45% - (#{$spacing-unit} / 2));
+}
+
+@include media-query($on-laptop) {
+  .blg-footer-column_1,
+  .blg-footer-column_2 {
+    width: -webkit-calc(50% - (#{$spacing-unit} / 2));
+    width: calc(50% - (#{$spacing-unit} / 2));
+  }
+
+  .blg-footer-column_3 {
     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
     width: calc(100% - (#{$spacing-unit} / 2));
   }
@@ -173,11 +170,11 @@
 /**
  * Page content
  */
-.page-content {
+.blg-wrap_padding {
   padding: $spacing-unit 0;
 }
 
-.page-heading {
+.blg-wrap__header {
   font-size: 20px;
 }
 
@@ -203,11 +200,11 @@
 /**
  * Posts
  */
-.post-header {
+.blg-post__header {
   margin-bottom: $spacing-unit;
 }
 
-.post-title {
+.blg-post__title {
   font-size: 42px;
   letter-spacing: -1px;
   line-height: 1;
@@ -217,7 +214,7 @@
   }
 }
 
-.post-content {
+.blg-post__content {
   margin-bottom: $spacing-unit;
 
   h2 {
