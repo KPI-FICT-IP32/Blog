@@ -13,7 +13,7 @@ layout: default
             <a href="{{ post.url }}">{{ post.title }}</a>
         </div>
         {% endfor %}
-       
+
         <h2>КПІ</h2>
         {% assign semesters = site.data.semesters | sort: 'title' | reverse %}
         {% for semester in semesters %}
@@ -33,7 +33,7 @@ layout: default
                 <ul>
                 {% assign posts = (site.categories[course.category] | reverse) %}
                 {% for post in posts %}
-                    <li><a href="{{ post.url }}">{{ post.title }}</a></li> 
+                    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
                 {% endfor %}
                 </ul>
             </li>
