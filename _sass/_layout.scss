@@ -139,29 +139,29 @@
   }
 }
 
-.blg-footer-column_1 {
+.blg-footer-column_left {
   width: -webkit-calc(35% - (#{$spacing-unit} / 2));
   width: calc(35% - (#{$spacing-unit} / 2));
 }
 
-.blg-footer-column_2 {
+.blg-footer-column_middle {
   width: -webkit-calc(20% - (#{$spacing-unit} / 2));
   width: calc(20% - (#{$spacing-unit} / 2));
 }
 
-.blg-footer-column_3 {
+.blg-footer-column_right {
   width: -webkit-calc(45% - (#{$spacing-unit} / 2));
   width: calc(45% - (#{$spacing-unit} / 2));
 }
 
 @include media-query($on-laptop) {
-  .blg-footer-column_1,
-  .blg-footer-column_2 {
+  .blg-footer-column_left,
+  .blg-footer-column_middle {
     width: -webkit-calc(50% - (#{$spacing-unit} / 2));
     width: calc(50% - (#{$spacing-unit} / 2));
   }
 
-  .blg-footer-column_3 {
+  .blg-footer-column_right {
     width: -webkit-calc(100% - (#{$spacing-unit} / 2));
     width: calc(100% - (#{$spacing-unit} / 2));
   }
