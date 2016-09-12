@@ -17,3 +17,9 @@
         teacher: Мухін Вадим Євгенович
         assistant: Долголенко Олександр Миколайович
         category: kpi_s07_data_security
+      - title: Графічне та геометричне моделювання
+        teacher: Саверченко Василь Григорович
+        category: kpi_s07_graphic_modelling
+      - title: Якість та тестування ПЗ
+        teacher: Биковець Артем Тарасович
+        category: kpi_s07_sw_quality
