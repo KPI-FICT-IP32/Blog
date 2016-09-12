@@ -1,12 +1,12 @@
 
-<nav class="prev-next">
+<nav class="blg-nav-posts">
   {% if cat_prev %}
-    <div class="link-prev">
+    <div class="blg-nav-posts__post blg-nav-posts__post_prev">
       <a href="{{ cat_prev.url }}"> {{ cat_prev.title }}</a>
     </div>
   {% endif %}
   {% if cat_next %}
-    <div class="link-next">
+    <div class="blg-nav-posts__post blg-nav-posts__post_next">
       <a href="{{ cat_next.url }}"> {{ cat_next.title }}</a>
     </div>
   {% endif %}

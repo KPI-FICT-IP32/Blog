@@ -1,48 +1,45 @@
 /* Custom styles */
+.blg-nav-posts__post {
+  width: 100%;
+  margin: 5px auto;
+  text-align: center;
+}
 
-.blg-wrap {
-  >nav.prev-next:last-child {
-    border-top: 1px solid $grey-color-light;
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-
-  >nav.prev-next:first-child {
-    border-bottom: 1px solid $grey-color-light;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
+.blg-nav-posts__post_prev {
+  @media all and (min-width: $hd-width){
+    width: 40%;
+    float: left;
+    text-align: left;
   }
 }
 
+.blg-nav-posts__post_next {
+  @media all and (min-width: $hd-width){
+    width: 40%;
+    float: right;
+    text-align: right;
+  }
+}
 
-nav.prev-next {
+.blg-nav-posts {
   overflow: hidden;
 
   ::after {
       clear: both;
   }
-
-  .link-prev, .link-next {
-    width: 100%;
-    margin: 5px auto;
-    text-align: center;
-  }
-
-  @media all and(min-width: 720px) {
-    .link-prev {
-      width: 40%;
-      float: left;
-      text-align: left;
-    }
-
-    .link-next {
-      width: 40%;
-      float: right;
-      text-align: right;
-    }
-  }
 }
 
+.blg-nav-posts:first-child{
+  border-bottom: 1px solid $grey-color-light;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.blg-nav-posts:last-child{
+  border-top: 1px solid $grey-color-light;
+  margin-top: 10px;
+  padding-top: 10px;
+}
 
 /* Post formatting fixes */
 h2 {
