@@ -1,18 +1,18 @@
-<footer class="site-footer">
+<footer class="blg-footer">
 
-  <div class="wrapper">
+  <div class="blg-wrap">
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
+    <div class="blg-footer-wrap">
+      <div class="blg-footer-column blg-footer-column_left">
+        <ul class="blg-contact-list">
           <li>{{ site.title }}</li>
           <li>{{ site.description }}</li>
           <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
         </ul>
       </div>
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
+      <div class="blg-footer-column blg-footer-column_middle">
+        <ul class="blg-contact-list">
           {% if site.github_username %}
           <li>
             {% include icon-github.html username=site.github_username %}
@@ -22,7 +22,7 @@
         </ul>
       </div>
 
-      <div class="footer-col footer-col-3">
+      <div class="blg-footer-column blg-footer-column_right">
         <p>Знайшли помилку? Надішліть виправлення <a href="https://github.com/{{ site.github_username }}/{{ site.github_repo }}/pulls">пул-реквестом</a>.</p>
       </div>
     </div>
