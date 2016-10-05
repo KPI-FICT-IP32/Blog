@@ -9,4 +9,4 @@ categories: kpi_s07_jee
 
  - [Слайди презентації](https://vk.com/doc135321152_438074235?hash=0b93d16ab725dc4593&dl=98527b9d15bb987d89)
 
- - [Простий приклад застосунку з використанням JSF]()
+ - [Простий приклад застосунку з використанням JSF](https://github.com/ValkoVolodya/jsf-lecture-demo)
