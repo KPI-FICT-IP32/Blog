@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Лекція 2. JSF."
+date: 2016-10-05 12:29:32 +0300
+categories: kpi_s07_jee
+---
+
+## Матеріали лекції:
+
+ - [Слайди презентації](https://vk.com/doc135321152_438074235?hash=0b93d16ab725dc4593&dl=98527b9d15bb987d89)
+
+ - [Простий приклад застосунку з використанням JSF](https://github.com/ValkoVolodya/jsf-lecture-demo)
