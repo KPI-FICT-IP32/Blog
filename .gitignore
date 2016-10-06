@@ -6,3 +6,6 @@ _site
 # Vi swap files:
 .*.swo
 .*.swp
+
+# Ok, just for this repo let github manage dependencies
+Gemfile.lock
