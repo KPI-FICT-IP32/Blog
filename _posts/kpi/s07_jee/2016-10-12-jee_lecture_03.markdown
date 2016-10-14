@@ -1,0 +1,16 @@
+---
+layout: post
+title: "Лекція 3. JPA."
+date: 2016-10-12 12:29:32 +0300
+categories: kpi_s07_jee
+---
+
+## Матеріали лекції:
+
+ - [Слайди лекції(pptx)](https://vk.com/doc86287709_438256799?hash=5b2f476573189a3299&dl=1c7e4e411c3779a039)
+ 
+ - [Простий приклад застосунку з використанням JPA (zip)](https://vk.com/doc86287709_438256748?hash=5f289c7463c431ccfa&dl=6a742187609521805b)
+
+ - [Простий приклад застосунку з використанням JPA (GitHub)](https://github.com/SichYuriy/JavaEE_KPI/tree/master/LectionExample)
+
+Матеріал підготували: [Юрій](https://github.com/SichYuriy) та [Віта](https://github.com/VitaKaras)
