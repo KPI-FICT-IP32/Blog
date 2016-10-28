@@ -17,4 +17,6 @@ categories: kpi_s06_swarch
 
 # Розгляд питань
 
-Див [github issue](https://github.com/HowProgrammingWorks/Letters/issues/1) до списку питань на іспит.
+- Див [github issue](https://github.com/HowProgrammingWorks/Letters/issues/1) до списку питань на іспит.
+- Деякі питання розкриті у [gist](https://bitbucket.org/snippets/anxolerd/b6jXX/software-architecture-exam)
+
