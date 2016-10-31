@@ -19,9 +19,9 @@ Given: `193.175.16.0 / 24`
 
 In binary format: `11000001.10101111.000100000.00000000 / 24`
 
-Assume, we want to make `n=2` subnets:
+Assume, we want to make $$n = 2$$ subnets:
 
-Increase network part by _]log<sub>2</sub>n[ = 1_ : `11000001.10101111.000100000.0 | 0000000 / 25`
+Increase network part by $$\lceil log _{2}(n) \rceil = 1$$ : `11000001.10101111.000100000.0 | 0000000 / 25`
 
 Now we can have 2 subnets. Here they are:
 
@@ -33,9 +33,9 @@ Rewrite addresses in decimal:
 - `193.175.16.0 / 25`
 - `193.175.16.128 / 25`
 
-Assume, we want to split `193.175.16.128 / 25` into `n = 4` subnets:
+Assume, we want to split `193.175.16.128 / 25` into $$n = 4$$ subnets:
 
-Increase network part by _]log<sub>2</sub>n[ = 2_ : `11000001.10101111.000100000.100|00000 / 27`
+Increase network part by $$ \lceil log _{2}(n) \rceil = 2 $$ : `11000001.10101111.000100000.100|00000 / 27`
 
 Now we can have 4 subnets. Here they are:
 
@@ -114,7 +114,7 @@ Finally transform binary results to decimal:
 3. Broadcast: `177.250.13.255`
 4. First available IP: `177.250.13.241`
 5. Last available IP: `177.250.13.254`
-6. Total IP addresses available: 2 <sup>(32 - 28)</sup> - 2 = 14
+6. Total IP addresses available: $$ 2 ^ {32 - 28} - 2 = 14 $$
 
 ## Task 2. Split network into subnets.
 
@@ -142,8 +142,8 @@ Finally transform binary results to decimal:
 1. Determine prefixes. I.E. For 120:
     - Keep in mind that you have to add 2 to number of PCs, as one address will be used as network address and other one will be used for broadcast.
     - Nearest bigger power of two is 128.
-    - _log<sub>2</sub>128 = 7_
-    - prefix = 32 - 7 = 25
+    - Thus we need $$ log _{2}(128) = 7 $$ bits for the host part
+    - And finally calculate the network prefix: $$ prefix = 32 - 7 = 25 $$
 
     |dpt| PCs | prefix | subnet |
     |---|-----|--------|--------|

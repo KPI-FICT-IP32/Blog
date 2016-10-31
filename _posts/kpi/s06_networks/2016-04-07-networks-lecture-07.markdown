@@ -80,13 +80,12 @@ To get broadcast address we have to fill host part of IP address with ones. (bit
 
 Number of available hosts in network is:
 
-```
-     n
-N = 2  - 2
+$$ N = 2^n - 2 $$
 
-N -- number of available hosts in network
-n -- length of the host part in bits (32 - prefix)
-```
+Here
+
+- $$N$$ is the number of available hosts in network
+- $$n$$ is the length of the host part in bits $$n = 32 - prefix$$
 
 ### IPv4 address classification:
 
