@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Лекція 5. JMS"
+date: 2016-11-02 12:20:00 +0300
+categories: kpi_s07_jee
+---
 
 ## Матеріали лекції:
 
