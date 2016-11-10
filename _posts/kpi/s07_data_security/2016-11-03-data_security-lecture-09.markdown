@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Особливості DES"
+title: "Лекція 9. Особливості DES"
 date: 2016-11-03 14:31:51 +0200
 categories: kpi_s07_data_security
 ---
