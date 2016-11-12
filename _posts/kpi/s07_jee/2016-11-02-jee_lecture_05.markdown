@@ -8,5 +8,6 @@ categories: kpi_s07_jee
 ## Матеріали лекції:
 
  [Слайди лекції (google presentation)](https://docs.google.com/presentation/d/1_rPM8hjhqLd3twAQE2wyHDgPKX3XE43S761kuJjfdPA/edit?usp=sharing)
+ ---
  [Пример использования JMS (google drive)](https://drive.google.com/open?id=0B1I60TTGSx02eVktSmhBTTZjNXM)
  
