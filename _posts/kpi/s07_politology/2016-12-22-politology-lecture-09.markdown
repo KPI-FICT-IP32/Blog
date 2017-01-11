@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Лекція 9. Теми курсу"
+title: "Лекція №9. Теми курсу"
 date: 2016-12-22 08:41:07 +0200
 categories: kpi_s07_politology
 ---
