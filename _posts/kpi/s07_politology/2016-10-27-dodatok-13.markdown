@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Додаток 13"
-date: 2016-10-27 08:30:03 +0300
+date: 2016-10-27 08:31:03 +0300
 categories: kpi_s07_politology
 --- 
 
