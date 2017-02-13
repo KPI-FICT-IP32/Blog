@@ -9,3 +9,7 @@ _site
 
 # Ok, just for this repo let github manage dependencies
 Gemfile.lock
+
+# Temporary ignores
+_backup
+build
