@@ -2,7 +2,7 @@
 Computer networks
 =================
 
-- **Lecturer:** Gabinet Artem Viktorovych
+:Lecturer: Gabinet Artem Viktorovych
 
 .. contents::
    :depth: 3
@@ -10,14 +10,10 @@ Computer networks
 
 --------------
 
-| layout: post
-| title: “Lecture 1. Course overview.”
-| date: 2016-02-18 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
-
 Lecture 1. Course overview.
 ===========================
+
+date: 2016-02-18 08:30:00 +0200
 
 Recommended reading
 -------------------
@@ -52,14 +48,10 @@ Network components:
 
 --------------
 
-| layout: post
-| title: “Lecture 2. Network design. Network models.”
-| date: 2016-02-25 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
-
 Lecture 2. Network design. Network models.
 ==========================================
+
+date: 2016-02-25 08:30:00 +0200
 
 Network design
 --------------
@@ -173,18 +165,15 @@ Each protocol has its own PDU (Protocol data unit).
 
 --------------
 
-| layout: post
-| title: “Lecture 3. Physical level.”
-| date: 2016-03-10 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
-
 Lecture 3. Physical level.
 ==========================
 
-| OSI levels from 2 (Data link) to 7 (application) are software levels.
-  Developers use them in their software.
-| The first level (physical) is the trully hardware level.
+date: 2016-03-10 08:30:00 +0200
+
+OSI levels from 2 (Data link) to 7 (application) are software levels.
+Developers use them in their software.
+
+The first level (physical) is the trully hardware level.
 
 Physical level generates either electrical/radio/other signals.
 
@@ -234,9 +223,10 @@ only for slow connections
 4B/5B
 ~~~~~
 
-| Every 4bits are encoded in special combination of 5 bits. That allows
-  to avoid issues with several same values in sequence.
-| Disadvantage: data overhead
+Every 4bits are encoded in special combination of 5 bits. That allows
+to avoid issues with several same values in sequence.
+
+Disadvantage: data overhead
 
 8B/10B
 ~~~~~~
@@ -247,8 +237,8 @@ The same as 4B/5B, but instead of 4bit and 5bit sequences, 8bit and
 Bandwidth
 ---------
 
-| Bandwidth shows how much data can be sent per some time interval.
-| It is measured in ``bps``\ (bits per second)
+Bandwidth shows how much data can be sent per some time interval.
+It is measured in ``bps`` (bits per second)
 
 ::
 
@@ -316,18 +306,25 @@ There are 2 standards:
 -  T568A
 -  T568B
 
-| \|-\|———\|———\|
-| \| \| T568A \| T568B \|
-| \|-\|———\|———\|
-| \|1\| Green/ \| Orange/ \|
-| \|2\| Green \| Orange \|
-| \|3\| Orange/ \| Green/ \|
-| \|4\| Blue \| Blue \|
-| \|5\| Blue/ \| Blue/ \|
-| \|6\| Orange \| Green \|
-| \|7\| Brown/ \| Brown/ \|
-| \|8\| Brown \| Brown \|
-| \|-\|———\|———\|
++---+---------+---------+
+|   |  T568A  |  T568B  |
++===+=========+=========+
+| 1 | Green/  | Orange/ |
++---+---------+---------+
+| 2 | Green   | Orange  |
++---+---------+---------+
+| 3 | Orange/ | Green/  |
++---+---------+---------+
+| 4 | Blue    | Blue    |
++---+---------+---------+
+| 5 | Blue/   | Blue/   |
++---+---------+---------+
+| 6 | Orange  | Green   |
++---+---------+---------+
+| 7 | Brown/  | Brown/  |
++---+---------+---------+
+| 8 | Brown   | Brown   |
++---+---------+---------+
 
 | **Straightthrough twisted-pair:** A-A or B-B
 | **Crossover twisted-pair:** A-B or B-A
@@ -343,10 +340,11 @@ Crossover:
 -  Router + Router
 -  Switch + Switch
 
-| MDI-x allows us to not bother about which twisted-pair
-  (Straightthrough or crossover) we use.
-| Only 4 wires are used to transfer data at 100Mbps. Other 4 are used to
-  power devices
+MDI-x allows us to not bother about which twisted-pair
+(Straightthrough or crossover) we use.
+
+Only 4 wires are used to transfer data at 100Mbps. Other 4 are used to
+power devices
 
 Fiber
 ~~~~~
@@ -358,27 +356,24 @@ Fiber
 
 --------------
 
-| layout: post
-| title: “Lecture 4. Fiber. Wireless. Application level”
-| date: 2016-03-17 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 4. Fiber. Wireless. Application level.
+==============================================
 
-Lecture 4.
-==========
+date: 2016-03-17 08:30:00 +0200
 
 Fiber
 -----
 
-| Fiber cable usually uses two fiber wires: one wire to transmit data in
-  one direction
-| There are one-wire fiber cables. These cables use light waves with
-  different wave length
+Fiber cable usually uses two fiber wires: one wire to transmit data in
+one direction
+
+There are one-wire fiber cables. These cables use light waves with
+different wave length
 
 Two types of connector:
 
-| LC FC
-| SC
+- LC FC
+- SC
 
 Ports
 ~~~~~
@@ -420,7 +415,7 @@ There are three channels which do not overlap at 2.4Ghz frequency. These
 are 1st, 6th and 11th channels.
 
 Application level
-=================
+-----------------
 
 Main protocols:
 
@@ -437,11 +432,15 @@ Main protocols:
 | Client/Server architecture
 | Peer-to-peer (P2P)
 
-| **FTP**
-| Data transfered in a plain form. No encryption.
+FTP
+~~~
 
-| **DHCP**
-| Dynamic host configuration protocol.
+Data transfered in a plain form. No encryption.
+
+DHCP
+~~~~
+
+Dynamic host configuration protocol.
 
 #. Client broadcasts request to receive IP address (DHCP-discover)
 #. DHCP server finds accessible ip addresses and returns DHCP-offer.
@@ -453,17 +452,19 @@ Main protocols:
 
 --------------
 
-| layout: post
-| title: “Lecture 5. Application level protocols. Telnet. SSH. HTTP.
-  DNS”
-| date: 2016-03-24 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+
+Lecture 5. Application level protocols. Telnet. SSH. HTTP. DNS.
+===============================================================
+
+date: 2016-03-24 08:30:00 +0200
+
+Common protocols
+----------------
 
 DHCP, FTP are text protocols
 
 Telnet
-------
+~~~~~~
 
 | Was developed for remote access to other device’s console.
 | Uses client-server architecture
@@ -471,7 +472,7 @@ Telnet
 All logins, passwords data are passed in unencrypted way.
 
 SSH
----
+~~~
 
 Secure SHell
 
@@ -481,7 +482,7 @@ Secure SHell
 All logins, passwords data are passed encrypted.
 
 HTTP
-----
+~~~~
 
 HyperText Transfer Protocol
 
@@ -517,17 +518,17 @@ HTTP request according to protocol consists of 3 parts
   base64
 
 DNS
----
+~~~
 
 Domain Name Service
 
 This protocol is used to resolve request url into actual IP address.
 
-| Domain name system is a distributed structure.
-| On the top of this structure root domain-name server is placed. This
-  one knows how to resolve top level of domain name.
-| On the next level first-level domain servers are placed. They “know”
-  where to find second-level domain servers and so on and so forth.
+Domain name system is a distributed structure.
+On the top of this structure root domain-name server is placed. This
+one knows how to resolve top level of domain name.
+On the next level first-level domain servers are placed. They “know”
+where to find second-level domain servers and so on and so forth.
 
 ::
 
@@ -545,16 +546,14 @@ request to the corresponding lower-level DNS server.
 
 If we want to open ``mlp.wikia.com``:
 
-#. DNS resolution request to DNS server to associate domain name with IP
-   address.
-   1.1 request [.] for ``mlp.wikia.com``. response [com] DNS server
-   1.2 request [com] for ``mlp.wikia.com``. response [wikia.com] DNS
-   server
-   1.3 request [wikia.com] for ``mlp.wikia.com``. response
-   [mlp.wikia.com] IP address
+#. DNS resolution request to DNS server to associate domain name with IP address.
+
+   #. request [.] for ``mlp.wikia.com``. response [com] DNS server
+   #. request [com] for ``mlp.wikia.com``. response [wikia.com] DNS server
+   #. request [wikia.com] for ``mlp.wikia.com``. response [mlp.wikia.com] IP address
 
 Types of DNS records:
-~~~~~~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>>>>>>
 
 -  A. Domain name is associated with IP:
    ``foto IN A 77.77.77.77``
@@ -584,10 +583,9 @@ DNS lookup can be either interactive (DNS Server delegates to another
 DNS server) or recursive (Server recursively searches for response
 without delegating)
 
-NOTE
-~~~~
+.. note::
 
-``nslookup`` tool =)
+  ``nslookup`` tool =)
 
 Mail Protocols:
 ---------------
@@ -618,14 +616,13 @@ This protocol is used to send email.
 
 --------------
 
-| layout: post
-| title: “Lecture 6. Transport layer.”
-| date: 2016-03-31 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 6. Transport layer.
+===========================
+
+date: 2016-03-31 08:30:00 +0200
 
 Transport level
-===============
+---------------
 
 PDU: Segment
 
@@ -744,14 +741,13 @@ UDP. User datagram protocol.
 
 --------------
 
-| layout: post
-| title: “Lecture 7. Network layer. IPv4”
-| date: 2016-04-07 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 7. Network layer. IPv4
+==============================
+
+date: 2016-04-07 08:30:00 +0200
 
 Network layer
-=============
+-------------
 
 In addition to data encapsulation and decapsulation which occur on every
 layer, network layer is also responsible for addressing devices and
@@ -769,7 +765,7 @@ Network layer protocols are unaware of data transmission method (wifi,
 ethernet, smth else) used at physical layer.
 
 Nets and subnets
-================
+----------------
 
 ::
 
@@ -810,7 +806,7 @@ subnets)
 Gateway is used to communicate between subnets.
 
 Addressing
-----------
+~~~~~~~~~~
 
 Sample IPv4 address: ``193.47.196.75``. IPv4 address’ length is 32bits
 (4 octets). It consists of 4 bytes splitted with dots.
@@ -849,8 +845,8 @@ $$ N = 2^n - 2 $$
 
 Here
 
--  $$N$$ is the number of available hosts in network
--  $$n$$ is the length of the host part in bits $$n = 32 - prefix$$
+-  $N$ is the number of available hosts in network
+-  $n$ is the length of the host part in bits $$n = 32 - prefix$$
 
 IPv4 address classification:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -892,7 +888,7 @@ NAT
   IPv4 address
 
 Message types:
---------------
+~~~~~~~~~~~~~~
 
 There are three *main* types of messages:
 
@@ -912,14 +908,13 @@ There are three *main* types of messages:
 
 --------------
 
-| layout: post
-| title: “Lecture 8. Subnets. Test preparations.”
-| date: 2016-04-14 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 8. Subnets. Test preparations.
+======================================
+
+date: 2016-04-14 08:30:00 +0200
 
 Subnets
-=======
+-------
 
 IANA organization is responsible for distributing IPv4 addresses. It
 used to be a single organization, but nowadays it has transformed into
@@ -932,7 +927,7 @@ group of organizations:
 -  ACNIC (Australia))
 
 Splitting network into subnets:
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Given: ``193.175.16.0 / 24``
 
@@ -973,7 +968,7 @@ Rewrite addresses in decimal:
 -  ``193.175.16.224 / 27``
 
 Planning network
-----------------
+~~~~~~~~~~~~~~~~
 
 Given:
 
@@ -1021,13 +1016,13 @@ Given:
        **TODO:** *Describe this process*
 
 Test preparations
-=================
+-----------------
 
 Task 1
-------
+~~~~~~
 
 Task Description
-~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>
 
 **Given:** ``177.250.13.246 / 28``
 
@@ -1035,7 +1030,7 @@ Task Description
 network:
 
 Solution
-~~~~~~~~
+>>>>>>>>
 
 #. Write down IP in binary form:
    ``101110001.11111010.00001011.11110110``
@@ -1060,13 +1055,13 @@ Finally transform binary results to decimal:
 #. Total IP addresses available: $$ 2 ^ {32 - 28} - 2 = 14 $$
 
 Task 2. Split network into subnets.
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     **NOTE:** I’m not sure, I got it right. Please correct me if I made
     a mistake, otherwise remove this note if you can.
 
 Task Description
-~~~~~~~~~~~~~~~~
+>>>>>>>>>>>>>>>>
 
 **Given:**
 
@@ -1090,7 +1085,7 @@ Task Description
 **To do:** Divide to subnets and assign subnets.
 
 Solution
-~~~~~~~~
+>>>>>>>>
 
 #. Determine prefixes. I.E. For 120:
 
@@ -1152,11 +1147,9 @@ Solution
 
 --------------
 
-| layout: post
-| title: “Lecture 9. Routing”
-| date: 2016-04-28 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 9. Routing
+==================
+date: 2016-04-28 08:30:00 +0200
 
 | One of the Network Layer responsibilities is routing.
 | Among the data, which is sent, destination IP and source IP are passed
@@ -1166,7 +1159,7 @@ Solution
   (recursion, yup)
 
 ICMP protocol
-=============
+-------------
 
 Internet control message protocol. This protocol is used for network
 diagnostics. It works over the Network layer. One of the most well-known
@@ -1184,10 +1177,10 @@ RTT – Round trip time
     []---[==]-(+)---(+)---(+)---[]
 
 Routing
-=======
+-------
 
 WTF is router? (+)
-------------------
+~~~~~~~~~~~~~~~~~~
 
     Router is a box with holes, buttons, wires and light indicators. It
     is some sort of computer, without monitor. There are CPU, RAM, NVRM,
@@ -1200,7 +1193,7 @@ Despite everything else router allows us to unite different networks
 with each other, find best path to some host, and so on and so forth.
 
 Routing table
--------------
+~~~~~~~~~~~~~
 
 Every router stores routing table. Routing table stores records of
 networks, next-hop or interfaces, where the network is.
@@ -1214,7 +1207,7 @@ There are 3 types of records in routing table:
    themselves, depending on their configurations.
 
 Rules of routing
-----------------
+~~~~~~~~~~~~~~~~
 
 #. If you have a route on one router in netwrok, it does not mean other
    ruoters have that route.
@@ -1222,9 +1215,11 @@ Rules of routing
 #. Next-hop **must** be in directly-connected network
 
 Static routes
--------------
+~~~~~~~~~~~~~
 
-    **WARNING** I’ve messed upo this topology. PLS FIX IT!
+.. warning::
+
+    I’ve messed upo this topology. PLS FIX IT!
 
 ::
 
@@ -1239,8 +1234,8 @@ Static routes
      \\
       192.168.1.0/24
 
-R1
-~~
+
+**R1**
 
 | 192.168.1.0/24 \| i1
 | 192.168.4.0/30 \| i2
@@ -1248,8 +1243,7 @@ R1
 
 192.168.3.0/24 next-hop 192.168.4.1
 
-R2
-~~
+**R2**
 
 | 192.168.4.0/30 \| i1
 | .2.0/24 \| i3
@@ -1258,14 +1252,10 @@ R2
 
 --------------
 
-| layout: post
-| title: “Lecture 10. Dynamic routing”
-| date: 2016-05-12 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
-
 Lecture 10. Dynamic routing
 ===========================
+
+date: 2016-05-12 08:30:00 +0200
 
 ::
 
@@ -1301,13 +1291,12 @@ Comparisson of static and dynamic routing
 +-------------------+-------------------------------------------------------+---------------------------------------+
 | Reconfiguration   | Complex                                               | **Simple**                            |
 +-------------------+-------------------------------------------------------+---------------------------------------+
-| Security          | Good                                                  | **Bad**                               |
+| Security          | **Good**                                              | Bad                                   |
 +-------------------+-------------------------------------------------------+---------------------------------------+
 | Fault tolerance   | Extremely bad                                         | **Good (depends on used protocol)**   |
 +-------------------+-------------------------------------------------------+---------------------------------------+
 
-Routing configuration protocols canbe divided into two groups:
---------------------------------------------------------------
+Routing configuration protocols can be divided into two groups:
 
 -  **IGP** Interior gateway protocol
 -  **EGP** Exterior gateway protocol
@@ -1372,21 +1361,14 @@ Metrics:
 +---------------+------------+
 | Metric        | Protocol   |
 +===============+============+
-| Hop count     | RIP        |
+| - Hop count   | RIP        |
 +---------------+------------+
-| ————-         | ———-       |
+| - Bandwidth   |            |
+| - Delay       |            |
+| - Load        | EIGRP      |
+| - Reliability |            |
 +---------------+------------+
-| Bandwidth     | EIGRP      |
-+---------------+------------+
-| Delay         | EIGRP      |
-+---------------+------------+
-| Load          | EIGRP      |
-+---------------+------------+
-| Reliability   | EIGRP      |
-+---------------+------------+
-| ————-         | ———-       |
-+---------------+------------+
-| Cost          | OSPF       |
+| - Cost        | OSPF       |
 +---------------+------------+
 
 If there are several paths with the same metrics, RIP (as well as any
@@ -1399,14 +1381,13 @@ send recieved path (D) to R3.
 
 --------------
 
-| layout: post
-| title: “Lecture 12. Cool stuff”
-| date: 2016-05-12 08:30:00 +0200
-| categories: kpi\_s06\_networks
-| —
+Lecture 12. Cool stuff
+======================
+
+date: 2016-05-12 08:30:00 +0200
 
 DHCP
-====
+----
 
 ::
 
@@ -1469,7 +1450,7 @@ to several subnets as well as it does to one!
     handle this you may want to configure **DHCP Failover**
 
 NAT
-===
+---
 
 IPv4 has too little IP addresses to assign to devices. There are even
 much less public addresses. However there are a lot of devices, which
@@ -1494,7 +1475,7 @@ NAT stands for Network Address Translation. There are 3 Types of NAT:
 -  Masquarade
 
 Static NAT
-----------
+~~~~~~~~~~
 
 If router recieves request to Internet from 192.168.1.1 then it
 translates address to 77.47.11.1 We’ll have the following header:
@@ -1515,7 +1496,7 @@ Static NAT is not really good, because it requires to have public
 address for each device.
 
 Dynamic NAT
------------
+~~~~~~~~~~~
 
 Instead of setting correspondence between addresses it sets
 correspondence between pools of addresses and public address. If several
@@ -1523,7 +1504,7 @@ requests from pool are received, they are translated in sequential
 order.
 
 Masquarade NAT (PAT)
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 **PAT** stands for Port Address Translation.
 
@@ -1531,9 +1512,13 @@ Masquarade NAT (PAT)
   public IP address.
 | I.E. we are sending request from .1 PC:
 
-| \| \|SRC \|DST \|
-| \|IP \|192.168.1.1\|1.1.1.1\|
-| \|Port\|33101 \|80 \|
++------+-------------+---------+
+|      | SRC         | DST     |
++======+=============+=========+
+| IP   | 192.168.1.1 | 1.1.1.1 |
++------+-------------+---------+
+| Port | 33101       | 80      |
++------+-------------+---------+
 
 Then we’ll have the following record in NAT table:
 
@@ -1567,13 +1552,13 @@ all incoming requests to specific port (i.e. 8080) to specific device
 (i.e. 192.168.1.3)
 
 Firewall
-========
+--------
 
 Firewall is used to filter requests according to some rules. I.E. you
 may drop all requests to 8080 port both incoming and outcoming.
 
 Interestings
-============
+------------
 
 You can use `Wireshark <https://www.wireshark.org/>`__ to discover and
 explore your network traffic. This application allows you to analyse
