@@ -3,7 +3,7 @@
 ====================================
 
 :Лектор: Шемсединов Тимур Гафарович
-:Матеріали курсу: https://github.com/HowProgrammingWorks
+:Матеріали курсу: `HowProgrammingWorks <https://github.com/HowProgrammingWorks>`_
 
 .. contents::
    :depth: 3
