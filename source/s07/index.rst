@@ -7,4 +7,7 @@
   :caption: Навчальні дисципліни:
 
   tdea
+  graphical_modelling
+  software_quality
+  data_security
   politology/index
