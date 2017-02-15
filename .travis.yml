@@ -19,7 +19,7 @@ after_success: |
           commit -m "Deploy $(date +'%F %H:%M:%S')"
       git push -f -q \
         https://anxolerd:$GITHUB_API_KEY@github.com/KPI-FICT-IP32/Blog \
-        gh-pages &2>/dev/null
+        gh-pages 2>/dev/null
       cd "$TRAVIS_BUILD_DIR"
     fi
   fi
