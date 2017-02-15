@@ -1,0 +1,25 @@
+language: python
+python: "3.6"
+
+install: pip install -r requirements.txt
+
+script: make html
+
+after_success: |
+  if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then
+    if [ -n "$GH_TOKEN" ]; then
+      cd "$TRAVIS_BUILD_DIR"
+      make html
+      cd build/html
+      git init
+      git checkout -b gh-pages
+      git add .
+      git -c user.name='Travis CI' \
+          -c user.email='travis'\
+          commit -m "Deploy $(date +'%F %H:%M:%S')"
+      git push -f -q \
+        https://anxolerd:$GITHUB_API_KEY@github.com/KPI-FICT-IP32/Blog \
+        gh-pages &2>/dev/null
+      cd "$TRAVIS_BUILD_DIR"
+    fi
+  fi
