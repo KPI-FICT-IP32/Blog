@@ -18,7 +18,7 @@ after_success: |
           -c user.email='travis'\
           commit -m "Deploy $(date +'%F %H:%M:%S')"
       git push -f -q \
-        https://anxolerd:$GITHUB_API_KEY@github.com/KPI-FICT-IP32/Blog \
+        https://anxolerd:$GH_TOKEN@github.com/KPI-FICT-IP32/Blog.git \
         gh-pages 2>/dev/null
       cd "$TRAVIS_BUILD_DIR"
     fi
