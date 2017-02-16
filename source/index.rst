@@ -13,12 +13,3 @@ IP-32 Blog
    s06/index
    s07/index
    s08/index
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
