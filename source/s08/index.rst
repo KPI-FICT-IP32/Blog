@@ -7,3 +7,4 @@
   :caption: Навчальні дисципліни:
 
   distributed_systems
+  labor_protection
