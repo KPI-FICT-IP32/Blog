@@ -198,7 +198,7 @@ Cluster and Grid computing
   closely connected through LAN
 
 - Homogeneous: OS, hardware
-- Work: together like a single computer
+- Work: together like a single computer 
 - Applications are hosted on one machine and user machines connect to it.
   Clients connect via terminals
 
@@ -210,3 +210,235 @@ Cluster and Grid computing
 
 - Heterogeneous
 - Work: for collaborations grids use virtual organizations
+
+Lecture 2. Parallel computing
+=============================
+
+Parallel computing
+  a form of computuation in which many calculations are carried out simultaneously.
+
+There are different levels of parallel computing:
+
+  - Instruction
+
+    a single operation of a processor
+  - Thread
+
+    stream of execution (has one or multiple instructions)
+  - Task
+  - Process
+
+Level of parallel computing
+
+ - Task level
+ - Instruction level
+ - Bit level
+
+Classification of system
+------------------------
+
+- Flynn's taxonomy
+- Memory access
+
+  - shared memory
+    - centralized (SMP)
+    - distributed (NUMA)
+  - individual memory
+    - distributed
+
+UMA (Uniform memory access)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- equal acccess rights
+- equal memory access time
+
+NUMA
+~~~~
+
+- usually physically linked 2 or more SMPs so they can access mem of each other directly
+- Not all have eq access time
+- Memory acces across the link is much slower
+
+Distributed
+~~~~~~~~~~~
+
+- Each CPI has its own local mem and changes are not visible to other CPUs
+- Processors are connected by network
+- Program must define a way to transfer data between processors
+
+Massively parallel processors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+MPP architecture consists of nodes each having its own processor, memory and I/O subsystem
+
+Programming models
+------------------
+
+Programming Model
+  some model which represents an abstraction of the computer system and enables the expression of
+  ideas in some form
+
+- Shared model
+
+  - Processors read write the variables stored in a shared address space asynchronously
+  - Access to the shared memory is controlled by some mechanisms (locks/semaphores)
+
+- Threads model
+- Data parallelization
+- Message Passing
+
+
++--------------------+---------------+------------------------+
+| Aspect             | Shared memory | Message passing        |
++====================+===============+========================+
+| Communication      | Implicit      | Explicit mesages       |
++--------------------+---------------+------------------------+
+| Synchronization    | Explicit      | Implicit (via message) |
++--------------------+---------------+------------------------+
+| Hardware support   | Typically     |                        |
+|                    | required      | None                   |
++--------------------+---------------+------------------------+
+| Development effort | Lower         | Higher                 |
++--------------------+---------------+------------------------+
+| Tuning Effort      | Higher        | Lower                  |
++--------------------+---------------+------------------------+
+
+Implementation of parallelism
+-----------------------------
+
+Load balancing
+~~~~~~~~~~~~~~
+
+To ditribute work among all tasks so they are all kept busy all of the time
+
+Ways to achieve:
+
+- Adequate partitioning
+- Dynamic work assignment
+  - Scheduler/task-pool
+  - Algorithm to detect and handle imbalances
+
+.. note::
+
+  If barrier synchronization is used then the slowest task determines the
+  time of execution
+
+Granularty
+~~~~~~~~~~
+
+computation/communication ratio
+
+:Fine grained parallelism: 
+
+  **few** computation events are done between communication events
+
+  - High communication overhead
+  - Small opportunity to enhance performance
+
+:Coarse-grain parallelism: 
+
+  **many** computational events are done between communication events.
+
+  - Large opportunity to enhance performance
+  - Harder to do load balancing efficiently
+
+Amdahl's law
+------------
+
+- Suppose that the sequential execution of a program takes :math:`T_1` time units
+  and the parallel execution on :math:`p` processors takes :math:`T_p` time units
+- Suppose that out of the entire execution of the program, :math:`s` fraction of it
+  is not parallelizable while :math:`1-s` fraction is parallelizable
+- Then the speedup:
+
+  .. math::
+    
+      \frac{T_1}{T_p} = \frac{T_1}{T_1 \cdot s + T_1 \cdot \frac{1 - s}{p}} 
+                      = \frac{1}{s + \frac{1 - s}{p}}
+
+.. note::
+
+  - Amdahl's Law is too simple for real cases
+  - The communication overhead and workload balance among processes (in general) should 
+    be taken into account
+
+There are other Laws of paralel computing performance:
+
+- Gustafsons Law (1988)
+    another way to evaluate the performance of a parallel program
+- Karp/Flat Metric (1990)
+    whether the principle barrier to the program speedup is the amount of inherently
+    sequential code or parallel overhead
+- Isoefficiency (isogranularity) metric
+    the scalability of a parallel algorithm executing on parallel systems
+
+Performance guidelines
+----------------------
+
+- Maximize the fraction of our program that can be parallelized
+- Balance the workload of parallel processes
+- Minimize the time spent for communication
+
+
+Lecture 3. Metrics
+==================
+
+- Time
+- Speedup
+
+  .. math::
+
+     Speedup = \Psi(n,p) = \frac{\text{sequential execution time}}{\text{parallel execution time}}
+             = \frac{t_s}{t_p}
+
+
+- Efficiency
+
+  measure of processor utilisation as the speedup divided by the number of processors
+
+  .. math::
+
+     Efficiency = \varepsilon(n,p) = \frac{\text{Speedup}}{\text{Processors}}
+
+  Note that
+
+  .. math::
+      speedup \leq processors
+
+  Since :math:`speedup \geq 0` and :math:`processors > 1`, it follows that
+
+  .. math::
+     
+    0 \leq \varepsilon(n,p) \leq 1
+
+  However there are **superlinear** algorithms, when
+
+  .. math::
+    
+     speedup > processors
+
+- Cost 
+
+Types of computing problems
+---------------------------
+
+:Embarassingly parallel problem:
+  is one for which little or no effort is required to separate the problem into a number of parallel tasks.
+  They are thus well suited to large internet based distributed platforms and do not suffer from parallel slowdown.
+  They require little or no communication of results between tasks.
+
+:Distributed computing problems:
+  reuire communication between taks, especially communication of intermediate results
+
+:Inheritably serial computing problems:
+  ???
+
+More General Speedup Formula
+----------------------------
+
+A better version of the `Amdahl's law`_
+
+.. math::
+   
+   \Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p + \kappa(n,p)}
+
