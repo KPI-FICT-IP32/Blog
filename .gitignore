@@ -1,15 +1,9 @@
-# Jekyll files
-_site
-.sass-cache
-.jekyll-metadata
-
 # Vi swap files:
 .*.swo
 .*.swp
 
-# Ok, just for this repo let github manage dependencies
-Gemfile.lock
-
-# Temporary ignores
-_backup
+# Built file
 build
+
+# pyenv version file
+.python-version
