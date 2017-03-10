@@ -403,9 +403,9 @@ Lecture 3. Metrics
   Note that
 
   .. math::
-      speedup \leq processors
+      \text{speedup} \leq \text{processors}
 
-  Since :math:`speedup \geq 0` and :math:`processors > 1`, it follows that
+  Since :math:`\text{speedup} \geq 0` and :math:`\text{processors} > 1`, it follows that
 
   .. math::
      
@@ -415,9 +415,20 @@ Lecture 3. Metrics
 
   .. math::
     
-     speedup > processors
+     \text{speedup} > \text{processors}
+
+  and for this case 
+
+  .. math::
+    
+    \varepsilon(n,p) > 1
 
 - Cost 
+
+  .. math::
+
+     \text{cost} = \text{parallel running time} \cdot \text{processors}
+
 
 Types of computing problems
 ---------------------------
@@ -428,10 +439,10 @@ Types of computing problems
   They require little or no communication of results between tasks.
 
 :Distributed computing problems:
-  reuire communication between taks, especially communication of intermediate results
+  require communication between taks, especially communication of intermediate results.
 
 :Inheritably serial computing problems:
-  ???
+  cannot be parallelized at all. They are diametric opposite to embarrassingly parallel problems.
 
 More General Speedup Formula
 ----------------------------
@@ -440,5 +451,100 @@ A better version of the `Amdahl's law`_
 
 .. math::
    
-   \Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p + \kappa(n,p)}
+   \Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p} + \kappa(n,p)}
+
+Speedup is an increasing function of problem size
+
+Karp-Flatt Metric
+-----------------
+
+- analyze parallel program performance
+- predict speedup with additional processors
+
+Start with the speedup formula
+
+.. math::
+
+   \Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p} + \kappa(n,p)}
+
+The experimentally determined serial fraction e is a function of speedup and the number pf processors
+
+.. math::
+
+   e = \frac{1/\Psi - 1/p}{1 - 1/p}
+
+from this we can define :math:`\Psi` in terms of :math:`e` and :math:`p`
+
+.. math::
+
+  \Psi = \frac{p}{e \cdot (p - 1) + 1}
+
+**Interpretation of e**
+
+- if e is constant as num of CPUs increases, then speedup is constrained by the sequential component
+
+Isoefficiency metric
+--------------------
+
+- n - data size
+- p - num processes
+- T(n,p) -- execution time using p processors
+- \Psi -- speedup
+
+T_0(n,p) -- the total wasting time spent by processes doing work not done by sequential algorithm
+.. math::
+
+   T_0(n,p) = (p - 1) \cdot \sigma(n) + p \cdot \kappa(n,p)
+
+- For example, :math:`T_(n,1)` is the sequential execution time
+- We want the algorithm to maintain a constant level of efficiency as the data size n increases
+
+
+**Main steps to derivation**
+
+- begin with speedup formula
+- compute total amount of overhead
+
+
+.. math::
+   T(n,1) \geq C \cdot T_0(n,p)
+
+where 
+
+.. math::
+
+   C = \frac{\varepsilon(n,p)}{1 - \varepsilon(n,p)}
+
+
+- it is used to determine the max number of CPUs for which 
+  the given level of efficiency can be maintained
+- How to maintain a given efficiency? --
+  To increase the problem size when the number of processors increases
+- The maximum problem size we can solve is limited by available amount of memory
+- Usually for most parallel systems the memory size :math:`M` 
+  is a constant multiple of the number of processors 
+
+Scalability function
+~~~~~~~~~~~~~~~~~~~~
+
+- To maintain efficiency :math:`\varepsilon(n,p)` when increasing 
+  :math:`p` we must increase :math:`n`
+- Max problem size is limited by available memory :math:`M`
+- Scalability function :math:`scale(p)` shows how memory usage per processor 
+  :math:`M(f(p))` must grow to maintain efficiency
+- If the scalability function is constant this means 
+  the **parallel system is perfectly scalable**
+
+Examples
+~~~~~~~~
+
+:Reduction task:
+  collects the answers to all the subproblems and combines 
+  them in some way to form the output
+:Floyd-Warshall Algorithm:
+  graph analysis algorithm for finding shorted path in weighted graph
+: Finite difference method:
+  numerical methods for approximating the solutions 
+  to differential equations using 
+  finite difference equations to approximate derivatives
 
