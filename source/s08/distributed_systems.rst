@@ -543,7 +543,7 @@ Examples
   them in some way to form the output
 :Floyd-Warshall Algorithm:
   graph analysis algorithm for finding shorted path in weighted graph
-: Finite difference method:
+:Finite difference method:
   numerical methods for approximating the solutions 
   to differential equations using 
   finite difference equations to approximate derivatives
