@@ -11,6 +11,7 @@ IP-32 Blog
    :caption: Зміст:
 
    s04/index
+   s05/index
    s06/index
    s07/index
    s08/index
