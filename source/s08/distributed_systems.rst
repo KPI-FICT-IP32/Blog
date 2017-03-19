@@ -548,3 +548,31 @@ Examples
   to differential equations using 
   finite difference equations to approximate derivatives
 
+Lecture 4
+=========
+
+P2P
+---
+
+Pro
+
+- No central point of failure
+
+Cons
+
+- Decentralised
+- Nodes are not equal
+- Hard programmatically
+
+Volonteering computing
+----------------------
+
+:Public-resource computing:
+
+  Combines the resources of personal computers and game consoles belonging
+  to the general public to perform scientific coputations
+
+  Started with
+
+  - Global Internet Mersenne Prime Search (1996)
+  - Distributed.net (1997)
