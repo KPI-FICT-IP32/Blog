@@ -10,6 +10,7 @@ IP-32 Blog
    :maxdepth: 2
    :caption: Зміст:
 
+   s04/index
    s06/index
    s07/index
    s08/index
