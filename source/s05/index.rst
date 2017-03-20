@@ -7,3 +7,4 @@
   :caption: Навчальні дисципліни:
 
   economy_theory
+  life_safety
