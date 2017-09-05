@@ -15,3 +15,4 @@ IP-32 Blog
    s06/index
    s07/index
    s08/index
+   s09/index
