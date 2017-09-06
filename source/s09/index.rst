@@ -7,3 +7,4 @@
   :caption: Навчальні дисципліни:
 
   compilers
+  networks
