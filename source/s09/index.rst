@@ -9,3 +9,4 @@
   compilers
   networks
   big_data
+  pedagogy
