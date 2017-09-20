@@ -80,7 +80,7 @@ There are two ways to reference files in UNIX/Linux systems:
 - *relative* filepaths (``username/foo/bar``)
 
 .. note::
-   
+
    In order to get help on any command system manual pages should be used.
    There is a special command ``man`` for that. Details on this command usage is
    available on the `man page for man command
@@ -96,7 +96,7 @@ examples:
    cd user  # navigate to directory `user` which is located in current directory
    cd ./user  # the same as above, `.` denotes current directory
    cd ../  # navigate one level up in the directory tree
-   cd ../mydir  # navigate to the directory mydir which is on the same level as 
+   cd ../mydir  # navigate to the directory mydir which is on the same level as
    # current dir
    cd ~  # navigate to the current user's home directory
    cd ~/foo # navigate to the directory `foo` which is the home directory
@@ -126,7 +126,7 @@ Filesystem hierarcy standard
   - ``etc/`` -- stores configuration files for both operating system and
     applications.
   - ``bin/`` -- stores executable files (which have the highest important for
-    operating system). 
+    operating system).
   - ``sbin/`` -- like ``/bin`` holds less important executables for operating
     system start.
   - ``lib/`` -- holds shared libraries that are necessary to boot the system and
@@ -141,7 +141,7 @@ Filesystem hierarcy standard
   - ``tmp/`` -- holds *user* temporary data
   - ``mnt/`` -- mountpoints
   - ``home/`` -- holds home directories for users
-  - ``media/`` -- mountpoints for external storages like usb sticks 
+  - ``media/`` -- mountpoints for external storages like usb sticks
   - ``opt/`` -- additional appliations are installed here
   - ``srv/`` -- storing network services files
   - ``proc/`` -- virtual filesystem which holds info about running processes
@@ -212,7 +212,7 @@ permissions management.
    chmod ugo+r file.txt
    # ugo can be replaced with a
    chmod a+r file.txt  # same as above
-   
+
    # add write for user, read for others
    chmod u+w,o+r file.txt
 
@@ -232,3 +232,136 @@ the following:
    chmod 540 file.txt
 
 For directories ``x`` permission means the ability to enter the directory.
+
+Processes
+---------
+
+**Process** is some code which is sored in the RAM and is being executed.
+Most of processes are run in the background. In order to move process to
+foreground there is `fg <https://linux.die.net/man/1/fg>`_ command. To move
+process to background there is `bg <https://linux.die.net/man/1/bg>`_ command.
+There is a possibility to start process in the background explicitly: all you
+have to do is to add ampersand character at the end of command:
+
+.. code-block:: bash
+
+   # note the ampersand character at the end of the command
+   run_my_script --arg1 --arg2=foo &
+
+Widely used utilities to manage processes in UNIX/Linux systems are:
+
+- `jobs <https://linux.die.net/man/1/jobs>`_ -- lists jobs running in the
+  current terminal
+- `nohup <https://linux.die.net/man/1/nohup>`_ -- runs the process which will
+  not die after terminal is detached
+- `kill <https://linux.die.net/man/1/kill>`_ -- sends signals to the processes.
+  Signals which are used to stop the processes are ``SIGTERM`` and ``SIGKILL``.
+  ``kill`` utility works with processes ids (PIDs)
+- `killall <https://linux.die.net/man/1/killall>`_ -- similar to ``kill``, but
+  works with process name.
+- `top <https://linux.die.net/man/1/top>`_ -- displays Linux/UNIX processes.
+- `ps <https://linux.die.net/man/1/ps>`_ -- reports a snapshot of the current
+  processes. ``ps`` is usually invoked with ``aux`` keys.
+- `pstree <https://linux.die.net/man/1/pstree>`_ -- displays a tree of processes
+- `uptime <https://linux.die.net/man/1/uptime>`_ -- tells how long the system
+  has been running.
+- `free <https://linux.die.net/man/1/free>`_ -- displays amount of free and used
+  memory in the system.
+
+The Open Systems Interconnection model
+======================================
+
+:Protocol:
+  is the set of rules and conventions which are used for interaction between the
+  same layer of different nodes.
+
+:Interface:
+  is the set of rules which are used for interaction between adjacent layers of
+  the same node
+
+OSI model descibes 7 layers of network organization and the purpose of each
+layer. Protocols are not described in the OSI model.
+
++-----+--------------+
+| №   | Name         |
++=====+==============+
+| 7   | Application  |
++-----+--------------+
+| 6   | Presentation |
++-----+--------------+
+| 5   | Session      |
++-----+--------------+
+| 4   | Transport    |
++-----+--------------+
+| 3   | Network      |
++-----+--------------+
+| 2   | Data link    |
++-----+--------------+
+| 1   | Physical     |
++-----+--------------+
+
+:Encapsulation:
+  is the inclusion of the data from the upper layer into the special data
+  structure of the lower layer. **Decapsulation** is the reverse procedure.
+
+OSI layers functions
+--------------------
+
+Physical layer
+~~~~~~~~~~~~~~
+
+Bit transfer via physicall channels.
+
+- forming electric sugnals
+- data encoding
+- synchronization
+- modulation
+- physical topology
+- physical characteristics of interfaces
+
+All of these are implemented in the hardware.
+
+Data link
+~~~~~~~~~
+
+Reliable data frame delivery between two adjacent stations in the network with
+any topology or between any two stations in the network with typical topology.
+
+- environment availability checks
+- grouping data into frames
+- computation and verification of the checksum
+- physical addressing (MAC addresses)
+- data flow management
+
+These functions are implemented both in hardware and programmatically.
+
+Network
+~~~~~~~
+
+Packet delivery
+
+- between any two nodes of the network with any kind of topology
+- between any two networks in the composite network
+- logical addressing
+- package data size coordination
+
+:Network:
+  is the set of computers which use single network technology for data
+  exchange
+
+:Route:
+  is the sequence of routers which are passed by the data package in the
+  composite network
+
+Transort
+~~~~~~~~
+
+Data delivery with the determined reliability between any two processes in the
+network.
+
+- splitting message into chunks and their numeration
+- buffering
+- ordering of the received packages
+- application processes addressing
+- flow management
+- integrity check
