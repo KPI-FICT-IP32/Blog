@@ -321,8 +321,8 @@ Bit transfer via physicall channels.
 
 All of these are implemented in the hardware.
 
-Data link
-~~~~~~~~~
+Data link layer
+~~~~~~~~~~~~~~~
 
 Reliable data frame delivery between two adjacent stations in the network with
 any topology or between any two stations in the network with typical topology.
@@ -335,8 +335,8 @@ any topology or between any two stations in the network with typical topology.
 
 These functions are implemented both in hardware and programmatically.
 
-Network
-~~~~~~~
+Network layer
+~~~~~~~~~~~~~
 
 Packet delivery
 
@@ -353,15 +353,112 @@ Packet delivery
   is the sequence of routers which are passed by the data package in the
   composite network
 
-Transort
-~~~~~~~~
+Transort layer
+~~~~~~~~~~~~~~
 
 Data delivery with the determined reliability between any two processes in the
 network.
 
 - splitting message into chunks and their numeration
 - buffering
-- ordering of the received packages
+- ordering of the incoming packages
 - application processes addressing
 - flow management
 - integrity check
+
+.. note::
+
+   The unique identifier of process in the node in terms of TCP/IP terminology
+   is called **port**
+
+Session layer
+~~~~~~~~~~~~~
+
+.. note::
+
+   Explicit implementation of this layer is missing in most of TCP/IP stack
+   implementation. Thus only ideas of session layer are described here.
+
+Managing application layer objects' dialog. (Synchronization between processes
+on different nodes).
+
+- Sets message exchange methods (duplex/half-duplex)
+- Message exchange synchronization
+- Dialog check-points
+
+Protocol data unit of session layer is ``message``.
+
+Presentation layer
+~~~~~~~~~~~~~~~~~~
+
+.. note::
+
+   As well as session layer, presentation layer is not explicitly implemented in
+   most TCP/IP implementations.
+
+Coordination of data presentation for interprocess communication.
+
+- Translates data from external format into internal format.
+- Encrypts and decrypts data
+- Data compression
+
+Application layer
+~~~~~~~~~~~~~~~~~
+
+Set of all network services which can be used by the end users.
+
+- User authentication and authorization
+- File services, email, remote access, printing, etc
+
+TCP/IP protocol stack
+=====================
+
+TCP/IP protocol stack is the implementation of the model. It includes only 4
+layers:
+
+- Application layer
+- Transport layer
+- Network layer
+- Network interfaces layer
+
+There are no network interfaces layer protocols in TCP/IP stack. There are only
+interfaces between network and network interfaces layers.
+
++---------------+----------------------------------------------+
+| Layer         | Protocols and standards                      |
++===============+==============================================+
+| Application   | HTTP, SMTP, DNS, FTP                         |
++---------------+----------------------------------------------+
+| Transport     | TCP, UDP                                     |
++---------------+----------------------------------------------+
+| Network       | IP, ICMP                                     |
++---------------+----------------------------------------------+
+| Network       | Ethernet, WiFi                               |
+| interfaces    |                                              |
++---------------+----------------------------------------------+
+
+IP Protocol
+===========
+
+IP (Internet Protocol) is a internetwork protocol described in `RFC 791
+<https://tools.ietf.org/html/rfc791>`_.
+
+:internet: is a joint network
+:subnet: is a part of the network
+:internetworking: networks union
+:Internet: name of the most well-known network
+
+Internet Protocol is the base on which Internet is built.
+
+IP functions:
+
+- routing
+- logical addressing
+- coordinating MTUs
+- uniting networks
+- quality of service
+
+Header format:
+
+.. image:: http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg
+   :target: http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg
