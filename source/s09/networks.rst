@@ -192,7 +192,7 @@ Main permissions are
 First triplet is used for owner user permissions, second one is for owner group
 permissions and the last one is for other users permissions.
 
-.. code-block::
+::
 
    # owner can read and execute,
    # owner group can only read,
@@ -218,8 +218,9 @@ permissions management.
 
 Every tiplet can be represented as a bitmask:
 
-.. code-block::
-    u  g  o
+::
+
+   u  g  o
    rwx------ ... file.txt
    421421421
 
@@ -279,6 +280,10 @@ The Open Systems Interconnection model
   is the set of rules which are used for interaction between adjacent layers of
   the same node
 
+:Encapsulation:
+  is the inclusion of the data from the upper layer into the special data
+  structure of the lower layer. **Decapsulation** is the reverse procedure.
+
 OSI model descibes 7 layers of network organization and the purpose of each
 layer. Protocols are not described in the OSI model.
 
@@ -300,9 +305,6 @@ layer. Protocols are not described in the OSI model.
 | 1   | Physical     |
 +-----+--------------+
 
-:Encapsulation:
-  is the inclusion of the data from the upper layer into the special data
-  structure of the lower layer. **Decapsulation** is the reverse procedure.
 
 OSI layers functions
 --------------------
