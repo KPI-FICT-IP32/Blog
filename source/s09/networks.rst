@@ -464,3 +464,101 @@ Header format:
 
 .. image:: http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg
    :target: http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg
+
+Control Protocols
+=================
+
+In order to debug network layer and IP (internet protocol) such protocols as
+ICMP (Internet Control Message Protocol) and ARP (Address Resolution Protocol)
+were introduced. Please note that ARP works between Network and Network
+Interfaces layers.
+
+There is also DHCP protocol which works on Application layer but is a auxiliary
+protocol for Network Layer.
+
+ICMP
+----
+
+Protocol specification can be found in `RFC 792
+<https://tools.ietf.org/html/rfc792`_. ICMP  is mostly used as diagnostic tool
+to determine whether Network layer works correctly, hovewer the original purpose
+was much wider.
+
+All information about package delivery (by IP) can be sent to the sender using
+ICMP.
+
+Earlier ICMP was used to manage network nodes (get address resolution table, set
+up routing, etc), however better tools appeared later thus deprecating such
+purpose of ICMP.
+
+.. note::
+
+   ICMP packet is icluded into the IP packet
+
+ICMP cannot be used to debuug ICMP error messages, as the node which determines
+issue with the ICMP error message must not generate ICMP message.
+
+ICMP does not fix problems and does not retry sending messages.
+
+Header format:
+
+.. image:: http://processors.wiki.ti.com/images/6/61/Frame_format_icmp.png
+  :target: http://processors.wiki.ti.com/images/6/61/Frame_format_icmp.png
+
+ICMP message types:
+
++------+----------------------------------------------------------------------+
+| Type | Description                                                          |
++======+======================================================================+
+|  0   | Echo response                                                        |
++------+----------------------------------------------------------------------+
+|  3   | Destination host unreachable                                         |
++------+----------------------------------------------------------------------+
+|  4   | Source suppression                                                   |
++------+----------------------------------------------------------------------+
+|  5   | Route redirection (Informing that better route to host exists)       |
+|      | Disabled in modern systems due to security concerns                  |
++------+----------------------------------------------------------------------+
+|  8   | Echo request                                                         |
++------+----------------------------------------------------------------------+
+|  11  | Packet TTL expired                                                   |
++------+----------------------------------------------------------------------+
+|  12  | Malformed parameters                                                 |
++------+----------------------------------------------------------------------+
+|  13  | Timestamp request (Currently this is NTP functionality)              |
++------+----------------------------------------------------------------------+
+|  14  | Timestamp response (Currently this is NTP functionality)             |
++------+----------------------------------------------------------------------+
+|  17  | Mask request                                                         |
++------+----------------------------------------------------------------------+
+|  18  | Mask response                                                        |
++------+----------------------------------------------------------------------+
+
+ICMP Error types are different for each message type.
+
+Most widely used tools for network diagnostics (which use ICMP) are:
+
+- ``ping``
+
+  This is a very simple network diagnostics tool.
+
+  Uses ICMP message types 0 and 8. ``ping`` is used to determine concrete
+  host availability in the network.
+
+- ``traceroute``
+
+  Shows the route to the destination host. Please note that IP protocol **does
+  not** have built-in utilities for determining routes, thus tools like
+  ``traceroute``  cannot be 100% precise. For example, ``traceroute`` does it by
+  sequentially sending packets with increasing ttl thus generating ttl expired
+  error on every host in the route.
+
+ARP (Address Resolution Protocol)
+---------------------------------
+
+ARP is used to map IP addresses (logical addressing) to MAC addresses (physical
+addressing). The protocol is described in `RFC 826
+<https://tools.ietf.org/html/rfc826>`_
+
+.. image:: http://www.erg.abdn.ac.uk/users/gorry/course/images/arp-header.gif
+  :target: http://www.erg.abdn.ac.uk/users/gorry/course/images/arp-header.gif
