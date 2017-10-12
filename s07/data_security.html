@@ -1,0 +1,2169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk_UA">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Безпека програм та даних &#8212; Code for life</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'latest',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="next" title="Політологія" href="politology/index.html" />
+    <link rel="prev" title="Тестування та якість програмного забезпечення" href="software_quality.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id56">Безпека програм та даних</a><a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Лектор:</th><td class="field-body">Мухін Вадим Євгенович</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Практик:</th><td class="field-body">Долголенко Олександр Миколайович</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id56">Безпека програм та даних</a><ul>
+<li><a class="reference internal" href="#i" id="id57">Розділ I. Основні поняття теорії побудови системи безпеки комп’ютерних систем та мереж.</a><ul>
+<li><a class="reference internal" href="#id2" id="id58">1.1 Проблема захисту інформації в КСМ (комп’ютерні системи та мережі)</a></li>
+<li><a class="reference internal" href="#id3" id="id59">1.2 Периметр відповідальності засобів захисту інформації (ЗЗІ) в залежності від типу КС (комп’ютерної системи)</a></li>
+<li><a class="reference internal" href="#id4" id="id60">1.3 Класифікація учасників КС</a></li>
+<li><a class="reference internal" href="#id5" id="id61">1.4 Класифікація вторгнень.</a></li>
+<li><a class="reference internal" href="#id6" id="id62">1.5 Канали витоку інформації</a></li>
+<li><a class="reference internal" href="#id7" id="id63">1.6 Основні напрямки захисту інформації в КС</a></li>
+<li><a class="reference internal" href="#id8" id="id64">1.7 Базові моделі побудови ЗЗІ</a></li>
+<li><a class="reference internal" href="#id9" id="id65">1.8 Модель моніторингу безпеки КС</a><ul>
+<li><a class="reference internal" href="#id10" id="id66">Алгоритм найбільших статистичних аномалій</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id11" id="id67">Розділ 2. Ідентифікація, Автентикація, Права розмежування доступу в КСС</a><ul>
+<li><a class="reference internal" href="#id12" id="id68">2.1 Прості паролі</a></li>
+<li><a class="reference internal" href="#id13" id="id69">2.2 Оцінка стійкості пароля</a></li>
+<li><a class="reference internal" href="#id14" id="id70">2.3 Модифікація механізму простих паролів</a><ul>
+<li><a class="reference internal" href="#id15" id="id71">Список паролів</a></li>
+<li><a class="reference internal" href="#id16" id="id72">Механізм “рукостискань”</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multiway-authentication" id="id73">2.4 Багатофакторна автентикація (Multiway authentication)</a><ul>
+<li><a class="reference internal" href="#id17" id="id74">Біометрична автентикація</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id18" id="id75">2.5 Рекомендації по вибору механізмів автентикації</a></li>
+<li><a class="reference internal" href="#id19" id="id76">2.6 Засоби розділення доступу в КСС</a></li>
+<li><a class="reference internal" href="#id20" id="id77">2.7 СРД – Системи розділення доступу</a></li>
+<li><a class="reference internal" href="#id21" id="id78">2.8 Операційний журнал</a></li>
+<li><a class="reference internal" href="#id22" id="id79">2.9 Мандатні списки та списки доступу</a></li>
+<li><a class="reference internal" href="#id23" id="id80">2.10 Механізм замків та ключів</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id24" id="id81">Розділ 3. Криптографічні моделі.</a><ul>
+<li><a class="reference internal" href="#id25" id="id82">3.1 Основні визначення в області криптографії</a></li>
+<li><a class="reference internal" href="#id26" id="id83">3.2 Класифікація криптографічних систем</a></li>
+<li><a class="reference internal" href="#id27" id="id84">3.3 Шифр Цезаря</a></li>
+<li><a class="reference internal" href="#id28" id="id85">3.4 Шифр Шенона</a></li>
+<li><a class="reference internal" href="#id29" id="id86">3.5 Люцифер</a></li>
+<li><a class="reference internal" href="#des" id="id87">3.6 Криптоалгоритм DES</a><ul>
+<li><a class="reference internal" href="#id30" id="id88">Схема</a></li>
+<li><a class="reference internal" href="#id31" id="id89">Особливості шифрування по алгоритму DES</a></li>
+<li><a class="reference internal" href="#id34" id="id90">Модифікації алгоритму DES</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#digital-signature" id="id91">3.7 Цифровий підпис (Digital signature)</a></li>
+<li><a class="reference internal" href="#aes" id="id92">3.8 AES</a></li>
+<li><a class="reference internal" href="#id35" id="id93">3.9 ГОСТ 28147-89</a></li>
+<li><a class="reference internal" href="#anubis" id="id94">3.10 ANUBIS</a></li>
+<li><a class="reference internal" href="#id36" id="id95">3.11 Асиметричні криптосистеми</a><ul>
+<li><a class="reference internal" href="#rsa" id="id96">RSA</a></li>
+<li><a class="reference internal" href="#al-gamal" id="id97">Al-gamal</a></li>
+<li><a class="reference internal" href="#id41" id="id98">Сьогодення</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id42" id="id99">3.12 Потокові криптосистеми</a><ul>
+<li><a class="reference internal" href="#b-crypt" id="id100">Алгоритм B-Crypt</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#o4" id="id101">Розділ №4. Протоколи автентикації в КСС</a><ul>
+<li><a class="reference internal" href="#id43" id="id102">4.1. Класифікація протоколів автентикації в КСС</a></li>
+<li><a class="reference internal" href="#id44" id="id103">4.2 Протоколи автентикації суб’єктів на основі симетричних криптосистем</a></li>
+<li><a class="reference internal" href="#id45" id="id104">4.3 Протоколи автентикації суб’єктів на основі асиметричних криптосистем</a></li>
+<li><a class="reference internal" href="#id46" id="id105">4.4 Протокол автентикації повідомлень на основі симетричних криптосистем.</a><ul>
+<li><a class="reference internal" href="#id47" id="id106">Загальна схема.</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id48" id="id107">4.5 Пртоколи автентикації повідомлень на основі асиметричних криптосистем</a></li>
+<li><a class="reference internal" href="#id49" id="id108">4.6 Протокол відкритих угод</a></li>
+<li><a class="reference internal" href="#id50" id="id109">4.7 Оцінка пропускної здатності мереж, в яких реалізуються протоколи автентикації</a></li>
+<li><a class="reference internal" href="#id51" id="id110">4.8 Структура електронної платіжної системи</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id52" id="id111">Розділ 5. Проектування і класифікація захищених комп’ютерних систем</a><ul>
+<li><a class="reference internal" href="#id53" id="id112">5.1. Два підходи до проектування засобів захисту</a></li>
+<li><a class="reference internal" href="#id54" id="id113">5.2 Класифікація КС по рівню захищеності</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<p>Мова піде про комплексні системи захисту інформації в комп’ютерних
+системах. Це включає не тільки захист програмних даних, а й захист
+апаратних складових, каналів зв’язку, тощо.</p>
+<div class="section" id="i">
+<h2><a class="toc-backref" href="#id57">Розділ I. Основні поняття теорії побудови системи безпеки комп’ютерних систем та мереж.</a><a class="headerlink" href="#i" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id58">1.1 Проблема захисту інформації в КСМ (комп’ютерні системи та мережі)</a><a class="headerlink" href="#id2" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Виділяють 3 основні проблеми, вирішення яких дозволяє забезпечити з
+високою гарантією безпеку обробки інформації. Необхідно забезпечити:</p>
+<ol class="arabic simple">
+<li>Захищеність даних, що оброблюються</li>
+<li>Цілісність даних, що оброблюються</li>
+<li>Доступність даних, що оброблюються</li>
+</ol>
+<div class="line-block">
+<div class="line">Засоби захисту повинні давати доступ “своїм” і у той же час не давати
+доступу “чужим” і не плутати їх.</div>
+<div class="line">Інформація вважається захищеною (безпечною), якщо вона володіє трьома
+вищезазначеними властивостями.</div>
+</div>
+<ul class="simple">
+<li><strong>Захищена (конфіденційна) інформація</strong> – така інформація, доступ до
+якої дозволений для легальних суб’єктів та заборонений для решти
+(нелегальних суб’єктів).</li>
+<li><strong>Цілісність (integrity) інформації</strong> – властивість інформації, при
+якій в процесі обробки або передачі інформації будь-які модифікації
+або заборонені, або виконуються тільки легальними суб’єктами.</li>
+<li><strong>Доступність (availability) інформації</strong> – інформація має бути
+доступною для усіх без виключення легальних суб’єктів.</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id59">1.2 Периметр відповідальності засобів захисту інформації (ЗЗІ) в залежності від типу КС (комп’ютерної системи)</a><a class="headerlink" href="#id3" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">^</span>
+ <span class="n">ш</span><span class="o">|</span>
+ <span class="n">в</span><span class="o">|</span>  <span class="n">__</span>
+ <span class="n">и</span><span class="o">|</span> <span class="o">/</span>  \
+ <span class="n">д</span><span class="o">|</span> <span class="o">|</span><span class="n">Л</span> <span class="o">|</span>
+ <span class="n">к</span><span class="o">|</span> <span class="o">|</span><span class="n">К</span> <span class="o">|</span>
+ <span class="n">і</span><span class="o">|</span> <span class="o">|</span><span class="n">С</span> <span class="n">____</span>
+ <span class="n">с</span><span class="o">|</span> <span class="o">|</span> <span class="o">/|</span><span class="n">ККС</span>\
+ <span class="n">т</span><span class="o">|</span> <span class="o">|</span> <span class="o">||</span><span class="n">___</span><span class="o">|</span><span class="n">_________</span>
+ <span class="n">ь</span><span class="o">|</span> <span class="o">/</span> <span class="o">||</span>   <span class="o">|</span> <span class="n">ГКС</span>     \
+  <span class="o">|</span> \<span class="n">_</span>\<span class="o">/</span><span class="n">___</span><span class="o">/</span><span class="n">_________</span><span class="o">/</span>
+  <span class="o">|</span>
+  <span class="o">+-------------------------&gt;</span>
+                            <span class="n">L</span> <span class="p">(</span><span class="n">діаметр</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ЛКС – локальна комп’ютерна мережа. В ЛКС к-ть комп’ютерів обмежена.
+Виділяється СБ (сервер безпеки). Таким чином здійснюється централізоване
+управління. <em>Недолік</em> – вразливий СБ. Як тільки впаде СБ, впаде вся
+безпека КС</p>
+<p>ККС – корпоративна комп’ютерна мережа. По факту є об’єднанням декількох
+ЛКС в одну мережу. На рівні ЛКС можна використовувати СБ. На рівні ККС
+можливі варіанти:</p>
+<ol class="arabic simple">
+<li>Централізований СБ, зв’язаний з іншими СБ</li>
+<li>Побудова мережоцентричної (network-oriented) системи (усі вузли між
+собою пов’язані)</li>
+</ol>
+<p>ГКС – глобальна комп’ютерна мережа (приклад – мережа Інтернет).
+Централізованого керування (принаймні офіційно) немає.</p>
+</div>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id60">1.3 Класифікація учасників КС</a><a class="headerlink" href="#id4" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Всі учасники КС діляться на суб’єкти і об’єкти.</p>
+<p><strong>Суб’єкти</strong> – активні учасники КС(користувачі) – вони безпосередньо
+генерують дані та ставлять задачу на обробку даних</p>
+<p><strong>Об’єкти</strong> – пасивні учасники системи(hardware)</p>
+<p>Суть захисту інформації:</p>
+<ol class="arabic simple">
+<li>Розділити учасників на об’єктів і суб’єктів.</li>
+<li>Легальним суб’єктам надати доступ</li>
+<li>Нелегальним суб’єктам заборонити доступ.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="n">__</span>        <span class="n">Legal</span>        <span class="n">__</span>
+<span class="o">|</span><span class="n">__</span>  <span class="o">&lt;---------------&gt;</span> <span class="o">|</span>  <span class="o">|</span>
+ <span class="n">__</span><span class="o">|</span> <span class="o">&lt;-----</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">-----&gt;</span> <span class="o">|</span><span class="n">__</span><span class="o">|</span>
+         <span class="n">Non</span><span class="o">-</span><span class="n">Legal</span>
+</pre></div>
+</div>
+<p>Суб’єкти в свою чергу поділяються на легальні та нелегальні.</p>
+<p><strong>Легальні</strong> – ті суб’єкти, які зареєстровані в системі(мають
+ім’я/пароль), мають певні права і вони діють в систмі виключно в рамках
+виділених прав.</p>
+<p><strong>Нелегальні</strong> – ті суб’єкти, які не зареєстровані в системі або
+зареєстровані, але перевищують свої повноваження.</p>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id61">1.4 Класифікація вторгнень.</a><a class="headerlink" href="#id5" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p><strong>Вторгнення в КС</strong> – отримання несанкціонованого доступу (НСД) зі
+сторони суб’єктів до об’єктів КС.</p>
+<p>Вторгнення поділяються на</p>
+<ul class="simple">
+<li>активні</li>
+<li>пасивні</li>
+</ul>
+<p>До <strong>активних вторгнень</strong> належать:</p>
+<ul class="simple">
+<li>модифікація даних</li>
+<li>перехоплення даних</li>
+<li>знищення даних</li>
+<li>порушення функціонування ОС</li>
+<li>порушення каналів передачі даних</li>
+<li>порушення функціонування апаратури.</li>
+</ul>
+<p>Активні вторгнення завжди очевидні, вони легко себе проявляють. Їх легко
+виявити по шкідливому для КС результату: відсутності даних, порушеного
+функціонування ОС, тощо.</p>
+<p><strong>Пасивні вторгнення</strong> – вторгнення, орієнтовані на попереднй збір
+даних. Фактично, пасивні вторгнення – підготовка до активного
+вторгнення. До пасивних вторгнень належать:</p>
+<ul class="simple">
+<li>сканування реєстраційних даних користувачів</li>
+<li>скануванян каналів передачі даних</li>
+<li>виконання дампів пам’яті (memory dumps)</li>
+</ul>
+<p>Такі вторгнення в більшості непомітні. Існують системи, які допомагають
+виявити та запобігти таким вторгненням.</p>
+</div>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id62">1.5 Канали витоку інформації</a><a class="headerlink" href="#id6" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Всього виділяють 4 основних канали витоку інформації.</p>
+<ol class="arabic simple">
+<li>радіотехнічний канал.</li>
+<li>організаційний</li>
+<li>системно-технічний (апаратний)</li>
+<li>програмний</li>
+</ol>
+<p><strong>Радіотехнічни канал</strong>. нелгальні суб’єкти займаються зчитуванням
+побічного електромагнітного випромінювання та наведень (ПЭМИН). Для
+цього потрібна спеціальна апаратура. Вбудовування закладок також є
+частою практикою атак на цей канал:</p>
+<ul class="simple">
+<li>пасивні антени дозволяють краще налаштовуватися на перехоплення даних
+КС</li>
+<li>активні антени дозволяють впливати на роботу КС</li>
+</ul>
+<p><strong>Організаційний канал</strong>. Є найбільш небезпечним із усіх каналів витоку
+інформації. Цей канал включає в себе використання так званого
+адміністративного фактору. Адміністративний фактр – дії адміністратора
+(у т.ч. адміністратора безпеки) по відношенню до системи. Тобто
+організаційний канал виникає, коли адміністратор системи з тих чи інших
+причин “грає” проти системи. Приклади: Едвар Сноуден, Юліан Ассандж.</p>
+<p><strong>Системно-технічний канал</strong>. Системно-тхнічний канал включає в себе
+використання спеціальної апаратури для реалізації НСД (несанкціонованого
+доступу). Як і в радіотехнічному каналі, використовуються закладки. На
+відміну від радіотехнічного каналу, застосовуються інший підхід –
+замість вбудовування закладок у мікросхеми, використоується інший
+пристрій, який непомітно підключається до КС та записує активність у КС.
+Також, можливий варіант, коли за допомогою спеціального T-конетора,
+під’єднаного до мережевих кабелів, перехоплюють потік даних у КС.</p>
+<p><strong>Програмний канал</strong>. Програмний канал витоку включає в себе розробку
+спеціального ПЗ або використання готового (шпигунського) ПЗ для
+отримання несанкціонованого доступу до інформації. Це найбільш поширений
+канал. 90% вторгнень реалізуються по даном каналу. Цей канал включає
+розробку вірусів, програм для атак на КС, розробку шпигунського ПЗ,
+тощо.</p>
+<p>Найбільш небезпечним є організаційний канал. Захиститися на 100% від
+атак по ньому не є можливим. Найбільш поширеним є програмний канал
+витоку інформації. У той же час від атак по цьому каналу захиститися
+найлегше.</p>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id63">1.6 Основні напрямки захисту інформації в КС</a><a class="headerlink" href="#id7" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Виділяють 4 основні напрями захисту інформації (ЗІ).</p>
+<ol class="arabic simple">
+<li>Нормативно-правовий напрям</li>
+<li>Організаційний напрям</li>
+<li>Апаратно-технічний напрям</li>
+<li>Програмний напрям</li>
+</ol>
+<p><strong>Нормативно-правовий напрям</strong>. На державному рівні створюється
+нормативно-правова база в галузі ЗІ. Це відповідні закони, підзаконні
+акти та нормативна документація. Цим займається ДССЗЗІ (Державна служба
+спеціального зв’язку та захисту інформації). Ця служба також видає
+ліцензії на діяльність у сфері захисту інформації. В Україні н аданий
+момент є 3 баові закони про захист інформації:</p>
+<ol class="arabic simple">
+<li>Закон України «Про інформацію»</li>
+<li>Закон України «Про державну таємницю»</li>
+<li>Закон України «Про захист інформації в
+інформаційно-телекомунікаційних системах»</li>
+</ol>
+<p>Також введено кримінальну відповідальність за НСД до автоматизованих КС.</p>
+<p>Вся інформація в Україні поділяється на такі категорії:</p>
+<ul class="simple">
+<li>Відкрита інформація (більшість інформації)</li>
+<li>Конфіденційна інформація (ДСК – для службового користування). Щоб
+отримати доступ до цієї інформації, необхідно отримати допуск.</li>
+<li>Секретна інформація.</li>
+<li>Цілком таємна інформація.</li>
+</ul>
+<p><strong>Організаційний напрям</strong>. Цей напрям закриває відповідний канал витоку.
+У КС виділяється адміністратор безпеки. При підключенні до системи
+адміністратор видає логін/пароль, а також службову інструкцію про
+правила поведінки в мережі та про санкції у випадку їх порушення. При
+наймі адміністратора безпеки, йому також видається посадова інструкція,
+де перераховані санкції за порушення.</p>
+<p><strong>Апаратно-технічнй</strong>. В даному напрямі ведеться розробка спеціальних
+апаратних засобів захисту інформації. В першу чергу – це засоби
+автентикації (authentication). Окрім засобів автентикації використовують
+системи апаратного розділення доступу та апараті системи шифрування.</p>
+<p><strong>Програмний напрям</strong> захисту нформацію включає в себе найбільш широкий
+спектр засобів. Сюди належать:</p>
+<ul class="simple">
+<li>Антивіруси</li>
+<li>Програми шифрування</li>
+<li>Програми моніторингу</li>
+<li>Програми розділення доступу</li>
+<li>Програмні системи автентикації</li>
+</ul>
+<div class="line-block">
+<div class="line">Програмне забезпечення, що використовується для захисту інформації ДСК
+та вище має бути сертифіковано.</div>
+<div class="line">Сучасні ОС беруть на себе деякі функції ЗІ</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id64">1.7 Базові моделі побудови ЗЗІ</a><a class="headerlink" href="#id8" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Виділяють 3 базові моделі, які в загальному випадку дозволяють описати
+механізм взаємодії суб’єктів по відношенню до об’єктів в рамках КС, яку
+захищають.</p>
+<ol class="arabic">
+<li><p class="first"><strong>Модель Белла та ЛаПадули</strong> є найбільш універсальною моделлю:
+більшість ЗЗІ будуються за заданою моделлю.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>  <span class="o">+-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">+</span>
+  <span class="o">|</span>                  <span class="o">|</span>
+  <span class="n">v</span>                  <span class="n">v</span>
+<span class="o">+---+</span>              <span class="o">+---+</span>
+<span class="o">|</span>   <span class="o">|</span>    <span class="o">+----+</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">S</span> <span class="o">|&lt;--&gt;|</span> <span class="n">ДД</span> <span class="o">|&lt;--&gt;|</span> <span class="n">O</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>    <span class="o">+----+</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="o">+---+</span>      <span class="o">^</span>       <span class="o">+---+</span>
+           <span class="o">|</span>
+           <span class="n">v</span>
+        <span class="o">+-----+</span>
+        <span class="o">|</span> <span class="o">|</span><span class="n">R</span><span class="o">|</span> <span class="o">|</span>
+        <span class="o">+-----+</span>
+
+<span class="n">ДД</span> <span class="o">--</span> <span class="n">Диспечер</span> <span class="n">доступу</span>
+<span class="o">|</span><span class="n">R</span><span class="o">|</span> <span class="o">--</span> <span class="n">Матриця</span> <span class="n">доступу</span>
+
+<span class="n">s</span>\<span class="n">o</span><span class="o">|</span><span class="n">o1</span><span class="o">|</span><span class="n">o2</span><span class="o">|</span><span class="n">o3</span><span class="o">|</span>
+<span class="o">---+--+--+--+</span>
+ <span class="n">s1</span><span class="o">|</span> <span class="mi">1</span><span class="o">|</span> <span class="mi">0</span><span class="o">|</span>  <span class="o">|</span>
+<span class="o">---+--|--+--+</span>
+ <span class="n">s2</span><span class="o">|</span> <span class="mi">0</span><span class="o">|</span> <span class="mi">1</span><span class="o">|</span>  <span class="o">|</span>
+<span class="o">---+--|--+--+</span>
+ <span class="n">s3</span><span class="o">|</span> <span class="mi">0</span><span class="o">|</span> <span class="mi">1</span><span class="o">|</span>  <span class="o">|</span>
+<span class="o">---+--+--+--+</span>
+</pre></div>
+</div>
+<p>Початковою умовою для використання даної моделі є чіткий поділ усіх
+учасників КС на об’єкти та суб’єкти.</p>
+</li>
+<li><p class="first"><strong>Модель Денінга (Low Water Marks, LWM)</strong>. Модель концентричних
+кілець.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="o">+----------------------------+</span>
+     <span class="o">|</span>                            <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">+-------------------+-+</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>                     <span class="o">|</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---------------+</span>  <span class="o">|</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>               <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---------+</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>         <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>
+     <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---+</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>
+ <span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span> <span class="n">p</span> <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">^</span>
+<span class="n">R</span><span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---+</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span>
+<span class="n">E</span><span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>    <span class="n">g</span>    <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span><span class="n">W</span>
+<span class="n">A</span><span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---------+</span>  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span><span class="n">R</span>
+<span class="n">D</span><span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">|</span>       <span class="n">p</span>       <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span><span class="n">I</span>
+ <span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="o">+---------------+</span>  <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span><span class="n">T</span>
+ <span class="o">|</span>   <span class="o">|</span>  <span class="o">|</span>          <span class="n">g</span>          <span class="o">|</span>   <span class="o">|</span>    <span class="o">|</span><span class="n">E</span>
+ <span class="o">|</span>   <span class="o">|</span>  <span class="o">+---------------------+</span>   <span class="o">|</span>    <span class="o">|</span>
+ <span class="o">|</span>   <span class="o">|</span>             <span class="n">p</span>              <span class="o">|</span>    <span class="o">|</span>
+ <span class="o">|</span>   <span class="o">+----------------------------+</span>    <span class="o">|</span>
+ <span class="n">v</span>                 <span class="n">g</span>                   <span class="o">|</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Кільце &#8211; рівень доступу</div>
+<div class="line">Правила запису &#8211; в своє і усі внутрішні кільця</div>
+<div class="line">Правила читання &#8211; своє та усі зовнішні кільця</div>
+</div>
+<p>В даній моделі передбачається обов’язкове розбиття інформації по рівнях
+секретності. Кільця відповідають певному рівню секретності інформації.
+Секретність підвищується з наближенням до центру. Існують групові (g) і
+персональні (p) права, вони чередуються кільцями.</p>
+</li>
+<li><p class="first"><strong>Модель Лендвіра</strong>. Лендвір запропонував розглядати КС, як певний
+чорний ящик з відомими входом та виходом.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>       <span class="o">+--------------------+</span>
+<span class="n">IN</span>     <span class="o">|</span>                    <span class="o">|</span>   <span class="n">OUT</span>
+<span class="o">------&gt;|</span>         <span class="n">КС</span>         <span class="o">|------&gt;</span>
+       <span class="o">|</span>                    <span class="o">|</span>
+       <span class="o">+--------------------+</span>
+</pre></div>
+</div>
+<p>Дані та права доступу перевіряються тільки на вході та виході із КС,
+контроль за тим, що відбувається всередині системи, не здійснюється.</p>
+<p>Дана модель не має властивості універсальності. Тому є сенс
+застосовувати її тільки у тих випадках, коли увімкнений внутрішній
+контроль системи.</p>
+</li>
+</ol>
+<p>Таким чином універсальною з трьох наведених є тільки модель Белла та
+ЛаПадули. Дві інші моделі є сенс застосовувати у комбінації з моделлю
+Белла та ЛаПадули</p>
+<p>Вцілому, можливо застосовувати усі три моделі одночасно.</p>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id65">1.8 Модель моніторингу безпеки КС</a><a class="headerlink" href="#id9" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p><strong>Моніторинг безпеки</strong> – комплексна система слідкування за станом
+захищеності ресурсів КС.</p>
+<p>Моніторинг дозволяє виявити спроби пасивних вторгнень зі сторони
+злочинця. Тобто, фактично виявити підготовку до вторгнення, причому на
+ранньому етапі ще до початку власне вторгнення.</p>
+<div class="section" id="id10">
+<h4><a class="toc-backref" href="#id66">Алгоритм найбільших статистичних аномалій</a><a class="headerlink" href="#id10" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Для підтримки моніторингу розроблена спеціальна модель моніторингу на
+основі <em>алгоритму найбільших статичних аномалій</em> (АНСА).</p>
+<ol class="arabic simple">
+<li><span class="math">\(\vec{x} = (x_1, x_2, x_3, \dots, x_n)\)</span>, де <span class="math">\(x_i\)</span> –
+фактор, реалізація якого впливає на ймовірність НСД. Наприклад,
+кількість спроб входу в систему з паролем, кількість спроб зверитання
+до захищених областей пам’яті, <span class="math">\(x_3\)</span> – к-ть спроб звертання до
+системних функцій.</li>
+<li>Визначення порогового вектору
+<span class="math">\(\vec{x_{\max}} = (x_{1 \max}, x_{2 \max}, \dots, x_{n \max})\)</span>,
+де <span class="math">\(x_{i \max}\)</span> – максимальне значення i-го фактору,
+яке не вважається НСД.</li>
+<li>Формування вектору Бернуллі <span class="math">\(\vec{b} = (b_1, b_2, \dots, b_n)\)</span>,
+де <span class="math">\(b_i = \begin{cases} 1 \text{ якщо } x_i &gt; K_d \cdot x_{i
+\max} \ 0 \text{ в усіх інших випадках } \end{cases}\)</span>; <span class="math">\(К_d\)</span>
+– коефіціент небезпеки</li>
+<li>Визначення ймовірності небезпеки зі сторони суб’єкта s в сеансі.
+<span class="math">\(p_{s_i} = \displaystyle\sum_{i = 1}^{n} (b_{s_i} \cdot w_i)\)</span>,
+де <span class="math">\(w_i\)</span> – вагові коефіціенти, причому
+<span class="math">\(\displaystyle\sum_{i = 1}^{n}(w_i) = 1\)</span></li>
+<li>Оцінка <span class="math">\(LS_s\)</span> – рівня підозрілості (Level of suspicios) суб’єкта
+s: <span class="math">\(LS_s = \displaystyle\sum_{i = 1}^{n}(p_{s_i})\)</span>. Якщо
+<span class="math">\(LS_s &gt; LS_{s \max}\)</span>, то користувача <code class="docutils literal"><span class="pre">s</span></code> вважають зловмисником.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><a class="toc-backref" href="#id67">Розділ 2. Ідентифікація, Автентикація, Права розмежування доступу в КСС</a><a class="headerlink" href="#id11" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="id12">
+<h3><a class="toc-backref" href="#id68">2.1 Прості паролі</a><a class="headerlink" href="#id12" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">login</span><span class="p">:</span>    <span class="n">somelogin</span>
+<span class="n">password</span><span class="p">:</span> <span class="o">*******</span>
+</pre></div>
+</div>
+<p>Автентикація – процес підтвердження користувачем своєї особистості.</p>
+<p>До пароля висувається ряд вимог:</p>
+<ol class="arabic simple">
+<li>Пароль повинен мати певну довжину. Наразі рекомендована довжина
+пароля в системах з відкритим доступом – 8 символів.</li>
+<li>Пароль не повинен мати семантики. Пароль не повинен асоціюватися із
+власником.</li>
+<li>Пароль не може бути простим повторенням символів або простою
+послідовністю символів.</li>
+<li>Пароль повинен містити цифри та бути регістрозалежним (case
+sensitive)</li>
+<li>При вводі пароль повинен відображатися у вигляді ехо-друку
+(echo-print). Тобто замість символів паролю відображається якийсь
+символ-заміщувач (placeholder character)</li>
+<li>Пароль не має бути представленим у явному вигляді. (записаним на
+папреі, наліпленим на монітор, тощо)</li>
+</ol>
+</div>
+<div class="section" id="id13">
+<h3><a class="toc-backref" href="#id69">2.2 Оцінка стійкості пароля</a><a class="headerlink" href="#id13" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Нехай</p>
+<ul class="simple">
+<li><span class="math">\(l\)</span> – довжина пароля.</li>
+<li><span class="math">\(t_{поп}\)</span> – час підбору одного пароля.</li>
+<li><span class="math">\(A\)</span> – потужність алфавіту.</li>
+</ul>
+<p>Тоді кількість можливих паролів – <span class="math">\(A^l\)</span>, а час перебору усіх паролів
+– <span class="math">\(A ^ l \cdot t_{поп}\)</span></p>
+<p>Час підбору довільного пароля в середньому складає</p>
+<div class="math">
+\[t_{пп} = \frac{ A^l \cdot t_{поп} }{2}\]</div>
+<p>Розглянемо такий випадок:</p>
+<p>Дано:</p>
+<ul class="simple">
+<li><span class="math">\(l = 3\)</span>,</li>
+<li><span class="math">\(A = 40\)</span>,</li>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">math:</th><td class="field-body"><cite>t_{поп} = 10 ^ {-6} text{c}</cite>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p>Тоді</p>
+<div class="math">
+\[t_{пп} = \frac{40^3 \cdot 10^{-6}}{2} = 0.032 \text{с}\]</div>
+<p>При довжині пароля у 8 символів маємо:</p>
+<ul class="simple">
+<li><span class="math">\(l = 3\)</span>,</li>
+<li><span class="math">\(A = 40\)</span>,</li>
+<li><span class="math">\(t_{поп} = 10 ^ {-6} \text{c}\)</span>.</li>
+</ul>
+<div class="math">
+\[t_{пп} = \frac{40^8 \cdot 10^{-6}}{2} = 3276800.0 \text{с} \approx 38 \text{діб}\]</div>
+<p>Звідси існує рекомендація, що <strong>змінювати пароль потрібно раз у 30 днів</strong>.</p>
+</div>
+<div class="section" id="id14">
+<h3><a class="toc-backref" href="#id70">2.3 Модифікація механізму простих паролів</a><a class="headerlink" href="#id14" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="section" id="id15">
+<h4><a class="toc-backref" href="#id71">Список паролів</a><a class="headerlink" href="#id15" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Адміністратор видає список із n паролів. При першому вході
+застосовується пароль №1, при другому вході в систему – другий пароль,
+при n-ному вході – пароль №n</p>
+<p>На практиці незастосовно через людський фактор.</p>
+</div>
+<div class="section" id="id16">
+<h4><a class="toc-backref" href="#id72">Механізм “рукостискань”</a><a class="headerlink" href="#id16" title="Постійне посилання на цей заголовок">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>          <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span>
+  <span class="o">+---+&lt;-----+---+</span>
+  <span class="o">|</span> <span class="n">A</span> <span class="o">|</span>      <span class="o">|</span><span class="n">КСС</span><span class="o">|</span>
+  <span class="o">+---+-----&gt;+---+</span>
+    <span class="n">passwd</span> <span class="o">=</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">Суб</span><span class="s1">&#39;єкт A знає функцію y = f(x),</span>
+<span class="n">яка</span> <span class="n">залежно</span> <span class="n">від</span> <span class="n">параметра</span> <span class="n">x</span>
+<span class="n">генерує</span> <span class="n">новий</span> <span class="n">пароль</span>
+</pre></div>
+</div>
+<p>Проблема даного підходу полягає у тому, що функцію можна підібрати
+маючи достатню кількість статистичних даних.
+Щоб обійти це – математики винайшли цілий клас необоротних функцій.</p>
+</div>
+</div>
+<div class="section" id="multiway-authentication">
+<h3><a class="toc-backref" href="#id73">2.4 Багатофакторна автентикація (Multiway authentication)</a><a class="headerlink" href="#multiway-authentication" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>В цьому випадку для автентикації використовуються 2 незалежні між собою
+способи автентикації.</p>
+<div class="section" id="id17">
+<h4><a class="toc-backref" href="#id74">Біометрична автентикація</a><a class="headerlink" href="#id17" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Як відомо, кожна людина володіє деякими унікальними характеристиками,
+такими як: <em>відбиток пальця</em>, <em>рисунок рогівки ока</em>, <em>тембр голосу</em>,
+<em>почерк</em>, тощо. Найбільш надійний спосіб автентикації – це використання
+біометричних даних (<em>відбиток пальця</em>, <em>рисунок сітківки ока</em>).</p>
+<p>Біометрична автентикація хоч і є надійною, вимагає певну наявність і
+експлуатуцію додаткових програмних та <strong>апаратних</strong> засобів.</p>
+</div>
+</div>
+<div class="section" id="id18">
+<h3><a class="toc-backref" href="#id75">2.5 Рекомендації по вибору механізмів автентикації</a><a class="headerlink" href="#id18" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Якщо в комп’ютерній системі оброблюється відкрита інформація або
+конфіденційна інформація, достатньо використання механізму простих
+паролів.</p>
+<p>Якщо в комп’ютерній системі оброблюється таємна та цілком таємна
+інформація, то необхідно використовувати біометричні механізми
+автентикації.</p>
+<p>Важливо всі паролі в системі повинні бути унікальними, тобто жодні 2
+користувача не можуть мати два однакові паролі.</p>
+</div>
+<div class="section" id="id19">
+<h3><a class="toc-backref" href="#id76">2.6 Засоби розділення доступу в КСС</a><a class="headerlink" href="#id19" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Для розділення доступу необхідна наявність 2х базових компонент:</p>
+<ol class="arabic simple">
+<li>Диспечер доступу</li>
+<li>Матриця доступу</li>
+</ol>
+<p><strong>Матриця доступу</strong> – по суті, це реєстраційний журнал. В системі
+ведеться спеціальний реєстраційний журнал. Він містить близько 5-7
+основних полів, деякі з яких за допомогою спеціальних засобів
+конвертуються в матрицю доступу.</p>
+</div>
+<div class="section" id="id20">
+<h3><a class="toc-backref" href="#id77">2.7 СРД – Системи розділення доступу</a><a class="headerlink" href="#id20" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p><strong>Модель Белла та ЛаПадули</strong>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>  <span class="o">+-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">-</span><span class="n">X</span><span class="o">+</span>
+  <span class="o">|</span>                  <span class="o">|</span>
+  <span class="n">v</span>                  <span class="n">v</span>
+<span class="o">+---+</span>              <span class="o">+---+</span>
+<span class="o">|</span>   <span class="o">|</span>    <span class="o">+----+</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="o">|</span> <span class="n">S</span> <span class="o">|&lt;--&gt;|</span> <span class="n">ДД</span> <span class="o">|&lt;--&gt;|</span> <span class="n">O</span> <span class="o">|</span>
+<span class="o">|</span>   <span class="o">|</span>    <span class="o">+----+</span>    <span class="o">|</span>   <span class="o">|</span>
+<span class="o">+---+</span>      <span class="o">^</span>       <span class="o">+---+</span>
+           <span class="o">|</span>
+           <span class="n">v</span>
+        <span class="o">+-----+</span>
+        <span class="o">|</span> <span class="o">|</span><span class="n">R</span><span class="o">|</span> <span class="o">|</span>
+        <span class="o">+-----+</span>
+</pre></div>
+</div>
+<p>Суть полягає у створенні Диспечеру доступу. Є два варіанти його
+створення:</p>
+<ul>
+<li><p class="first"><strong>Програмна реалізація.</strong></p>
+</li>
+<li><p class="first"><strong>Апаратна реалізація.</strong> Апаратна реалізація можлива тільки у випадку
+фізичного доступу до апаратної складової. Якщо фізичний доступ до
+апаратних засобів відсутній або недозволений, апаратна реалізація
+диспечера доступу неможлива. Апаратна реалізація ДД полягає у
+створенні спеціалізованого контролеру доступу</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="o">/</span>   <span class="o">+--------------------+</span>
+    <span class="o">|</span>   <span class="o">|</span>         <span class="n">ККД</span>        <span class="o">|</span>
+<span class="n">СКД</span> <span class="o">&lt;</span>   <span class="o">+--------------------+</span>
+    <span class="o">|</span>   <span class="o">|</span>        <span class="n">ППЗУ</span>        <span class="o">|&lt;--</span><span class="n">тут</span> <span class="n">зберігаються</span>
+    \   <span class="o">+--------------------+</span>   <span class="n">логіни</span> <span class="n">і</span> <span class="n">паролі</span>
+
+<span class="n">ККД</span> <span class="o">--</span> <span class="n">Контролер</span> <span class="n">доступу</span>
+<span class="n">СКД</span> <span class="o">--</span> <span class="n">Спеціальний</span> <span class="n">контролер</span> <span class="n">доступу</span>
+<span class="n">ППЗУ</span> <span class="o">--</span> <span class="n">запам</span><span class="s1">&#39;ятовуючий пристрій</span>
+</pre></div>
+</div>
+<p>Також необхідно реалізувати драйвер для роботи з контролером.
+При запиті до даних, контролер перевіряє права доступу у ППЗУ.
+Якщо права доступу немає, то контролер відмовляє у доступі до даних.</p>
+</li>
+</ul>
+<p>Всі засоби захисту, реалізовані програмно, можуть бути зламані
+програмно.</p>
+<p>СРД потребують реалізації спеціальних журналів. Суть полягає у тому, що
+в таких системах є матриця доступу. Щоб мати змогу записувати дані в
+журнал, створюється реєстраційний журнал. Реєстраційний журнал – журнал,
+що є базисом для СРД і в подальшому він конвертується в матрицю доступу.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="8%" />
+<col width="9%" />
+<col width="16%" />
+<col width="16%" />
+<col width="32%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Час реєстрації</th>
+<th class="head">Логін</th>
+<th class="head">Пароль</th>
+<th class="head">Права</th>
+<th class="head">Автентикація</th>
+<th class="head">Нотатка</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1475150079</td>
+<td>user1</td>
+<td>###</td>
+<td>/usr/1/1.txt</td>
+<td>4 = 2x + 1</td>
+<td>ПІП, телефон, адреса, тощо</td>
+</tr>
+<tr class="row-odd"><td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Дата зберігається у стандартизованому форматі – Unix Timestamp,
+наприклад. Unix Timestamp – це кількість секунд, що пройшли з
+01.01.1970 року.</li>
+<li>Логін – ім’я користувача в системі. Може не співпадати з реальним
+іменем</li>
+<li>Пароль зберігається деінде в зашифрованому вигляді. В полі пароль –
+посилання на місце збереження пароля</li>
+<li>Права – визначають права доступу користувача до файлів на диску</li>
+<li>Інформація у полі автентикація також зберігається у зашифрованому
+вигляді</li>
+<li>Нотатка – інформація для адміністратора. Згідно Закону “Про захист
+персональних даних” адміністратор повинен забезпечити безпеку цих
+даних.</li>
+</ul>
+<p>За допомогою спеціального програмного забезпечення логін перетворюєтья у
+ідентифікатор, а права доступу у <code class="docutils literal"><span class="pre">REWMAO</span></code></p>
+<p><em>REWMAO</em> – 6 бітів, що визначають права:</p>
+<ul class="simple">
+<li><strong>R</strong> – право на читання (read)</li>
+<li><strong>E</strong> – право на виконання (execute)</li>
+<li><strong>W</strong> – право на запис (write)</li>
+<li><strong>M</strong> – право на модифікацію ситемної інформації (modify)</li>
+<li><strong>A</strong> – право на адміністрування (administrate) – робота з існуючими
+ресурсами</li>
+<li><strong>O</strong> – право власності (ownership). Якщо є право власності, то можна
+змінювати конфігурацію системи.</li>
+</ul>
+<p>Права <code class="docutils literal"><span class="pre">R</span></code>, <code class="docutils literal"><span class="pre">E</span></code>, <code class="docutils literal"><span class="pre">W</span></code> – регулярні права, права <code class="docutils literal"><span class="pre">M</span></code>, <code class="docutils literal"><span class="pre">A</span></code>. <code class="docutils literal"><span class="pre">O</span></code> –
+права на системну інформацію.</p>
+<p>Для прав <code class="docutils literal"><span class="pre">A</span></code> та <code class="docutils literal"><span class="pre">O</span></code> існує таке поняття, як покриття прав. Якщо у
+користувача є право адміністрування, то в нього автоматично є і права
+<code class="docutils literal"><span class="pre">REWM</span></code>, якщо ж користувач має право власності, то він автоматично має
+усі права.</p>
+<p>Реєстраційний журнал повинен зберігатися в захищених областях пам’яті.
+Якщо журнал зберігається у відкритому вигляді, то поля <code class="docutils literal"><span class="pre">пароль</span></code>,
+<code class="docutils literal"><span class="pre">автентикація</span></code>, <code class="docutils literal"><span class="pre">персональні</span> <span class="pre">дані</span></code> повинні зберігатися окремо у
+захищеному вигляді.</p>
+</div>
+<div class="section" id="id21">
+<h3><a class="toc-backref" href="#id78">2.8 Операційний журнал</a><a class="headerlink" href="#id21" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Для <em>СМБ (Систем Моніторингу Безпеки)</em> необхідно набрати певну
+статистику. Ця статистика подається на вхід <em>системи моніторингу
+безпеки</em>. Для зручності збору та обробки статистики має сенс
+представляти її у деякому єдиному форматі. Таким форматом є операційний
+журнал.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="13%" />
+<col width="35%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Час входу в систему</th>
+<th class="head">Логін</th>
+<th class="head">Дія</th>
+<th class="head">Коментар</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1475150079</td>
+<td>vova</td>
+<td>/usr/1/1.txt -&gt; r</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>1475150879</td>
+<td>sanek</td>
+<td>/usr/bin/python -&gt; e</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>1475152870</td>
+<td>vova</td>
+<td>/usr/bin/su -&gt; e</td>
+<td>!!!</td>
+</tr>
+</tbody>
+</table>
+<p>Періодично операційни журнал оброблюється. По кожному з користувачів
+формується вектор, який показує, які критичні дії користувач здійснив, і
+наскільки це небхідно.</p>
+<p>У полі коментар адміністратор може позначати підозрілі дії, щоб потім
+проаналізувати їх додатково.</p>
+</div>
+<div class="section" id="id22">
+<h3><a class="toc-backref" href="#id79">2.9 Мандатні списки та списки доступу</a><a class="headerlink" href="#id22" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Матриці доступу на 70-80% складаються із <code class="docutils literal"><span class="pre">0</span></code>, так як користувачі, в
+основному, мають доступ до невеликої частини ресурсів.</p>
+<p>Для зменшення об’єму інформації, що зберігається, є сенс розбити матрицю
+доступу на рядки та стовпці.У випадку, якщо матрицю розбивають на рядки,
+отримуємо <em>мандатні списки</em>. При цьому, в мандатних списках <em>відсутні
+нулі</em>. Таким чином, довжина мандатного списку становить ~20% довжини
+запису в матриці доступу.</p>
+<p><strong>Мандатний список</strong> являє собою записи тих об’єктів, котрі, по-перше,
+зареєстровані в системі, а, по-друге, мають право доступу як мінімум до
+одного ресурсу. Довжина мандатного списку у кожного суб’єкта
+індивідуальна, але в середньому вона становить 20% – 25% від запису в
+матриці доступу.</p>
+<p>При розбитті матриці на стовпці ми отримуємо <em>список доступу</em>. Як і
+мандатні списки, списки доступу не включають записи із нульовими
+значеннями.</p>
+<p>В комп’ютерних системах, де кількість суб’єктів постійна, а об’єкти
+змінюються динамічно, є сенс використовувати <em>мандатні списки</em>.</p>
+<p>Якщо в системі кількість об’єктів стабільна, а суб’єкти міняються
+динамічно, то є сенс використовувати <em>списки доступу</em>.</p>
+<p>В решті випадків списки доступів і мандатні списки абсолютно
+еквівалентні.</p>
+</div>
+<div class="section" id="id23">
+<h3><a class="toc-backref" href="#id80">2.10 Механізм замків та ключів</a><a class="headerlink" href="#id23" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">+--------+</span>
+<span class="o">|</span><span class="n">REWMAO</span><span class="p">:</span><span class="n">Z</span><span class="o">|</span>
+<span class="o">+--------+</span>
+
+<span class="n">Z</span> <span class="o">=</span> <span class="mi">0001</span> <span class="o">--</span> <span class="n">рядок</span> <span class="n">символів</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Коли користувач S1 звертається до об’єкта O2, він додатково надає
+ключ K.</li>
+<li>Якщо ключ співпадає із замком, то розглядаються права користувача до
+об’єкту, інакше – права користувача відносно об’єкту – <code class="docutils literal"><span class="pre">000000</span></code></li>
+</ol>
+<p>Механізм замків та ключів вимагає внесення змін у диспечер доступу, так
+як за замовчуванням диспечери доступу не підтримують такого механізму.</p>
+</div>
+</div>
+<div class="section" id="id24">
+<h2><a class="toc-backref" href="#id81">Розділ 3. Криптографічні моделі.</a><a class="headerlink" href="#id24" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="id25">
+<h3><a class="toc-backref" href="#id82">3.1 Основні визначення в області криптографії</a><a class="headerlink" href="#id25" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p><strong>Криптографія</strong> (<em>kryptos – таємниця graphos – пишу</em>) – наука про
+спеціальні перетворення інформації з метою приховання її семантики.</p>
+<p>Криптоперетворення реалізовуються за допомогою криптоалгоритмів.</p>
+<p><strong>Шифрування</strong> – процес перетворення вихдного тексту з використанням
+спеціальних механізмів з метою приховання семантики вихідного тексту.</p>
+<p><strong>Розшифрування</strong> – процедура зворотнього перетворення шифротексту у
+вихідний текст. При цьому має бути відомим алгоритм шифрування і має
+бути відомим ключ шифрування.</p>
+<p><strong>Дешифрування</strong> – процедура відновлення вихідного тексту на основі
+шифротексту. При цьому алгоритм шифрування може бути невідомим і
+однозначно невідомий ключ шифрування.</p>
+<p><strong>Криптоалгоритм</strong> – послідовність дій, направлених на реалізацію
+процедури шифрування і розшифрування. Важливою властивістю будь-якого
+криптоалгоритму є його оборотність. Криптоалгоритм має забезпечувати при
+наявності ключа можливість відновлення інформації.</p>
+<p><strong>Ключ шифрування</strong> – певна послідовність символів, яка слугує у якості
+вхідної і змінної частини алгоритму шифрування. Ключ обов’язково має
+бути секретним, хоча є випадки, коли використовується пара ключів. Тоді
+тільки один із них є секретним.</p>
+<p>Довжина ключа шифрування може бути фіксованою або змінною. Все це
+залежить від алгоритму шифрування.</p>
+<p><strong>Криптостійкість алгоритму</strong> – число операцій (макрооперацій), котрі
+мають бути здійснені в середньому при проведенні процедури дешифрування.</p>
+<p><strong>Час стійкості шифротексту</strong> – часовий інтервал, котрий знадобиться
+злочинцю для відновлення вихідного тексту по наявному шифротексту без
+ключа. Час стійкості шифротексту – суб’єктивна характеристика. Вона
+залежить від засобів, що застосовується при дешифруванні.</p>
+<p><strong>Швидкість шифрування</strong> – об’єм інформації (переважно в байтах), яку
+криптосистема здатна перетворити за 1 секунду. Сучасні засоби дозволяють
+за 1 секуднду зашифрувати і розшифрувати 10МБ за 1 секунду.</p>
+</div>
+<div class="section" id="id26">
+<h3><a class="toc-backref" href="#id83">3.2 Класифікація криптографічних систем</a><a class="headerlink" href="#id26" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>Прості криптографічні системи</li>
+<li>шифр Цезаря</li>
+<li>шифр Шенона</li>
+<li>Складні криптографічні системи</li>
+<li>потокові<ul>
+<li>B-crypt</li>
+</ul>
+</li>
+<li>блочні<ul>
+<li>симетричні</li>
+<li>DES</li>
+<li>ГОСТ 28147-89</li>
+<li>AES (RCS, MARS, TWO-FISH)</li>
+<li>асиметричні</li>
+<li>RSA</li>
+<li>Al-Gamal</li>
+</ul>
+</li>
+</ul>
+<p>Прості критосистеми на практиці не застосовуються. Вони мають важливе
+теоретичне значення, оскільки деякі механізми таких систем успішно
+використовуються у складних криптосистемах.</p>
+<p>Потокові криптосистеми орієнтовані на шифрування потоку даних.</p>
+<p>В симетричних системах для шифрування використовується 1 ключ. Тут
+виникає проблема – як передати той єдиний ключ так, щоб він не потрапив
+у руки злочинців?</p>
+<p>В асиметричних системах використовується 2 ключі. За допомогою одного
+ключа дані шифруються, а за допомогою іншого – розшифровуються. Таким
+чином немає потреби у передачі секретного ключа – ключ для шифрування
+можна передавати відкрито – за допомогою нього не можна розшифрувати
+дані. Але асиметричні системи працюють помітно повільніше за симетричні.</p>
+<p>Часто використовують такий підхід. Мастер-ключ симетричної системи
+шифрують асиметричним алгоритмом та передають. Після того, як
+симетричний ключ є у всіх зацікавлених сторін, використовується
+симетрична крипто-система для передачі безпосередньо інформації.</p>
+</div>
+<div class="section" id="id27">
+<h3><a class="toc-backref" href="#id84">3.3 Шифр Цезаря</a><a class="headerlink" href="#id27" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Суть: циклічний зсув алфавіту на $ N $ позицій. В класичному варіанті
+<span class="math">\(N = 2\)</span>. Таким чином маємо такі перетворення:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Orig</th>
+<th class="head">New</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A</td>
+<td>C</td>
+</tr>
+<tr class="row-odd"><td>B</td>
+<td>D</td>
+</tr>
+<tr class="row-even"><td>C</td>
+<td>E</td>
+</tr>
+<tr class="row-odd"><td>…</td>
+<td>…</td>
+</tr>
+<tr class="row-even"><td>X</td>
+<td>Z</td>
+</tr>
+<tr class="row-odd"><td>Y</td>
+<td>A</td>
+</tr>
+<tr class="row-even"><td>Z</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<p>Формально перетворення алгоритму Цезаря можна задати такою формулою:</p>
+<p>$$ e(s) = (d(s) + 2) \mod A $$</p>
+<p>$$ d(s) = (e(s) - 2) \mod A $$</p>
+<p>Враховуючи, що в загальному випадку зсув може бути довільним, маємо</p>
+<p>$$ e(s) = (k \cdot d(s) + c) \mod A $$</p>
+<p>$$ d(s) = (\frac{e(s)}{k} - c) \mod A $$</p>
+<p>Проблемою цього алгоритму є те, що зашифрований текст має ті самі
+статистичні особливості, що й вихідний текст. Також цей шифр не має
+ключа.</p>
+<p>Алгоритм Цезаря – це типовий алгоритм підстановки. Він може бути
+представлений у вигляді S-блоку (S – Substitution – перестановка)</p>
+</div>
+<div class="section" id="id28">
+<h3><a class="toc-backref" href="#id85">3.4 Шифр Шенона</a><a class="headerlink" href="#id28" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Використовує функцію <strong>XOR</strong>, та наступну її особливість:</p>
+<div class="math">
+\[\begin{split}A \oplus K = B \\
+B \oplus K = A\end{split}\]</div>
+<p>В загальному випадку маємо:</p>
+<div class="math">
+\[\begin{split}D = D_1 \cup D_2 \cup D_3 \cup … \cup D_n \\
+K = K_1 \cup K_2 \cup K_3 \cup … \cup K_n\end{split}\]</div>
+<p>Застосувавши XOR маємо:</p>
+<div class="math">
+\[E = E_1 \cup E_2 \cup … \cup E_n\]</div>
+<p>Часто з цим шифром застосовується ЛКГ – генератор.</p>
+<div class="math">
+\[W_{i+1}=frac(\frac{A \cdot W_i + C}{D})\]</div>
+<p>де <span class="math">\(frac(1.02) = 0.02\)</span> – функція отримання дробової частини</p>
+<p>Тоді <span class="math">\(W_i \to K_i\)</span></p>
+<p>Цей генератор використовується для генерації ключів.</p>
+<p>У схемі Шенона проблема полягає в тому, що <em>XOR</em> належить до
+найпростіших операцій, відповідно, для підбору результатів
+розшифрованого тексту по шифротексту не потрібно значних обчислювальних
+потужностей.</p>
+<p>Даний метод може бути дешифрований навіть шляхом прямого перебору.</p>
+<p>В результаті виникло таке поняття, як <em>функція шифрування</em> Це
+перетворення повинно мати комплексний нелінійний характер.</p>
+<p>Алгоритм Шенона може бути представлений у вигляді P-блоку (P –
+Permutation – перестановка)</p>
+</div>
+<div class="section" id="id29">
+<h3><a class="toc-backref" href="#id86">3.5 Люцифер</a><a class="headerlink" href="#id29" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Детальніше:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Lucifer_(cipher)">wikipedia</a></p>
+<p>На 1970 рік шифр Цезаря і Шенона вже були легко зламувані. Так. шифр
+Шенона можна було дешифрувати за ~1 добу.</p>
+<p>Тому виникла потреба у новій криптосистемі. Такою криптосистемою стала
+система «Люцифер»</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>
+<span class="mi">1</span> <span class="o">+--|</span>   <span class="n">P</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">P</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">P</span>   <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">P</span>   <span class="o">|</span>
+<span class="mi">2</span> <span class="o">+--|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|</span>
+<span class="mi">3</span> <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|</span>  <span class="mi">64</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>       <span class="o">|--/--</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">......</span>    <span class="o">|</span>       <span class="o">|</span>  <span class="o">......</span>    <span class="o">|</span>       <span class="o">|</span>  <span class="o">......</span>    <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>            <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">+-----+</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>  <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>   <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|--|</span>     <span class="o">|---|</span>       <span class="o">|</span>
+<span class="mi">64</span><span class="o">+--|</span>   <span class="mi">1</span>   <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>   <span class="mi">2</span>   <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>  <span class="mi">15</span>   <span class="o">|</span>  <span class="o">|</span>     <span class="o">|</span>   <span class="o">|</span>  <span class="mi">16</span>   <span class="o">|</span>
+     <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>  <span class="o">+-----+</span>   <span class="o">+-------+</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Схема використовує цикли шифрування. Цикл шифрування – фрагмент
+схеми, що регулярно повторюється.</li>
+<li>Цикл шифрування може бути настроюваним, але загальна структура
+залишається постійною.</li>
+<li>У схемі «Люцифер» було вперше введено фіксований блок шифрування.</li>
+<li>Схема «Люцифер» – симетрична. Дані подаються на вхід блоку P1, а на
+виході з блоку P16 отримуємо зашифрований текст. Щоб розшифрувати
+дані – зашифрований текст подається на блок P16, а в блоці P1 –
+отримаємо розшифрований текст.</li>
+<li><strong>Система «Люцифер» має одмин суттєвий недолік: в цій системі
+відсутнє курування</strong> Тобто P-блоки задані у вигляді таблиць, S-блоки
+задані у вигляді таблиць. Ці таблиці не змінюються після первинного
+налаштування. Це означає, що всі дані шифруються по одній і тій же
+схемі.</li>
+</ul>
+<p>Через деякий час була представлена модифікація криптосистеми, яка
+дозволяла управління.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>     <span class="o">+-------+</span>   <span class="o">+-----+</span>              <span class="o">+-------+</span>
+<span class="mi">1</span> <span class="o">+--|</span>   <span class="n">P</span>   <span class="o">|</span>   <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>              <span class="o">|</span>   <span class="n">P</span>   <span class="o">|</span>
+<span class="mi">2</span> <span class="o">+--|</span>       <span class="o">|---|</span>  <span class="mi">1</span>  <span class="o">|-</span>            <span class="o">-|</span>       <span class="o">|</span>
+<span class="mi">3</span> <span class="o">+--|</span>       <span class="o">|</span> <span class="o">+-|</span>     <span class="o">|</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|---|</span>     <span class="o">|-</span>           <span class="o">--|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">+-|</span>     <span class="o">|</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|---|</span>     <span class="o">|-</span>           <span class="o">--|</span>       <span class="o">|</span>  <span class="mi">64</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">+-|</span>     <span class="o">|</span>              <span class="o">|</span>       <span class="o">|--/--</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">......</span>     <span class="o">......</span>    <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span>                      <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>  <span class="n">S</span>  <span class="o">|</span>              <span class="o">|</span>       <span class="o">|</span>
+  <span class="o">+--|</span>       <span class="o">|---|</span>  <span class="mi">8</span>  <span class="o">|-</span>           <span class="o">--|</span>       <span class="o">|</span>
+<span class="mi">64</span><span class="o">+--|</span>   <span class="mi">1</span>   <span class="o">|</span> <span class="o">+-|</span>     <span class="o">|</span>              <span class="o">|</span>  <span class="mi">16</span>   <span class="o">|</span>
+     <span class="o">+-------+</span> <span class="o">|</span> <span class="o">+-----+</span>              <span class="o">+-------+</span>
+               <span class="o">|</span>
+ <span class="n">D</span> <span class="o">------------+</span>
+</pre></div>
+</div>
+<p>Другим недоліком є відсутність у схемі нелінійних а також математичних
+операцій.
+Задля усунення цього недоліку було запропоноване використання
+додаткової функції шифрування, в тому числі і з нелінійними
+характеристиками.</p>
+<p>Окрм того, для адаптації довжини блоків, що шифруються, до довжини
+ключа, було запропоновано використовувати т.з. E-блоки
+(Extended-blocks) – блоки розширення.
+Більш того, при формуванні внутрішніх ключів (в алгоритмі DES) було
+введено поняття V-блок – блок вибірки.</p>
+</div>
+<div class="section" id="des">
+<h3><a class="toc-backref" href="#id87">3.6 Криптоалгоритм DES</a><a class="headerlink" href="#des" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">Детальніше читайте у
+<a class="reference external" href="https://en.wikipedia.org/wiki/Data_Encryption_Standard">статті про DES на Wikipedia</a>
+та на
+<a class="reference external" href="https://www.tutorialspoint.com/cryptography/data_encryption_standard.htm">tutorialspoint</a></p>
+</div>
+<ul class="simple">
+<li>Data Encryption Standard</li>
+<li>Розроблений у 1977 році</li>
+<li>Блочний алгоритм</li>
+</ul>
+<p>Основні характеристики алгоритму DES:</p>
+<ol class="arabic">
+<li><p class="first">Алгоритм симетричний (тобто для шифрування і розшифрування
+використовується один і той же ключ, який є секретним)</p>
+</li>
+<li><p class="first">Алгоритм блочний, довжина блоку становить 64 біти. Це один із перших
+алгоритмів, де довжина блоку дорівнює довжині ключа <em>k</em>.</p>
+</li>
+<li><p class="first">16 циклів шифрування</p>
+</li>
+<li><p class="first">Криптостійкість алгоритму оцінюється як <span class="math">\(2^{55}\)</span> макрооперацій:</p>
+<p>Із 64 бітів ключа використовується всього лише 56 бітів. Тому загальна
+к-ть варіантів ключа – <span class="math">\(2^{56}\)</span>. Згідно теорії ймовірності, є
+імовірність підібрати ключ за менше, ніж <span class="math">\(2^{56}\)</span> спроб, тому
+криптостійкість дорівнює <span class="math">\(\frac{2^{56}}{2} = 2^{55}\)</span></p>
+</li>
+<li><p class="first">Введено поняття “функція шифрування”. Функція шифрування бере участь
+у кожному циклі шифрування, але при цьому вона є керованою. Керування
+здійснюється за допомогою ключа.</p>
+</li>
+<li><p class="first">…</p>
+</li>
+<li><p class="first">Нелінійність процедури шифрування. За рахунок цього досягається
+поліноміальна складність відновлення ключа при відомих вхідних і
+вихідних даних.</p>
+</li>
+</ol>
+<div class="section" id="id30">
+<h4><a class="toc-backref" href="#id88">Схема</a><a class="headerlink" href="#id30" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p><img alt="Схема алгоритму DES" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Code.PNG" /></p>
+<p>Блоки <code class="docutils literal"><span class="pre">IP-1</span></code> і блок <code class="docutils literal"><span class="pre">FP-2</span></code> задаються таблично</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>58</td>
+<td>50</td>
+<td>42</td>
+<td>34</td>
+<td>26</td>
+<td>18</td>
+<td>10</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>60</td>
+<td>52</td>
+<td>44</td>
+<td>36</td>
+<td>28</td>
+<td>20</td>
+<td>12</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td>62</td>
+<td>54</td>
+<td>46</td>
+<td>38</td>
+<td>30</td>
+<td>22</td>
+<td>14</td>
+<td>6</td>
+</tr>
+<tr class="row-even"><td>64</td>
+<td>56</td>
+<td>48</td>
+<td>40</td>
+<td>32</td>
+<td>24</td>
+<td>16</td>
+<td>8</td>
+</tr>
+<tr class="row-odd"><td>57</td>
+<td>49</td>
+<td>41</td>
+<td>33</td>
+<td>25</td>
+<td>17</td>
+<td>9</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td>59</td>
+<td>51</td>
+<td>43</td>
+<td>35</td>
+<td>27</td>
+<td>19</td>
+<td>11</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>62</td>
+<td>53</td>
+<td>45</td>
+<td>37</td>
+<td>29</td>
+<td>21</td>
+<td>13</td>
+<td>5</td>
+</tr>
+<tr class="row-even"><td>63</td>
+<td>55</td>
+<td>47</td>
+<td>39</td>
+<td>31</td>
+<td>23</td>
+<td>15</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<div class="math">
+\[\begin{split}1 \to 58 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}2 \to 50 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}3 \to 42 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}4 \to 34 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}5 \to 26 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}6 \to 18 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}7 \to 10 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}8 \to 2 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}9 \to 26 \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}\dots \\\end{split}\]</div>
+<div class="math">
+\[64 \to 7\]</div>
+<p>Матриці перестановок в DES (комерційній версії) є відкритими і задані
+стандартом.</p>
+<p>Функція шифрування являє собою комбінацію S-блоків, E-блоків і
+P-блоків. При цьому всередині цієї функції використоується операція
+XOR із розрядами ключа.
+Дана функція володіє властивістю нелінійності та є настроюваною, що
+дозволяє суттєво підвищити криптостійкість.</p>
+</div>
+<div class="section" id="id31">
+<h4><a class="toc-backref" href="#id89">Особливості шифрування по алгоритму DES</a><a class="headerlink" href="#id31" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Вихідне повідомлення розбивається на 2 блоки по 32 біти кожен і далі
+окремо оброблюються і ліва, і права частини, але при цьому на кожному
+циклі відбувається обмін між лівою і правою частинами, ліва частина
+додається до функції шифрування за допомогою операції XOR.</li>
+<li>Функція шифрування є ключовим елементом алгоритму DES. Вона визначає
+такі важливі параметри, як криптостійкість і швидкість шифрування.</li>
+</ul>
+<div class="section" id="id32">
+<h5>Функція шифрування DES<a class="headerlink" href="#id32" title="Постійне посилання на цей заголовок">¶</a></h5>
+<p>Розглянемо функцію шифрування.</p>
+<p><img alt="Feistel encryption function of DES" src="https://upload.wikimedia.org/wikipedia/commons/2/25/Data_Encription_Standard_Flow_Diagram.svg" /></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>12</td>
+<td>17</td>
+<td>31</td>
+<td>1</td>
+<td>7</td>
+<td>8</td>
+<td>11</td>
+<td>27</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>1</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>7</td>
+<td>&nbsp;</td>
+<td>8</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>S-блоки – блоки підстановки. Вони працюють за табличним принципом.</p>
+<p>[0][1111][0] → [00][1111] → [0][15]</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>0101</td>
+<td>1101</td>
+</tr>
+<tr class="row-even"><td>1101</td>
+<td>0011</td>
+</tr>
+<tr class="row-odd"><td>…</td>
+<td>…</td>
+</tr>
+<tr class="row-even"><td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>Таблиці S-блоків – загальні для усіх S-блоків. Більш того, вони
+задаютлся стандартом алгоритму.</p>
+<p>Розглянута функція – т.з. “класична” функція шифрування за алгоритмом
+DES. Можливими модифікаціями є зміна довжини блоків шифрування і довжини
+циклових ключів. Зокрема, в деяких модифікаціях використовується
+цикловий ключ довжиною у 128 біт. Зміна тільки довжини циклового ключа
+без зміни довжини блоку призводить до зниження криптостійкості. Таким
+чином, треба змінювати і довжину блоку. Втім, збільшення довжини блоку
+шифрування призводить до зниження швидкодії алгоритму шифрування.</p>
+<p>Наразі вимоги до довжини блоку шифрування значно знижені. Для сучасного
+рівня розвитку комп’ютерної техніки цілком приянйтними є довжини блоку
+шифрування до 1KB.</p>
+<p>Також, підвищенню криптостійкості сприяє заміна E-блоку на P-блок.</p>
+<p>Важливим моментом є проблема формування циклового ключа. Існує
+спеціальна схема перетворень, за якою із базового ключа (довжиною 64
+біти) ми отримуєм 16 циклових ключів (довжиною у 48 біт кожен).</p>
+</div>
+<div class="section" id="id33">
+<h5>Схема перетворення ключа з метою отримання циклових ключів<a class="headerlink" href="#id33" title="Постійне посилання на цей заголовок">¶</a></h5>
+<!-- TODO: додати схему і пояснення з лекції --><p><img alt="Key generation scheme" src="https://upload.wikimedia.org/wikipedia/commons/0/07/DES_key_schedule.svg" /></p>
+<p>Існує певна послідовність, яка задає, на скільки бітів здійснювати
+циклічний зсув при генерації чергового циклового ключа. Як і таблиці
+перестановок, ця послідовність задається стандартом.</p>
+<p>Схема алгоритму DES задана таким чином, що імовірність отримання двох
+однакових циклових ключів надзвичайно низька.</p>
+</div>
+</div>
+<div class="section" id="id34">
+<h4><a class="toc-backref" href="#id90">Модифікації алгоритму DES</a><a class="headerlink" href="#id34" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Найпершими модифікаціями алгоритму DES були 2DES і
+<a class="reference external" href="https://en.wikipedia.org/wiki/Triple_DES">3DES</a></p>
+<p>Нехай D – дані, K – ключ, E – зашифрований текст.
+Тоді для алгоритму DES матимемо:</p>
+<div class="math">
+\[\begin{split}E = Ш(D, K) \\\end{split}\]</div>
+<div class="math">
+\[D = РШ(E, K)\]</div>
+<p>Криптостійкість схеми складає <span class="math">\(\approx 2^{70}\)</span></p>
+<p>У алгоритмі 2DES є два ключа – K1 і K2:</p>
+<div class="math">
+\[\begin{split}E_1 = Ш(D, K_1) \\\end{split}\]</div>
+<div class="math">
+\[E = E_2 = РШ(E_1, K_2)\]</div>
+<p>Для розшифрування:</p>
+<div class="math">
+\[\begin{split}D_1 = Ш(E, K_2) \\\end{split}\]</div>
+<div class="math">
+\[D = D_2 = РШ(D_1, K_1)\]</div>
+<p>Криптостійкість схеми складає <span class="math">\(\approx 2^{70}\)</span></p>
+<p>Для схеми 3DES потрібно 3 ключі: <span class="math">\(K_1\)</span>, <span class="math">\(K_2\)</span>, <span class="math">\(K_3\)</span>. Сама
+схема шифрування має вигляд:</p>
+<div class="math">
+\[E_1 = Ш(D, K_1)\]</div>
+<div class="math">
+\[E_2 = РШ(E_1, K_2)\]</div>
+<div class="math">
+\[E = E_3 = Ш(E_2, K_3)\]</div>
+<p>При розшифруванні схема 3DES має вигляд:</p>
+<div class="math">
+\[D_1 = РШ(E_3, K_3)\]</div>
+<div class="math">
+\[D_2 = Ш(D_1, K_2)\]</div>
+<div class="math">
+\[D = D_3 = РШ(D_2¸K_3)\]</div>
+<p>Криптостійкість схеми 3DES досягає <span class="math">\(\approx 2^{90}\)</span></p>
+</div>
+</div>
+<div class="section" id="digital-signature">
+<h3><a class="toc-backref" href="#id91">3.7 Цифровий підпис (Digital signature)</a><a class="headerlink" href="#digital-signature" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>   A                      B
++-----+                +-----+  3
+|     |                |     | K
+|     |                |     |  A
+|     | ------------&gt;  |     | +-----+
+|     |       ^        |     | |     |
+| 100 |       |        |10000| +-----+
++-----+       |        +-----+    |
+              |                   |
++-----+       |        +-----+
+|SIGN | -------------- |     | -- || ?
++-----+       |        +-----+
+              Z
+</pre></div>
+</div>
+<p>Цифровий підпис реалізується як згортка за наступним алгоритмом:</p>
+<ol class="arabic simple">
+<li>Текст розбирається на блоки, розміром з довжину ключа.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>+----------+
+|          |------&gt;|////////| Ш(K)
++----------+           (+)
+|          |------&gt;|////////|
++----------+       ----------
+|          |       |\\\\\\\\| Ш(K)
++----------+
+|          |           …
++----------+
+|          |           |
++----------+           |
+|          |           |
++----------+           |
+
+
+                ЦП |////////| Ш(K)
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Перший блок шифрується секретним ключем K</li>
+<li>Кожен наступний блок XOR’иться з результатом попереднього етапу та
+результат XOR шифрується секретним ключем.</li>
+</ol>
+<p>Для великих за обсягом документів існує пролема кратних помилок – коли
+згортки нівелюють один одного. В таких випадках документ розбивають на
+менші частини і окремо підписують кожну із них.</p>
+</div>
+<div class="section" id="aes">
+<h3><a class="toc-backref" href="#id92">3.8 AES</a><a class="headerlink" href="#aes" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Був оголошений конкурс на розробку криптоалгоритму на заміну DES.
+Результатом стала поява таких алгоритмів, як</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.cs.mcgill.ca/~kaleigh/computers/crypto_rijndael.html">RIJNDAEL</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/MARS_(cryptography)">MARS</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Twofish">TWOFISH</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/RC5">RC5</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/RC6">RC6</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/Blowfish_(cipher)">BLOW-FISH</a></li>
+</ul>
+<p>Із них набув популярності лише <em>RIJNDAEL</em></p>
+<p>Ці криптосистеми зазвичай мають ключ довжиною 128/256 бітів. При цьому,
+якщо <em>DES</em> вимагав, щоб довжина блоку співпадала з довжиною ключа, то в
+нових алгоритмах це не є обов’язковим. Більш того, на відміну від DES,
+де таблиці перестановки були задані стандартом, в алгоритмах AES
+допускається зміна тих чи інших частин таблиць перестановок.</p>
+<p>Криптостійкість DES становила <span class="math">\(2^{55}\)</span>. Криптостійкість алгоритмів
+AES становить <span class="math">\(2^{x-1}\)</span>, де <em>x</em> – довжина ключа шифрування.</p>
+</div>
+<div class="section" id="id35">
+<h3><a class="toc-backref" href="#id93">3.9 ГОСТ 28147-89</a><a class="headerlink" href="#id35" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>Варіація алгоритму DES</li>
+<li>Дозволяє налаштувати кількість циклів шифрування</li>
+<li>Дозволяє міняти деякі внутрішні параметри</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span>                            <span class="o">^</span>
+                            <span class="o">|</span> <span class="n">C_</span><span class="p">{</span><span class="n">i</span><span class="p">}</span>
+                            <span class="o">|</span>
+             <span class="n">C_</span><span class="p">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">}</span>   <span class="o">+--------+</span>
+                <span class="o">|</span>      <span class="o">|</span>  <span class="n">SM5</span>   <span class="o">|</span>    <span class="o">+--------------------------------------+</span>
+                <span class="o">|</span>      <span class="o">+--------+</span>    <span class="o">|</span>                                      <span class="o">|</span>
+                <span class="o">+--------^</span>    <span class="o">^------+</span>                                      <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+<span class="n">N6</span>  <span class="o">|</span>   <span class="n">C1</span>   <span class="o">|</span>                             <span class="o">|</span>     <span class="n">C2</span>   <span class="o">|</span> <span class="n">N5</span>                  <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+         <span class="n">V</span>                                       <span class="n">V</span>                          <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+<span class="n">SM4</span> <span class="o">|</span><span class="n">C4</span><span class="o">|</span>     <span class="o">|</span> <span class="n">C_1</span> <span class="o">+</span> <span class="n">C_4</span>       <span class="n">C_2</span> <span class="o">+</span> <span class="n">C_3</span>   <span class="o">|</span>       <span class="o">|</span><span class="n">C3</span><span class="o">|</span> <span class="n">SM3</span>                 <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+         <span class="n">V</span>                                       <span class="n">V</span>                          <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+<span class="n">N4</span>  <span class="o">|</span>        <span class="o">|</span>                             <span class="o">|</span>          <span class="o">|</span> <span class="n">N3</span>                  <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+         <span class="n">V</span>                                       <span class="n">V</span>                          <span class="o">|</span>
+    <span class="o">+--------+</span>                             <span class="o">+----------+&lt;--------------------|</span>
+<span class="n">N2</span>  <span class="o">|</span>        <span class="o">|&lt;----------------------------|</span>          <span class="o">|</span> <span class="n">N1</span>                  <span class="o">|</span>
+  <span class="o">+&gt;+--------+</span>                             <span class="o">+----------+</span>                     <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>                                            <span class="o">|</span>                         <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>           <span class="o">|-----------------------------</span><span class="n">V</span>  <span class="n">V</span>                         <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">+--------+</span>                         <span class="o">+----------+</span>                    <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x0</span>   <span class="o">|</span>                         <span class="o">|</span>          <span class="o">|</span> <span class="n">SM1</span>                <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x1</span>   <span class="o">|</span>                         <span class="o">+----------+</span>                    <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x2</span>   <span class="o">|</span>                               <span class="o">|</span>                         <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x3</span>   <span class="o">|</span>                               <span class="n">V</span>                         <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x4</span>   <span class="o">|</span>                      <span class="o">+---+---+---+---+---+---+---+---+</span>  <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x5</span>   <span class="o">|</span>                      <span class="o">|</span> <span class="n">k1</span><span class="o">|</span> <span class="n">k2</span><span class="o">|</span> <span class="n">k3</span><span class="o">|</span> <span class="n">k4</span><span class="o">|</span> <span class="n">k5</span><span class="o">|</span> <span class="n">k6</span><span class="o">|</span> <span class="n">k7</span><span class="o">|</span> <span class="n">k8</span><span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x6</span>   <span class="o">|</span>                      <span class="o">+---+---+---+---+---+---+---+---+</span>  <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">|</span>   <span class="n">x7</span>   <span class="o">|</span>                                       <span class="n">V</span>                 <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>   <span class="o">+--------+</span>                      <span class="o">+-------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>                                   <span class="o">|</span>           <span class="o">&lt;--------&gt;</span>          <span class="o">|</span><span class="n">R</span> <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>                                   <span class="o">+-------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">|</span>                                                         <span class="o">|</span>            <span class="o">|</span>
+  <span class="o">|</span>  <span class="o">+---------------------------------------</span><span class="n">V</span>                 <span class="n">V</span>            <span class="o">|</span>
+  <span class="o">|</span>                                      <span class="o">+-------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                  <span class="n">SM2</span> <span class="o">|</span>                               <span class="o">|</span>  <span class="o">|</span>
+  <span class="o">|</span>                                      <span class="o">+-------------------------------+</span>  <span class="o">|</span>
+  <span class="o">|</span>                                                                         <span class="o">|</span>
+  <span class="o">|</span>                                                                         <span class="o">|</span>
+  <span class="o">+-------------------------------------------------------------------------+</span>
+</pre></div>
+</div>
+<p>Криптоалгоритм ГОСТ містить класичні суматори. Це дає можливість
+використовувати операнди різної довжини.</p>
+</div>
+<div class="section" id="anubis">
+<h3><a class="toc-backref" href="#id94">3.10 ANUBIS</a><a class="headerlink" href="#anubis" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Алгоритм шифрування ANUBIS має лише 1 цикл шифрування. Але сама ідея
+полягає у використанні еліптичних кривих.</p>
+<p>За рахунок цього досягається криптостійкість порядку від <span class="math">\(2^{255}\)</span>
+до <span class="math">\(2^{330}\)</span>. Також доволі висока є швидкість шифрування. Втім
+наразі цей алгоритм не є сертифікованим</p>
+</div>
+<div class="section" id="id36">
+<h3><a class="toc-backref" href="#id95">3.11 Асиметричні криптосистеми</a><a class="headerlink" href="#id36" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>У випадку симетричних криптосистем, які розглядалися ранше, була
+необхідність створення закритого секретного каналу зв’язку, щоб передати
+ключ шифрування.</p>
+<div class="section" id="rsa">
+<h4><a class="toc-backref" href="#id96">RSA</a><a class="headerlink" href="#rsa" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Названа по першим літерам прізвищ розробників</li>
+<li>Блоковий алгоритм</li>
+<li>Детальніше можна почитати у
+<a class="reference external" href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">статті на Wikipedia</a></li>
+</ul>
+<p>Необоротні функції:</p>
+<div class="math">
+\[y = a^{x} \mod N\]</div>
+<p>Ряд функцій можна представити у вигляді ряду, тобто маючи достстньо
+велику таблицю значень x та відповідних їм значень y можна побудувати
+поліном, який апроксимує саму функцію.</p>
+<p>Для необоротних функцій побудувати поліном, що відновлює функцію,
+неможливо.</p>
+<p>Так як RSA – блоковий алгоритм. На відміну від DES або GOST, алгоритм
+RSA допускає довільну довжину блоку. Мінімальна довжина блоку – 2
+символи. Рекомендована довжина блоку – 8 символів.</p>
+<p>Нехай задано вихідне повідомлення <em>M</em>. Шифрований текст отримуємо
+як <span class="math">\(C = M^{e} \mod N\)</span>. Процедуру розшифрування, можна представити
+у вигляді – <span class="math">\(M = C^{d} \mod N\)</span>. Тут <em>N</em> – довжина блоку, <em>e</em>, <em>d</em>
+– ключі.</p>
+<p>Втім, числа <em>e</em>, <em>d</em> і <em>N</em> не є випадковими.</p>
+<ol class="arabic simple">
+<li><span class="math">\(N = p \cdot q\)</span>, де <em>p</em> і <em>q</em> – прості числа</li>
+<li><span class="math">\(\Phi(N) = (p - 1) \cdot (q -1)\)</span>. Тут <span class="math">\(\Phi\)</span> – <a class="reference external" href="https://en.wikipedia.org/wiki/Euler_function">функція
+Ойлера</a></li>
+<li><span class="math">\(GCD(e, \Phi(N)) = 1\)</span> – тобто <em>e</em> і <span class="math">\(\Phi(N)\)</span> – взаємнопрості</li>
+<li><span class="math">\((e \cdot d) \mod \Phi(N) = 1\)</span>.</li>
+</ol>
+<p>Порядок чисел <em>e</em> і <em>d</em> доволі великий – більше 350 біт</p>
+<p>Швидкодія алгоритму RSA залишає бажати кращого, тому шифрувати великі
+об’єми інформації алгоритмом RSA не рекомендується. Зазвичай інформацію
+шифрують якимось симетричним алгоритмом (DES/ AES), а ключ шифрування
+потім шифрується асиметричним криптоалгоритмом (напр. RSA).</p>
+<div class="section" id="id38">
+<h5>Киптостійкість<a class="headerlink" href="#id38" title="Постійне посилання на цей заголовок">¶</a></h5>
+<p>У алгоритмі RSA маємо 2 ключі – <em>e</em> і <em>d</em>. Один із ключів – приватний.
+Якщо у злочинця є відкритий ключ <em>e</em>, то:</p>
+<div class="math">
+\[\begin{split}d = \frac{n \cdot \Phi(N) + 1}{e} \\\end{split}\]</div>
+<div class="math">
+\[\begin{split}\Phi(N) = (p - 1) \cdot (q - 1) = p \cdot q - (p + q) + 1 = N - (p + q) + 1 \\\end{split}\]</div>
+<div class="math">
+\[N = p \cdot q\]</div>
+<p>Щоб знайти <em>d</em> потрібно факторизувати число <em>N</em>. Так як числа <em>N</em>, <em>p</em>,
+<em>q</em> – великі (~ 250 біт) – то факторизація займає доволі багато часу (до
+декількох років)</p>
+<p>В алгоритмі RSA поняття ключ стосується (e; N) і (d; N), де N &gt; e і N &gt; d</p>
+</div>
+<div class="section" id="rsa-n">
+<h5>Оцінка складності дешифруванн повідомлення, зашифрованого RSA залежно від довжини основи ключа N<a class="headerlink" href="#rsa-n" title="Постійне посилання на цей заголовок">¶</a></h5>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="31%" />
+<col width="31%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Довжина N
+(біти)</th>
+<th class="head">складність обчислень
+(операцій)</th>
+<th class="head">пам’ять для
+алгоритму (біт)</th>
+<th class="head">Час вирішення
+задачі
+(при 10^9 оп/c)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>128 (50)</td>
+<td><span class="math">\(2 \cdot 10^{12}\)</span></td>
+<td><span class="math">\(7 \cdot 10^{6}\)</span></td>
+<td>~ 2-3 хв</td>
+</tr>
+<tr class="row-odd"><td>200 (70)</td>
+<td><span class="math">\(10 ^ {16}\)</span></td>
+<td><span class="math">\(10 ^ {8}\)</span></td>
+<td>~ 2-3 місяці</td>
+</tr>
+<tr class="row-even"><td>256 (90)</td>
+<td><span class="math">\(9 \cdot 10^{17}\)</span></td>
+<td><span class="math">\(10^{9}\)</span></td>
+<td>~ 10 років</td>
+</tr>
+<tr class="row-odd"><td>512 (180)</td>
+<td><span class="math">\(4 \cdot 10^{24}\)</span></td>
+<td><span class="math">\(3 \cdot 10^{12}\)</span></td>
+<td>~ 100 років</td>
+</tr>
+<tr class="row-even"><td>1024 (360)</td>
+<td><span class="math">\(10^{34}\)</span></td>
+<td><span class="math">\(10^{17}\)</span></td>
+<td>~ 500 років</td>
+</tr>
+<tr class="row-odd"><td>2000 (720)</td>
+<td><span class="math">\(7 \cdot 10^{47}\)</span></td>
+<td><span class="math">\(10^{24}\)</span></td>
+<td>~ 1000 років</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id39">
+<h5>Підсумок<a class="headerlink" href="#id39" title="Постійне посилання на цей заголовок">¶</a></h5>
+<p>Алгоритм RSA – класична асиметричн криптосистема і фактично єдиний
+алгоритм, прийнятий у якості стандарту серед асиметричних криптосистем.</p>
+<p>Даний алгоритм початково дозоляв відмовитися від секетного каналу
+передачі даних та використовувався в основному для передачі незначних
+службових повідомлень. На сьогоднішній день повідомлення лобсягом до 1
+кб можна гифрувати цим алгоритмом.</p>
+</div>
+<div class="section" id="id40">
+<h5>Побудова цифрових підписів для алгоритму RSA<a class="headerlink" href="#id40" title="Постійне посилання на цей заголовок">¶</a></h5>
+<p>В асиметричних криптосистемах для побудови цифрових підписів міняються
+ролі ключів. При шифруванні текст шифрується відкритим ключем (іншого
+абонента), а розшифровується власним закритим ключем.</p>
+<div class="math">
+\[Ш_{К^{o}_{B}}(M) \to РШ_{K^{з}_{A}}(M)\]</div>
+</div>
+</div>
+<div class="section" id="al-gamal">
+<h4><a class="toc-backref" href="#id97">Al-gamal</a><a class="headerlink" href="#al-gamal" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Є користувач і адміністратор. Для них є 4 ключі</p>
+<ol class="arabic simple">
+<li>Закритий ключ користувача <span class="math">\(K^{з}_{п} = \alpha\)</span></li>
+<li>Відкритий ключ користувача <span class="math">\(K^{в}_{п} = q^{\alpha} \mod p\)</span></li>
+<li>Закритий ключ адміністратора <span class="math">\(K^{з}_{п} = \beta\)</span></li>
+<li>Відкритий ключ адміністратора <span class="math">\(K^{в}_{п} = q^{\beta} \mod p\)</span></li>
+</ol>
+<p>Після того, як <em>p</em> і <em>q</em> передані та ключі сформовані, користувач
+обчислює свою маску</p>
+<div class="math">
+\[M_{п} = (K^{в}_{а}) ^ { K^{з}_{п} } = (q^{\beta} \mod p)^{\alpha}
+= q^{\beta \cdot \alpha} \mod p\]</div>
+<p>Адміністратор, в свою чергу обчислює свою маску</p>
+<div class="math">
+\[M_{а} = (K^{в}_{п})^{K^{з}_{а}} = (q^{\alpha} \mod p)^{\beta}
+= q^{\alpha \cdot \beta} \mod p\]</div>
+<p>Звідси <span class="math">\(M_{а} = M_{п}\)</span></p>
+<p>Тоді шифрування має вигляд</p>
+<div class="math">
+\[S = S_1 \cup S_2 \cup … \cup S_n\]</div>
+<div class="math">
+\[S_i vs M_{а_{п}} = C_i\]</div>
+<div class="math">
+\[C_i vs M_{п_{а}} = S_i\]</div>
+<p>Алгоритм Al-gamal розроблявся, як деяка спрощена версія RSA, що
+дозволяла шифрувати повідомлення в рази швидше. Втім цей алгоритм
+вимагав захищеного каналу (разового) для передачі <em>p</em> і <em>q</em>.</p>
+<p>Практика сьогодення показує, що вимоги до швидкості RSA знизилися, а
+сучасні засоби дозволяють швидко зламати алгоритм Al-gamal. Тому
+наразі необхідність у цьому алгоритмі відпала.</p>
+</div>
+<div class="section" id="id41">
+<h4><a class="toc-backref" href="#id98">Сьогодення</a><a class="headerlink" href="#id41" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>В асиметричній криптографії де-факто існує стандарт – алгоритм RSA</li>
+<li>Для невеликих обсягів інформації (до 1МБ) бажано використовувати
+асиметричне шифрування.</li>
+<li>На обсягах інформації 1МБ і більше асиметричне шифрування працює
+повільно, тому має сенс використання симетричного шифрування (DES,
+AES, …)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id42">
+<h3><a class="toc-backref" href="#id99">3.12 Потокові криптосистеми</a><a class="headerlink" href="#id42" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Якщо необхідно зашифрувати потік даних в реальному часі (наприклад,
+відеопотік), використовують потокові криптосистеми.</p>
+<div class="section" id="b-crypt">
+<h4><a class="toc-backref" href="#id100">Алгоритм B-Crypt</a><a class="headerlink" href="#b-crypt" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Шифрування відбувається побітно</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">IV</span>   <span class="o">+---------------+</span>      <span class="o">+---------------+</span>  <span class="n">IV</span>
+<span class="o">----&gt;|</span>               <span class="o">|</span>      <span class="o">|</span>               <span class="o">|----&gt;</span>
+<span class="n">K</span>    <span class="o">|</span>  <span class="n">Mask</span> <span class="n">Former</span>  <span class="o">|</span>      <span class="o">|</span>  <span class="n">Mask</span> <span class="n">Former</span>  <span class="o">|</span>   <span class="n">K</span>
+<span class="o">----&gt;|</span>               <span class="o">|</span>      <span class="o">|</span>               <span class="o">|----&gt;</span>
+     <span class="o">+---------------+</span>      <span class="o">+---------------+</span>
+          <span class="o">|</span>                          <span class="o">|</span>
+          <span class="o">/</span><span class="mi">1</span>                         <span class="o">|</span>
+          <span class="o">|</span>                          <span class="o">|</span>
+          <span class="n">v</span>                          <span class="n">V</span>
+<span class="n">D</span>       <span class="o">+---+</span>           <span class="n">CD</span>         <span class="o">+---+</span>
+<span class="o">-------&gt;|</span> <span class="o">+</span> <span class="o">|&gt;--------------------&gt;|</span> <span class="o">+</span> <span class="o">|-----------&gt;</span><span class="n">D</span>
+<span class="mi">010110</span>  <span class="o">+---+</span>                      <span class="o">+---+</span>
+</pre></div>
+</div>
+<p>Тут:</p>
+<ul class="simple">
+<li>IV – Initial Vector</li>
+<li>K – ключ</li>
+<li>D – потік даних</li>
+<li>CD – зашифрований потік даних</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="o4">
+<h2><a class="toc-backref" href="#id101">Розділ №4. Протоколи автентикації в КСС</a><a class="headerlink" href="#o4" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>          <span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+            \
+             <span class="n">V</span>
+         <span class="o">/////</span> <span class="o">//////</span> <span class="o">/////</span> <span class="o">/////</span> <span class="o">//</span>
+<span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">---&gt;</span> <span class="o">//////</span> <span class="n">Комутаційне</span> <span class="n">Поле</span> <span class="o">/////</span> <span class="o">---&gt;</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+         <span class="o">////</span> <span class="o">///</span> <span class="o">///</span> <span class="o">///</span> <span class="o">///</span> <span class="o">///</span> <span class="o">//</span>
+</pre></div>
+</div>
+<div class="section" id="id43">
+<h3><a class="toc-backref" href="#id102">4.1. Класифікація протоколів автентикації в КСС</a><a class="headerlink" href="#id43" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Перед безосередньо передачею даних, суб’єкт проходить процедуру
+автентикації.</p>
+<p>Протоколи автентикації поділяються на</p>
+<ul class="simple">
+<li>Протоколи автентикації з посередником СБ (з ЦРК – центром розподілу
+ключів)</li>
+<li>Протоколи автентикації суб’єктів<ul>
+<li>На основі симетричних криптосистем (AES)</li>
+<li>На основі асиметричних криптосистем (RSA)</li>
+</ul>
+</li>
+<li>Протоколи автентикації повідомлень<ul>
+<li>На основі симетричних криптосистем (AES)</li>
+<li>На основі асиметричних криптосистем (RSA)</li>
+</ul>
+</li>
+<li>Протоколи автентикації без посередника (без ЦРК)</li>
+</ul>
+<p>У випадку протоколів з ЦРК відповідальність за розподіл ключів, безпеку,
+тощо несе ЦРК.</p>
+</div>
+<div class="section" id="id44">
+<h3><a class="toc-backref" href="#id103">4.2 Протоколи автентикації суб’єктів на основі симетричних криптосистем</a><a class="headerlink" href="#id44" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span>               <span class="o">+-----+</span>    <span class="n">з</span>    <span class="n">в</span>    <span class="n">з</span>    <span class="n">в</span>
+               <span class="o">|</span> <span class="n">ЦРК</span> <span class="o">|</span>  <span class="n">K_а</span>  <span class="n">K_а</span>  <span class="n">K_б</span>  <span class="n">K_б</span>
+               <span class="o">+-----+</span>
+                <span class="o">^</span>
+     <span class="o">+---+</span>      <span class="o">|</span>               <span class="o">+---+</span>
+  <span class="n">з</span>  <span class="o">|</span> <span class="n">А</span> <span class="o">|&lt;-----+</span>               <span class="o">|</span> <span class="n">Б</span> <span class="o">|</span>    <span class="n">з</span>
+<span class="n">K_а</span>  <span class="o">+---+&lt;--------------------&gt;+---+</span>  <span class="n">K_б</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><span class="math">\(A \to C : I_{A_1}, I_{B_1}, r\)</span>, де <em>r</em> – випадкове
+число;</li>
+<li><span class="math">\(C \to A : Ш_{K^з_A}(I_{A_1}, K^з_S); Ш_{K^з_B}(I_{B_1}, K^з_S)\)</span>;</li>
+<li><span class="math">\(A \to B : Ш_{K^з_B}(I_{B_1}, K^з_S); Ш_{K^з_S}(r)\)</span>;</li>
+<li><span class="math">\(B \to A : Ш_{K^з_S}(f(r), e)\)</span>;</li>
+<li><span class="math">\(A \to B : Ш_{K^з_S}(f(e))\)</span>;</li>
+</ol>
+<p>Даний протокол є подібним до протоколу рукостискання.</p>
+<ol class="arabic simple">
+<li>Якщо злочинець підробить сеансовий ключ, то він може змінити <em>r</em>, і
+видати себе за іншого. Втім, оскільки r задеклароване на сервері, цей
+ризик не такий вже й високий</li>
+<li>MITM Attack. Злочинець може пропускати всі повідомлення через себе,
+дешифруючи або підміняючи їх. На це необхідний час
+<span class="math">\(\Delta T \approx 2 \text{год}\)</span>.
+Щоб запобігти даній вразливості, можна фіксувати
+часові мітки повідомлень.</li>
+</ol>
+</div>
+<div class="section" id="id45">
+<h3><a class="toc-backref" href="#id104">4.3 Протоколи автентикації суб’єктів на основі асиметричних криптосистем</a><a class="headerlink" href="#id45" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Використовується криптосистема RSA</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>          <span class="o">+-----+</span>
+          <span class="o">|</span> <span class="n">ЦРК</span> <span class="o">|</span>
+          <span class="o">+-----+</span>
+           <span class="o">^</span>
+<span class="o">+---+</span>      <span class="o">|</span>               <span class="o">+---+</span>
+<span class="o">|</span> <span class="n">А</span> <span class="o">|&lt;-----+</span>               <span class="o">|</span> <span class="n">Б</span> <span class="o">|</span>
+<span class="o">+---+&lt;--------------------&gt;+---+</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>У ЦРК є усі ключі, як відкриті, так і закриті</li>
+<li>У A і Б є всі відкриті ключі та свій закритий</li>
+</ul>
+<p>В таких системах ключі повинні бути сертифіковані.</p>
+<ol class="arabic simple">
+<li><span class="math">\(A \to C: I_{A}, I_{B}, r\)</span>;</li>
+<li><span class="math">\(C \to A: Ш_{К^з_С}(I_A,K^в_A); Ш_{К^з_С}(I_B,K^в_B)\)</span>; &#8211; сертифікати</li>
+<li><span class="math">\(A \to B: Ш_{К^з_С}(I_A,K^в_A); Ш_{K^в_А}(r)\)</span>;
+На цьому стадія сертифікації завершена. Далі починається “рукостискання”.</li>
+<li><span class="math">\(B \to A: Ш_{К^в_B}(f(r), e)\)</span>;</li>
+<li><span class="math">\(A \to B: Ш_{К^в_А}(f(e))\)</span>;</li>
+</ol>
+</div>
+<div class="section" id="id46">
+<h3><a class="toc-backref" href="#id105">4.4 Протокол автентикації повідомлень на основі симетричних криптосистем.</a><a class="headerlink" href="#id46" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="section" id="id47">
+<h4><a class="toc-backref" href="#id106">Загальна схема.</a><a class="headerlink" href="#id47" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Є якісь дані D</p>
+<p>Суб’єкт-відправник формує цифровий підпис для даних: <span class="math">\(W = ЦС(D)\)</span></p>
+<p><span class="math">\(A \to B: D, W\)</span> – дані надсилаються разом із цифровим підписом.</p>
+<p>Розглянемо випадок, коли ініціатором є суб’єкт А:</p>
+<ol class="arabic simple">
+<li><span class="math">\(A \to C: Ш_{K^з_A}(I_A, I_B, D, W, e)\)</span>
+Суб’єкт А надсилає на ЦРК зашифровані своїм приватним ключем дані, цифровий
+підпис, тощо</li>
+<li><span class="math">\(C \to B: Ш_{K^з_B}(I_A, I_B, D, W, e)\)</span>;</li>
+</ol>
+<p>Розглянемо випадок, коли ініціатором є суб’єкт B:</p>
+<ol class="arabic simple">
+<li><span class="math">\(A \to B: D, W\)</span> А передає B сертифікат і сигнатуру</li>
+<li><span class="math">\(B \to C: Ш_{K^з_B}(I_A, I_B, D, W, e)\)</span>;</li>
+<li><span class="math">\(C \to A: Ш_{K^з_B}(I_A, I_B, D, W, e)\)</span>;</li>
+</ol>
+<p>тут <em>e</em> – ознака перевірики цифрового підпису.</p>
+<p>Протоколи автентикації повідомлень можуть бути реалізовані як із
+протоколами автентикації користувачів, так і без них.</p>
+</div>
+</div>
+<div class="section" id="id48">
+<h3><a class="toc-backref" href="#id107">4.5 Пртоколи автентикації повідомлень на основі асиметричних криптосистем</a><a class="headerlink" href="#id48" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ol class="arabic simple">
+<li>Ініціатор – суб’єкт A</li>
+</ol>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">(A-&gt;C) Суб’єкт А за своєю ініціативою повинен передати суб’єкту C
+зашифроване відкритим ключем C інформацію
+<span class="math">\((I_A, I_B, Message, ЦифроваСигнатура, e)\)</span></p>
+</li>
+<li><p class="first">(C-&gt;B) С напряму відправляє B зашифроване закритим ключем C
+інформацію <span class="math">\((I_A, I_B, Message, ЦифроваСигнатура, e)\)</span></p>
+<p>Тут <span class="math">\((I_A, I_B, Message, ЦифроваСигнатура, e)\)</span> – сертифікат сигнатури</p>
+</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Ініціатор – суб’єкт B</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>(A -&gt; B) <span class="math">\((I_A, I_B, Message, ЦС)\)</span> зашифроване відкритим ключем B</li>
+<li>(B -&gt; C) <span class="math">\((I_A, I_B, Message, ЦС, e)\)</span> зашифроване відкритим ключем C</li>
+<li>(C -&gt; B) <span class="math">\((I_A, I_B, Message, ЦС, e)\)</span> зашифроване закритим ключем C</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="id49">
+<h3><a class="toc-backref" href="#id108">4.6 Протокол відкритих угод</a><a class="headerlink" href="#id49" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Протокол відкритих угод реалізується на основі астметричних криптосистем.
+Він являє собою комбінацію протоколів автентикації суб’єктів і
+протоколів автентикації повідомлень.</p>
+<p>Учасники:</p>
+<ul class="simple">
+<li>A – покупець</li>
+<li>B – продавець</li>
+<li>C – банк</li>
+</ul>
+<p>У всіх суб’єктів є вікриті і закриті ключі</p>
+<p>Щоб запустити протокол, необхідні наступні умови:</p>
+<ol class="arabic simple">
+<li>І покупець, і продавець мають рахунки в одному банку</li>
+<li>У покупця є електронна чекова книжка ЕЧК_А</li>
+</ol>
+<p>Протокол:</p>
+<ol class="arabic simple">
+<li>A -&gt; B: Message, ЦС(Message)</li>
+<li>B -&gt; A: ОК!</li>
+<li>A -&gt; C: <span class="math">\(Ш_{ЗК_А}(I_A, ЕЧ_А1)\)</span> (суб’єкт А “заморожує” суму в
+банку)</li>
+<li>С -&gt; B: <span class="math">\(Ш_{ЗК_С}(I_A, I_B, ЕЧ_А1*)\)</span> (банк повідомляє B про
+заморозку суми по угоді. <code class="docutils literal"><span class="pre">*</span></code> значить, що гроші заморожені)</li>
+<li>B -&gt; A: OK!</li>
+<li>A -&gt; C: <span class="math">\(Ш_{ЗК_А}(I_A, ЕЧ_А*)\)</span> (покупець підписує заморожений
+чек)</li>
+<li>C -&gt; B: <span class="math">\(Ш_{ЗК_C}(I_A, I_B, ЕЧ_А)\)</span> (продавець отримує гроші)</li>
+</ol>
+</div>
+<div class="section" id="id50">
+<h3><a class="toc-backref" href="#id109">4.7 Оцінка пропускної здатності мереж, в яких реалізуються протоколи автентикації</a><a class="headerlink" href="#id50" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="math">
+\[\gamma = \frac{I}{T}\]</div>
+<p>де,
+-  I – об’єм інформації
+-  T – час</p>
+<p>При протоколах автентикації в мережі маємо таку картину:</p>
+<div class="line-block">
+<div class="line"><em>ПА:Д</em>,</div>
+<div class="line">де ПА – службова інформація протоколу, що передається за час <span class="math">\(T_C\)</span></div>
+</div>
+<p>Тоді</p>
+<div class="math">
+\[\gamma = \frac{I + I’}{T_п + T_с}\]</div>
+<p>Час передачі службової інформації:</p>
+<div class="math">
+\[T_c = m \cdot T_ш + k \cdot T_д\]</div>
+<p>тут <span class="math">\(T_ш = f(l)\)</span>, де <em>l</em> – довжина ключа</p>
+<p>Таким чином</p>
+<div class="math">
+\[\gamma_{з}(l) = \frac{I + I’}{m \cdot T_ш(l) + k \cdot T_д}\]</div>
+<p>Таким чином бачимо, що пропускна здатність мережі обернено пропорційна
+довжині ключа і кількості шифрувань.</p>
+<p>Отже, щоб збільшити пропускну здатність можна</p>
+<ul class="simple">
+<li>зменшити кількість пересилок, щоб менше викликати алгоритми
+шифрування</li>
+<li>застосовувати апаратне шифрування замість програмного</li>
+</ul>
+</div>
+<div class="section" id="id51">
+<h3><a class="toc-backref" href="#id110">4.8 Структура електронної платіжної системи</a><a class="headerlink" href="#id51" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>ЕПС (електронна платіжна система) являє собою систему розрахунків з
+використанням комп’ютрних систем та мереж</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>                     <span class="p">[</span><span class="n">Банк</span><span class="o">-</span><span class="n">емітент</span><span class="p">]</span>
+                       <span class="o">^</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="n">V</span>
+                  <span class="p">[</span><span class="n">КС</span> <span class="p">(</span><span class="n">Маршрутизатор</span><span class="p">)]</span><span class="o">&lt;---&gt;</span><span class="p">[</span><span class="n">ПЦ</span><span class="p">]</span>
+                       <span class="o">^</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="n">V</span>
+                      <span class="p">[</span><span class="n">Банк</span><span class="o">-</span><span class="n">еквайр</span><span class="p">]</span>
+                       <span class="o">^</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="o">|</span>
+                       <span class="o">|</span>        <span class="n">V</span>
+<span class="p">[</span><span class="n">Клієнт</span><span class="p">]</span> <span class="o">---</span><span class="n">карта</span><span class="o">--&gt;</span> <span class="p">[</span><span class="n">POS</span><span class="o">-</span><span class="n">термінал</span><span class="p">]</span>
+              <span class="n">квитанція</span><span class="o">|</span>        <span class="o">^</span>
+                       <span class="n">v</span>        <span class="o">|</span><span class="n">сума</span>
+                       <span class="p">[</span><span class="n">Продавець</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Смарт-карта</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">-</span> <span class="n">скидання</span>
+<span class="mi">2</span> <span class="o">-</span> <span class="n">синхросигнал</span>
+<span class="mi">3</span> <span class="o">-</span> <span class="s2">&quot;0&quot;</span> <span class="n">В</span>
+<span class="mi">4</span> <span class="o">-</span> <span class="s2">&quot;5&quot;</span> <span class="n">В</span>
+<span class="mi">5</span> <span class="o">-</span> <span class="s2">&quot;10&quot;</span> <span class="n">В</span>
+<span class="mi">6</span> <span class="o">-</span> <span class="n">Input</span><span class="o">/</span><span class="n">Output</span>
+</pre></div>
+</div>
+<p>Структура електронної платіжної системи</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>        <span class="n">E_1</span><span class="p">(</span><span class="n">PBN</span><span class="p">)</span>     <span class="o">+----------------------+</span> <span class="n">E_2</span><span class="p">(</span><span class="n">PBN</span><span class="p">)</span>
+       <span class="o">+------------&gt;|</span> <span class="n">ККС</span> <span class="p">(</span><span class="n">маршрутизатори</span><span class="p">)</span> <span class="o">|-------+</span>
+       <span class="o">|</span><span class="n">external</span>     <span class="o">+----------------------+</span>       <span class="o">|</span><span class="n">external</span> <span class="n">key</span>
+       <span class="o">|</span><span class="n">key</span>                                         <span class="n">v</span>
+ <span class="o">+----------+</span>                                <span class="o">+--------------+</span>
+ <span class="o">|</span> <span class="n">Банк</span><span class="o">-</span>    <span class="o">|</span>                                <span class="o">|</span> <span class="n">Банк</span><span class="o">-</span>        <span class="o">|</span>
+ <span class="o">|</span> <span class="n">еквайр</span>   <span class="o">|</span>                                <span class="o">|</span> <span class="n">емітент</span>      <span class="o">|</span>
+ <span class="o">+----------+</span>                                <span class="o">+--------------+</span>
+       <span class="o">^</span> <span class="n">E</span><span class="p">(</span><span class="n">PBL</span><span class="p">)</span>                                      <span class="o">|</span> <span class="n">internal</span> <span class="n">bank</span>
+       <span class="o">|</span>  <span class="n">internal</span> <span class="n">key</span>                               <span class="n">v</span> <span class="n">channel</span>
+ <span class="o">+----------+</span>                                <span class="o">+--------------+</span>
+ <span class="o">|</span> <span class="n">Банкомат</span> <span class="o">|</span>                                <span class="o">|</span> <span class="n">PC</span> <span class="n">Клієнта</span>   <span class="o">|</span>
+ <span class="o">+----------+</span>                                <span class="o">+--------------+</span>
+   <span class="o">^</span>      <span class="o">^</span>
+<span class="n">card</span>      <span class="n">pin</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>При симетричних криптосистемах <span class="math">\(E_1 = E_2\)</span></li>
+<li>При використанні асиметричних криптосистем <span class="math">\(E_1 \neq E_2\)</span></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id52">
+<h2><a class="toc-backref" href="#id111">Розділ 5. Проектування і класифікація захищених комп’ютерних систем</a><a class="headerlink" href="#id52" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="id53">
+<h3><a class="toc-backref" href="#id112">5.1. Два підходи до проектування засобів захисту</a><a class="headerlink" href="#id53" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ol class="arabic simple">
+<li>Засоби захисту реалізуються як надбудова над вже існуючим
+апаратно-програмним забезпеченням.</li>
+<li>Засоби захисту розроблюються одночасно з розробкою
+апаратно-програмного забезпечення.</li>
+</ol>
+<p>Другий підхід є більш надійнм, але щоразу розробляти систему з
+вбудованими засобами захисту – складно. Тому частіше використовують
+перший.</p>
+</div>
+<div class="section" id="id54">
+<h3><a class="toc-backref" href="#id113">5.2 Класифікація КС по рівню захищеності</a><a class="headerlink" href="#id54" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Існує т.з. <a class="reference external" href="https://en.wikipedia.org/wiki/Trusted_Computer_System_Evaluation_Criteria">“Помаранчева книга”</a>,
+в якій містяться рекомендації
+Міністерства Оборони США щодо класифікації КС.</p>
+<p>Видляють 4 класи захищених систем:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><strong>D</strong> <em>Системи з мінімальним захистом</em>.</dt>
+<dd><p class="first last">Сюди входять системи, яких
+засоби захисту або відсутні, або мінімальні (наприклад, прості
+паролі). Windows.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>С</strong> <em>Контрольований захист</em>.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>C1</strong> <em>Ідентифікація</em>.</dt>
+<dd>Обов’язкова наявність засобів ідентифікації
+та автентикації (наприклад, двофакторна автентикація)</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>C2</strong> <em>Контрольований доступ</em>.</dt>
+<dd>Розмежування доступу</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>B</strong> <em>Повноважний захист</em></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>B1</strong> <em>Міточний захист</em>.</dt>
+<dd>В СРД обов’язково має бути реалізована
+система замків і ключів.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>B2</strong> <em>Структурований захист</em>.</dt>
+<dd>Обов’язкова наявність в мережах протоколів автентикації.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>B3</strong> <em>Області безпеки</em>.</dt>
+<dd>Правило 70/30 – не менш, як 70% засобів
+захисту мають бути реалізовано апаратно.</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><dl class="first docutils">
+<dt><strong>A</strong> <em>Розробка, що може бути перевірена</em>.</dt>
+<dd><p class="first last">Військові системи спеціального призначення.</p>
+</dd>
+</dl>
+<ul class="simple">
+<li>Засоби захисту унікальні, секретні, та інтегруються на етапі розробки
+систем. В результаті, система містить усі вбдовані засоби захисту.</li>
+<li>Доступ до таких систем строго регламентується.</li>
+<li>Системи класу A можуть бути об’єднані в мережі тільки з системами
+класу A.</li>
+</ul>
+</li>
+</ul>
+<p>Системи класу B2 і B3 вимагають, щоб усі заходи захисту, що
+використовуються в системі, були представлені у вигляді відкритого
+програмного коду або у вигляді відкритих структурних функціональних та
+принципових схем.</p>
+<p>Класи D, C, B можуть бути реалізовані за допомогою першого підходу.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">IP-32 Blog</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навігація</h3>
+<p class="caption"><span class="caption-text">Зміст:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../s04/index.html">Семестр 4 (2 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s05/index.html">Семестр 5 (3 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s06/index.html">Семестр 6 (3 курс, 2 семестр)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Семестр 7 (4 курс, 1 семестр)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tdea.html">Технології розробки корпоративних застосувань</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphical_modelling.html">Графічне та геометричне моделювання</a></li>
+<li class="toctree-l2"><a class="reference internal" href="software_quality.html">Тестування та якість програмного забезпечення</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Безпека програм та даних</a></li>
+<li class="toctree-l2"><a class="reference internal" href="politology/index.html">Політологія</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../s08/index.html">Семестр 8 (4 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s09/index.html">Семестр 9 (5 курс, 1 семестр)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Семестр 7 (4 курс, 1 семестр)</a><ul>
+      <li>Previous: <a href="software_quality.html" title="Попередній розділ">Тестування та якість програмного забезпечення</a></li>
+      <li>Next: <a href="politology/index.html" title="наступний розділ">Політологія</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Швидкий пошук</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Вперед" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, IP-32 Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/s07/data_security.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk_UA">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>High-Performance Computing Technologies &#8212; Code for life</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'latest',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="next" title="Охорона праці" href="labor_protection.html" />
+    <link rel="prev" title="Семестр 8 (4 курс, 2 семестр)" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="high-performance-computing-technologies">
+<h1><a class="toc-backref" href="#id1">High-Performance Computing Technologies</a><a class="headerlink" href="#high-performance-computing-technologies" title="Постійне посилання на цей заголовок">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Lecturer:</th><td class="field-body">Yuri Grygorovych Gordienko</td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#high-performance-computing-technologies" id="id1">High-Performance Computing Technologies</a><ul>
+<li><a class="reference internal" href="#lecture-1-introduction" id="id2">Lecture 1. Introduction</a><ul>
+<li><a class="reference internal" href="#historical-info" id="id3">Historical info</a></li>
+<li><a class="reference internal" href="#differences-between-parallel-and-distributed-systems" id="id4">Differences between parallel and distributed systems</a></li>
+<li><a class="reference internal" href="#usages" id="id5">Usages</a></li>
+<li><a class="reference internal" href="#models" id="id6">Models</a></li>
+<li><a class="reference internal" href="#distributed-computing" id="id7">Distributed computing</a><ul>
+<li><a class="reference internal" href="#advantanges" id="id8">Advantanges</a></li>
+<li><a class="reference internal" href="#disadvantages" id="id9">Disadvantages</a></li>
+<li><a class="reference internal" href="#pitfals" id="id10">Pitfals</a></li>
+<li><a class="reference internal" href="#design" id="id11">Design</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cluster-and-grid-computing" id="id12">Cluster and Grid computing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lecture-2-parallel-computing" id="id13">Lecture 2. Parallel computing</a><ul>
+<li><a class="reference internal" href="#classification-of-system" id="id14">Classification of system</a><ul>
+<li><a class="reference internal" href="#uma-uniform-memory-access" id="id15">UMA (Uniform memory access)</a></li>
+<li><a class="reference internal" href="#numa" id="id16">NUMA</a></li>
+<li><a class="reference internal" href="#distributed" id="id17">Distributed</a></li>
+<li><a class="reference internal" href="#massively-parallel-processors" id="id18">Massively parallel processors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#programming-models" id="id19">Programming models</a></li>
+<li><a class="reference internal" href="#implementation-of-parallelism" id="id20">Implementation of parallelism</a><ul>
+<li><a class="reference internal" href="#load-balancing" id="id21">Load balancing</a></li>
+<li><a class="reference internal" href="#granularty" id="id22">Granularty</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#amdahl-s-law" id="id23">Amdahl&#8217;s law</a></li>
+<li><a class="reference internal" href="#performance-guidelines" id="id24">Performance guidelines</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lecture-3-metrics" id="id25">Lecture 3. Metrics</a><ul>
+<li><a class="reference internal" href="#types-of-computing-problems" id="id26">Types of computing problems</a></li>
+<li><a class="reference internal" href="#more-general-speedup-formula" id="id27">More General Speedup Formula</a></li>
+<li><a class="reference internal" href="#karp-flatt-metric" id="id28">Karp-Flatt Metric</a></li>
+<li><a class="reference internal" href="#isoefficiency-metric" id="id29">Isoefficiency metric</a><ul>
+<li><a class="reference internal" href="#scalability-function" id="id30">Scalability function</a></li>
+<li><a class="reference internal" href="#examples" id="id31">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#lecture-4" id="id32">Lecture 4</a><ul>
+<li><a class="reference internal" href="#p2p" id="id33">P2P</a></li>
+<li><a class="reference internal" href="#volonteering-computing" id="id34">Volonteering computing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="lecture-1-introduction">
+<h2><a class="toc-backref" href="#id2">Lecture 1. Introduction</a><a class="headerlink" href="#lecture-1-introduction" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>date: Wed Feb 15 13:47:01 EET 2017</p>
+<div class="section" id="historical-info">
+<h3><a class="toc-backref" href="#id3">Historical info</a><a class="headerlink" href="#historical-info" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Parallel processing cannot be replaced with the sequential
+one because of <a class="reference external" href="https://en.wikipedia.org/wiki/Moore's_law">Moore&#8217; Law</a></p>
+<blockquote>
+<div>Number of transistors in a dense integrated circuit
+doubles approximately every two years.</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">See also a
+<a class="reference external" href="http://www.kurzweilai.net/the-law-of-accelerating-returns">Kurzweil&#8217;s extension of Moore&#8217;s law</a></p>
+</div>
+<dl class="docutils">
+<dt>Storage law</dt>
+<dd>storage capacity increases 2x every 12 months</dd>
+<dt>Gilder&#8217;s law</dt>
+<dd>network (optical) bandwidth increases 2x every 9 months</dd>
+<dt>Distributed computing</dt>
+<dd>a collection of independent computers that appears to its users
+as a single coherent system</dd>
+</dl>
+<p>Lesslie Lamport&#8217; test for distributed system</p>
+<blockquote>
+<div>You know you have a distributed system when the crash of a computer
+you&#8217;ve never heard of stops you from getting any work done</div></blockquote>
+</div>
+<div class="section" id="differences-between-parallel-and-distributed-systems">
+<h3><a class="toc-backref" href="#id4">Differences between parallel and distributed systems</a><a class="headerlink" href="#differences-between-parallel-and-distributed-systems" title="Постійне посилання на цей заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="32%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Criteria</th>
+<th class="head">Parallel
+System</th>
+<th class="head">Distributed
+System</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Connectivity</td>
+<td>Tightly
+coupled</td>
+<td>Loosely
+coupled</td>
+</tr>
+<tr class="row-odd"><td>Memory
+access</td>
+<td>Uses shared
+memory
+to exchange
+information</td>
+<td>Uses message
+passing as
+each CPU has
+its own
+memory</td>
+</tr>
+<tr class="row-even"><td>Granularity</td>
+<td>Finer
+grained</td>
+<td>Coarse
+grained</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usages">
+<h3><a class="toc-backref" href="#id5">Usages</a><a class="headerlink" href="#usages" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>Strategic systems</li>
+<li>Visualisation and Graphics</li>
+<li>Economics and Finance</li>
+<li>Scientific computing<ul>
+<li>Physics (LHC)</li>
+<li>Bioinformatics (protein-docking)</li>
+<li>Geology (seismography)</li>
+<li>Astronomy (simulation of galaxy)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="models">
+<h3><a class="toc-backref" href="#id6">Models</a><a class="headerlink" href="#models" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Distributed computations are characterised with models.</p>
+<ul>
+<li><p class="first">Architectural models</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Flynn's_taxonomy">Flynn&#8217;s taxonomy</a>
+distinguishes the following categories:</p>
+<ul class="simple">
+<li><strong>SISD</strong>: traditional uniprocessor computers</li>
+<li><strong>MISD</strong>: Space shuttle flight control computer</li>
+<li><strong>SIMD</strong>: array processor, GPU</li>
+<li><strong>MIMD</strong>: parallel and distributed systems</li>
+</ul>
+<p>There are different architectural-service models as well:</p>
+<ul class="simple">
+<li>Centralised (mainframe, cluster)</li>
+<li>Client-server (mail, banking, computations)</li>
+<li>Multi-tier (grid, DNS)</li>
+<li>Peer-to-peer (file exchange, computations)</li>
+</ul>
+</li>
+<li><p class="first">Interaction models</p>
+<p>Interaction models give answers to the following questions:</p>
+<ul class="simple">
+<li>How do we handle time?</li>
+<li>Are there time limits?</li>
+</ul>
+<p>There are two major models:</p>
+<ul class="simple">
+<li>Synchronous</li>
+<li>Asynchronous</li>
+</ul>
+</li>
+<li><p class="first">Fault models</p>
+<p>The crucial question here is:</p>
+<blockquote>
+<div><p>What kind of faults can occur</p>
+</div></blockquote>
+<ul class="simple">
+<li>Omission faults (a processor or communication fails to perform it is supposed to do)</li>
+<li>Timing faults (in synchronous distributed systems)</li>
+<li>Arbitrary faults (WTF has happened?)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="distributed-computing">
+<h3><a class="toc-backref" href="#id7">Distributed computing</a><a class="headerlink" href="#distributed-computing" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="section" id="advantanges">
+<h4><a class="toc-backref" href="#id8">Advantanges</a><a class="headerlink" href="#advantanges" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Performance</li>
+<li>Reliability</li>
+<li>Distribution</li>
+<li>Incremental growth</li>
+<li>Sharing computation/data/resources/management</li>
+<li>Communication</li>
+<li>Economics</li>
+<li>Flexibility</li>
+</ul>
+</div>
+<div class="section" id="disadvantages">
+<h4><a class="toc-backref" href="#id9">Disadvantages</a><a class="headerlink" href="#disadvantages" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Heterogeneity (hardware, software, operation, etc)</li>
+<li>Software development</li>
+<li>Networking</li>
+<li>Incremental growth (scalability is a pain)</li>
+</ul>
+</div>
+<div class="section" id="pitfals">
+<h4><a class="toc-backref" href="#id10">Pitfals</a><a class="headerlink" href="#pitfals" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>The network is <strong>NOT</strong> reliable</li>
+<li>The network is <strong>NOT</strong> secure</li>
+<li>The network is <strong>NOT</strong> homogeneous</li>
+<li>The topology is <strong>NOT</strong> constant</li>
+<li>Latency is <strong>NOT</strong> zero</li>
+<li>Bandwidth is <strong>NOT</strong> infinite</li>
+<li>Transport cost is <strong>NOT</strong> zero</li>
+<li>There is <strong>NO</strong> single administrator</li>
+</ul>
+</div>
+<div class="section" id="design">
+<h4><a class="toc-backref" href="#id11">Design</a><a class="headerlink" href="#design" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Main charachteristics:</p>
+<ul>
+<li><p class="first">Transparency</p>
+<blockquote>
+<div><p>How to make impression that the collection of machines is a &#8220;simple&#8221; single computer?</p>
+</div></blockquote>
+<ul class="simple">
+<li>Access</li>
+<li>Location</li>
+<li>Migration</li>
+<li>Replication</li>
+<li>Concurrency</li>
+<li>Failure</li>
+<li>Performance</li>
+</ul>
+</li>
+<li><p class="first">Scalability</p>
+</li>
+<li><p class="first">Performance</p>
+<ul class="simple">
+<li>Performance of individual workstations</li>
+<li>Speed of the communication infrastructure</li>
+<li>Extent of reliability</li>
+<li>Flexibility in workload allocations (i.e. idle processors
+should be allocated automatically to a user&#8217;s task)</li>
+</ul>
+</li>
+<li><p class="first">Heterogeneity</p>
+<ul class="simple">
+<li>different hardware</li>
+<li>different software</li>
+<li>various devices (PCs, mobiles, ATM-machines, sensors, etc)</li>
+<li>diverse networks and protocols</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="cluster-and-grid-computing">
+<h3><a class="toc-backref" href="#id12">Cluster and Grid computing</a><a class="headerlink" href="#cluster-and-grid-computing" title="Постійне посилання на цей заголовок">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cluster computing:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">collection of high-end computers usually
+closely connected through LAN</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Homogeneous: OS, hardware</li>
+<li>Work: together like a single computer</li>
+<li>Applications are hosted on one machine and user machines connect to it.
+Clients connect via terminals</li>
+</ul>
+<p><a class="reference external" href="http://hpcc.kpi.ua">High-performance computing center at KPI</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Grid computing:</th><td class="field-body">collection of clusters, which may be combined in a &#8220;GRID&#8221;
+of a massive computing power</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li>Heterogeneous</li>
+<li>Work: for collaborations grids use virtual organizations</li>
+</ul>
+</div>
+</div>
+<div class="section" id="lecture-2-parallel-computing">
+<h2><a class="toc-backref" href="#id13">Lecture 2. Parallel computing</a><a class="headerlink" href="#lecture-2-parallel-computing" title="Постійне посилання на цей заголовок">¶</a></h2>
+<dl class="docutils">
+<dt>Parallel computing</dt>
+<dd>a form of computuation in which many calculations are carried out simultaneously.</dd>
+</dl>
+<p>There are different levels of parallel computing:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Instruction</p>
+<p>a single operation of a processor</p>
+</li>
+<li><p class="first">Thread</p>
+<p>stream of execution (has one or multiple instructions)</p>
+</li>
+<li><p class="first">Task</p>
+</li>
+<li><p class="first">Process</p>
+</li>
+</ul>
+</div></blockquote>
+<p>Level of parallel computing</p>
+<blockquote>
+<div><ul class="simple">
+<li>Task level</li>
+<li>Instruction level</li>
+<li>Bit level</li>
+</ul>
+</div></blockquote>
+<div class="section" id="classification-of-system">
+<h3><a class="toc-backref" href="#id14">Classification of system</a><a class="headerlink" href="#classification-of-system" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>Flynn&#8217;s taxonomy</li>
+<li>Memory access<ul>
+<li>shared memory
+- centralized (SMP)
+- distributed (NUMA)</li>
+<li>individual memory
+- distributed</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="uma-uniform-memory-access">
+<h4><a class="toc-backref" href="#id15">UMA (Uniform memory access)</a><a class="headerlink" href="#uma-uniform-memory-access" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>equal acccess rights</li>
+<li>equal memory access time</li>
+</ul>
+</div>
+<div class="section" id="numa">
+<h4><a class="toc-backref" href="#id16">NUMA</a><a class="headerlink" href="#numa" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>usually physically linked 2 or more SMPs so they can access mem of each other directly</li>
+<li>Not all have eq access time</li>
+<li>Memory acces across the link is much slower</li>
+</ul>
+</div>
+<div class="section" id="distributed">
+<h4><a class="toc-backref" href="#id17">Distributed</a><a class="headerlink" href="#distributed" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>Each CPI has its own local mem and changes are not visible to other CPUs</li>
+<li>Processors are connected by network</li>
+<li>Program must define a way to transfer data between processors</li>
+</ul>
+</div>
+<div class="section" id="massively-parallel-processors">
+<h4><a class="toc-backref" href="#id18">Massively parallel processors</a><a class="headerlink" href="#massively-parallel-processors" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>MPP architecture consists of nodes each having its own processor, memory and I/O subsystem</p>
+</div>
+</div>
+<div class="section" id="programming-models">
+<h3><a class="toc-backref" href="#id19">Programming models</a><a class="headerlink" href="#programming-models" title="Постійне посилання на цей заголовок">¶</a></h3>
+<dl class="docutils">
+<dt>Programming Model</dt>
+<dd>some model which represents an abstraction of the computer system and enables the expression of
+ideas in some form</dd>
+</dl>
+<ul class="simple">
+<li>Shared model<ul>
+<li>Processors read write the variables stored in a shared address space asynchronously</li>
+<li>Access to the shared memory is controlled by some mechanisms (locks/semaphores)</li>
+</ul>
+</li>
+<li>Threads model</li>
+<li>Data parallelization</li>
+<li>Message Passing</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%" />
+<col width="25%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Aspect</th>
+<th class="head">Shared memory</th>
+<th class="head">Message passing</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Communication</td>
+<td>Implicit</td>
+<td>Explicit mesages</td>
+</tr>
+<tr class="row-odd"><td>Synchronization</td>
+<td>Explicit</td>
+<td>Implicit (via message)</td>
+</tr>
+<tr class="row-even"><td>Hardware support</td>
+<td>Typically
+required</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Development effort</td>
+<td>Lower</td>
+<td>Higher</td>
+</tr>
+<tr class="row-even"><td>Tuning Effort</td>
+<td>Higher</td>
+<td>Lower</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="implementation-of-parallelism">
+<h3><a class="toc-backref" href="#id20">Implementation of parallelism</a><a class="headerlink" href="#implementation-of-parallelism" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="section" id="load-balancing">
+<h4><a class="toc-backref" href="#id21">Load balancing</a><a class="headerlink" href="#load-balancing" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>To ditribute work among all tasks so they are all kept busy all of the time</p>
+<p>Ways to achieve:</p>
+<ul class="simple">
+<li>Adequate partitioning</li>
+<li>Dynamic work assignment
+- Scheduler/task-pool
+- Algorithm to detect and handle imbalances</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">If barrier synchronization is used then the slowest task determines the
+time of execution</p>
+</div>
+</div>
+<div class="section" id="granularty">
+<h4><a class="toc-backref" href="#id22">Granularty</a><a class="headerlink" href="#granularty" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>computation/communication ratio</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Fine grained parallelism:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>few</strong> computation events are done between communication events</p>
+<ul class="simple">
+<li>High communication overhead</li>
+<li>Small opportunity to enhance performance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Coarse-grain parallelism:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first"><strong>many</strong> computational events are done between communication events.</p>
+<ul class="last simple">
+<li>Large opportunity to enhance performance</li>
+<li>Harder to do load balancing efficiently</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="amdahl-s-law">
+<h3><a class="toc-backref" href="#id23">Amdahl&#8217;s law</a><a class="headerlink" href="#amdahl-s-law" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul>
+<li><p class="first">Suppose that the sequential execution of a program takes <span class="math">\(T_1\)</span> time units
+and the parallel execution on <span class="math">\(p\)</span> processors takes <span class="math">\(T_p\)</span> time units</p>
+</li>
+<li><p class="first">Suppose that out of the entire execution of the program, <span class="math">\(s\)</span> fraction of it
+is not parallelizable while <span class="math">\(1-s\)</span> fraction is parallelizable</p>
+</li>
+<li><p class="first">Then the speedup:</p>
+<div class="math">
+\[\frac{T_1}{T_p} = \frac{T_1}{T_1 \cdot s + T_1 \cdot \frac{1 - s}{p}}
+                = \frac{1}{s + \frac{1 - s}{p}}\]</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<ul class="last simple">
+<li>Amdahl&#8217;s Law is too simple for real cases</li>
+<li>The communication overhead and workload balance among processes (in general) should
+be taken into account</li>
+</ul>
+</div>
+<p>There are other Laws of paralel computing performance:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Gustafsons Law (1988)</dt>
+<dd>another way to evaluate the performance of a parallel program</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Karp/Flat Metric (1990)</dt>
+<dd>whether the principle barrier to the program speedup is the amount of inherently
+sequential code or parallel overhead</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Isoefficiency (isogranularity) metric</dt>
+<dd>the scalability of a parallel algorithm executing on parallel systems</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="performance-guidelines">
+<h3><a class="toc-backref" href="#id24">Performance guidelines</a><a class="headerlink" href="#performance-guidelines" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>Maximize the fraction of our program that can be parallelized</li>
+<li>Balance the workload of parallel processes</li>
+<li>Minimize the time spent for communication</li>
+</ul>
+</div>
+</div>
+<div class="section" id="lecture-3-metrics">
+<h2><a class="toc-backref" href="#id25">Lecture 3. Metrics</a><a class="headerlink" href="#lecture-3-metrics" title="Постійне посилання на цей заголовок">¶</a></h2>
+<ul>
+<li><p class="first">Time</p>
+</li>
+<li><p class="first">Speedup</p>
+<div class="math">
+\[Speedup = \Psi(n,p) = \frac{\text{sequential execution time}}{\text{parallel execution time}}
+        = \frac{t_s}{t_p}\]</div>
+</li>
+<li><p class="first">Efficiency</p>
+<p>measure of processor utilisation as the speedup divided by the number of processors</p>
+<div class="math">
+\[Efficiency = \varepsilon(n,p) = \frac{\text{Speedup}}{\text{Processors}}\]</div>
+<p>Note that</p>
+<div class="math">
+\[\text{speedup} \leq \text{processors}\]</div>
+<p>Since <span class="math">\(\text{speedup} \geq 0\)</span> and <span class="math">\(\text{processors} &gt; 1\)</span>, it follows that</p>
+<div class="math">
+\[0 \leq \varepsilon(n,p) \leq 1\]</div>
+<p>However there are <strong>superlinear</strong> algorithms, when</p>
+<div class="math">
+\[\text{speedup} &gt; \text{processors}\]</div>
+<p>and for this case</p>
+<div class="math">
+\[\varepsilon(n,p) &gt; 1\]</div>
+</li>
+<li><p class="first">Cost</p>
+<div class="math">
+\[\text{cost} = \text{parallel running time} \cdot \text{processors}\]</div>
+</li>
+</ul>
+<div class="section" id="types-of-computing-problems">
+<h3><a class="toc-backref" href="#id26">Types of computing problems</a><a class="headerlink" href="#types-of-computing-problems" title="Постійне посилання на цей заголовок">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Embarassingly parallel problem:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">is one for which little or no effort is required to separate the problem into a number of parallel tasks.
+They are thus well suited to large internet based distributed platforms and do not suffer from parallel slowdown.
+They require little or no communication of results between tasks.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Distributed computing problems:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">require communication between taks, especially communication of intermediate results.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Inheritably serial computing problems:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">cannot be parallelized at all. They are diametric opposite to embarrassingly parallel problems.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="more-general-speedup-formula">
+<h3><a class="toc-backref" href="#id27">More General Speedup Formula</a><a class="headerlink" href="#more-general-speedup-formula" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>A better version of the <a class="reference internal" href="#amdahl-s-law">Amdahl&#8217;s law</a></p>
+<div class="math">
+\[\Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p} + \kappa(n,p)}\]</div>
+<p>Speedup is an increasing function of problem size</p>
+</div>
+<div class="section" id="karp-flatt-metric">
+<h3><a class="toc-backref" href="#id28">Karp-Flatt Metric</a><a class="headerlink" href="#karp-flatt-metric" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>analyze parallel program performance</li>
+<li>predict speedup with additional processors</li>
+</ul>
+<p>Start with the speedup formula</p>
+<div class="math">
+\[\Psi(n,p) \leq \frac{\sigma(n) + \phi(n)}{\sigma(n) + \frac{\phi(n)}{p} + \kappa(n,p)}\]</div>
+<p>The experimentally determined serial fraction e is a function of speedup and the number pf processors</p>
+<div class="math">
+\[e = \frac{1/\Psi - 1/p}{1 - 1/p}\]</div>
+<p>from this we can define <span class="math">\(\Psi\)</span> in terms of <span class="math">\(e\)</span> and <span class="math">\(p\)</span></p>
+<div class="math">
+\[\Psi = \frac{p}{e \cdot (p - 1) + 1}\]</div>
+<p><strong>Interpretation of e</strong></p>
+<ul class="simple">
+<li>if e is constant as num of CPUs increases, then speedup is constrained by the sequential component</li>
+</ul>
+</div>
+<div class="section" id="isoefficiency-metric">
+<h3><a class="toc-backref" href="#id29">Isoefficiency metric</a><a class="headerlink" href="#isoefficiency-metric" title="Постійне посилання на цей заголовок">¶</a></h3>
+<ul class="simple">
+<li>n - data size</li>
+<li>p - num processes</li>
+<li>T(n,p) &#8211; execution time using p processors</li>
+<li>Psi &#8211; speedup</li>
+</ul>
+<p>T_0(n,p) &#8211; the total wasting time spent by processes doing work not done by sequential algorithm
+.. math:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">T_0</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> \<span class="n">cdot</span> \<span class="n">sigma</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">p</span> \<span class="n">cdot</span> \<span class="n">kappa</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>For example, <span class="math">\(T_(n,1)\)</span> is the sequential execution time</li>
+<li>We want the algorithm to maintain a constant level of efficiency as the data size n increases</li>
+</ul>
+<p><strong>Main steps to derivation</strong></p>
+<ul class="simple">
+<li>begin with speedup formula</li>
+<li>compute total amount of overhead</li>
+</ul>
+<div class="math">
+\[T(n,1) \geq C \cdot T_0(n,p)\]</div>
+<p>where</p>
+<div class="math">
+\[C = \frac{\varepsilon(n,p)}{1 - \varepsilon(n,p)}\]</div>
+<ul class="simple">
+<li>it is used to determine the max number of CPUs for which
+the given level of efficiency can be maintained</li>
+<li>How to maintain a given efficiency? &#8211;
+To increase the problem size when the number of processors increases</li>
+<li>The maximum problem size we can solve is limited by available amount of memory</li>
+<li>Usually for most parallel systems the memory size <span class="math">\(M\)</span>
+is a constant multiple of the number of processors</li>
+</ul>
+<div class="section" id="scalability-function">
+<h4><a class="toc-backref" href="#id30">Scalability function</a><a class="headerlink" href="#scalability-function" title="Постійне посилання на цей заголовок">¶</a></h4>
+<ul class="simple">
+<li>To maintain efficiency <span class="math">\(\varepsilon(n,p)\)</span> when increasing
+<span class="math">\(p\)</span> we must increase <span class="math">\(n\)</span></li>
+<li>Max problem size is limited by available memory <span class="math">\(M\)</span></li>
+<li>Scalability function <span class="math">\(scale(p)\)</span> shows how memory usage per processor
+<span class="math">\(M(f(p))\)</span> must grow to maintain efficiency</li>
+<li>If the scalability function is constant this means
+the <strong>parallel system is perfectly scalable</strong></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h4><a class="toc-backref" href="#id31">Examples</a><a class="headerlink" href="#examples" title="Постійне посилання на цей заголовок">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Reduction task:</th><td class="field-body">collects the answers to all the subproblems and combines
+them in some way to form the output</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Floyd-Warshall Algorithm:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">graph analysis algorithm for finding shorted path in weighted graph</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Finite difference method:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">numerical methods for approximating the solutions
+to differential equations using
+finite difference equations to approximate derivatives</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="lecture-4">
+<h2><a class="toc-backref" href="#id32">Lecture 4</a><a class="headerlink" href="#lecture-4" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="p2p">
+<h3><a class="toc-backref" href="#id33">P2P</a><a class="headerlink" href="#p2p" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Pro</p>
+<ul class="simple">
+<li>No central point of failure</li>
+</ul>
+<p>Cons</p>
+<ul class="simple">
+<li>Decentralised</li>
+<li>Nodes are not equal</li>
+<li>Hard programmatically</li>
+</ul>
+</div>
+<div class="section" id="volonteering-computing">
+<h3><a class="toc-backref" href="#id34">Volonteering computing</a><a class="headerlink" href="#volonteering-computing" title="Постійне посилання на цей заголовок">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Public-resource computing:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first">Combines the resources of personal computers and game consoles belonging
+to the general public to perform scientific coputations</p>
+<p>Started with</p>
+<ul class="last simple">
+<li>Global Internet Mersenne Prime Search (1996)</li>
+<li>Distributed.net (1997)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">IP-32 Blog</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навігація</h3>
+<p class="caption"><span class="caption-text">Зміст:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../s04/index.html">Семестр 4 (2 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s05/index.html">Семестр 5 (3 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s06/index.html">Семестр 6 (3 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s07/index.html">Семестр 7 (4 курс, 1 семестр)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Семестр 8 (4 курс, 2 семестр)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">High-Performance Computing Technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="labor_protection.html">Охорона праці</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../s09/index.html">Семестр 9 (5 курс, 1 семестр)</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Семестр 8 (4 курс, 2 семестр)</a><ul>
+      <li>Previous: <a href="index.html" title="Попередній розділ">Семестр 8 (4 курс, 2 семестр)</a></li>
+      <li>Next: <a href="labor_protection.html" title="наступний розділ">Охорона праці</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Швидкий пошук</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Вперед" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, IP-32 Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/s08/distributed_systems.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

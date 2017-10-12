@@ -1,0 +1,745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk_UA">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Network technologies &#8212; Code for life</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'latest',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="next" title="Технології BigData" href="big_data.html" />
+    <link rel="prev" title="Програмне забезпечення комп’ютерних систем. Програмування та компіляція" href="compilers.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="network-technologies">
+<h1><a class="toc-backref" href="#id1">Network technologies</a><a class="headerlink" href="#network-technologies" title="Постійне посилання на цей заголовок">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Lecturer:</th><td class="field-body"><a class="reference external" href="http://comsys.kpi.ua/ukrainian/teachers/57/">Rokovyi Oleksandr Petrovych</a></td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#network-technologies" id="id1">Network technologies</a><ul>
+<li><a class="reference internal" href="#unix-and-linux-systems" id="id2">UNIX and Linux systems</a><ul>
+<li><a class="reference internal" href="#filesystem-hierarcy-standard" id="id3">Filesystem hierarcy standard</a></li>
+<li><a class="reference internal" href="#permission-management" id="id4">Permission management</a></li>
+<li><a class="reference internal" href="#processes" id="id5">Processes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-open-systems-interconnection-model" id="id6">The Open Systems Interconnection model</a><ul>
+<li><a class="reference internal" href="#osi-layers-functions" id="id7">OSI layers functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tcp-ip-protocol-stack" id="id8">TCP/IP protocol stack</a></li>
+<li><a class="reference internal" href="#ip-protocol" id="id9">IP Protocol</a></li>
+<li><a class="reference internal" href="#control-protocols" id="id10">Control Protocols</a><ul>
+<li><a class="reference internal" href="#icmp" id="id11">ICMP</a></li>
+<li><a class="reference internal" href="#arp-address-resolution-protocol" id="id12">ARP (Address Resolution Protocol)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="unix-and-linux-systems">
+<h2><a class="toc-backref" href="#id2">UNIX and Linux systems</a><a class="headerlink" href="#unix-and-linux-systems" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">further <em>UNIX/Linux</em> denotes all Linux, UNIX, Linux-like and UNIX-like
+systems</p>
+</div>
+<ul>
+<li><p class="first">There are two types of resources: <strong>files</strong> and <strong>processes</strong>. However file
+entity is much wider than one in Windows systems. Hardware devices, IPC
+mechanisms, etc are represented as files. There are 6 types of files:</p>
+<ul>
+<li><p class="first"><strong>Regular file</strong></p>
+</li>
+<li><p class="first"><strong>Directory</strong></p>
+</li>
+<li><p class="first"><strong>Device</strong> These are so called <em>interface files</em> for real devices. They do
+not store used data but provide an interface for operating system to work
+with underlying hardware devices.</p>
+<ul class="simple">
+<li><strong>Block device</strong> (data storages like HDD or SDD). Data exchange with such
+devices is done in chunks called blocks. In case of HDDs and SDDs size of
+block is 512B.</li>
+<li><strong>Char device</strong>. These devices are mostly used for I/O. System reads and
+writes data to char devices byte by byte.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Socket</strong> allows to exchange data between processes which are run on
+different physical devices. Sockets can be used for IPC on local machine but
+this is not efficient due to network stack it uses.</p>
+</li>
+<li><p class="first"><strong>Pipe</strong> (IPC mechanism). In order to perform some data exchange between
+processes pipes are used. One process opens pipe for reading and other one
+for writing.</p>
+<blockquote>
+<div><p>This is like socket but the processes are run on the same physical node</p>
+<p class="attribution">&mdash;© <a class="reference external" href="https://github.com/IcedNecro">Roman Statkevych</a></p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Link</strong></p>
+<ul>
+<li><p class="first"><strong>Hardlink</strong> is a one-way link between filename and its metadata in the
+inode. This means that filename knows where the metadata is but metadata
+knows nothing about filename.</p>
+<p>However metadata is aware about the number of file names which point to
+it.</p>
+<p><em>Hardlinks work only within the same filesystem and can be applied only
+for regular files</em></p>
+</li>
+<li><p class="first"><strong>Symlink</strong> is a file which contains the path to other file. Symlinks do
+not work with file metadata and they can work among different filesystems
+as well as they can work with directories.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>This allows to manage everything in one way: by changing permissions on the
+filesystem level.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">further the word <em>file</em> denotes file of any of 6 types</p>
+</div>
+</li>
+<li><p class="first">Filesystem hierarcy is important. It is represented as a tree, which starts
+from root (<code class="docutils literal"><span class="pre">/</span></code>). The mechanism behind the hierarcy is simple directories.
+Pay attention that directories do not store user data, but only a list of
+files which are located in that directory.</p>
+<p>There is a filesystem struture standard which defines where the parts of
+operating system are located, where which kinds of files are located, etc.</p>
+</li>
+</ul>
+<p>There are two ways to reference files in UNIX/Linux systems:</p>
+<ul class="simple">
+<li><em>absolute</em> filepaths (those are started with <code class="docutils literal"><span class="pre">/</span></code> like <code class="docutils literal"><span class="pre">/home/username</span></code>)</li>
+<li><em>relative</em> filepaths (<code class="docutils literal"><span class="pre">username/foo/bar</span></code>)</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">In order to get help on any command system manual pages should be used.
+There is a special command <code class="docutils literal"><span class="pre">man</span></code> for that. Details on this command usage is
+available on the <a class="reference external" href="https://linux.die.net/man/1/man">man page for man command</a></p>
+</div>
+<p>Main utility to navigate filesystems is <code class="docutils literal"><span class="pre">cd</span></code> command, reference for which can
+be found in <a class="reference external" href="https://linux.die.net/man/1/cd">man 1 cd</a>. Here are some
+examples:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/user  <span class="c1"># navigate to `/home/user` directory</span>
+<span class="nb">cd</span> user  <span class="c1"># navigate to directory `user` which is located in current directory</span>
+<span class="nb">cd</span> ./user  <span class="c1"># the same as above, `.` denotes current directory</span>
+<span class="nb">cd</span> ../  <span class="c1"># navigate one level up in the directory tree</span>
+<span class="nb">cd</span> ../mydir  <span class="c1"># navigate to the directory mydir which is on the same level as</span>
+<span class="c1"># current dir</span>
+<span class="nb">cd</span> ~  <span class="c1"># navigate to the current user&#39;s home directory</span>
+<span class="nb">cd</span> ~/foo <span class="c1"># navigate to the directory `foo` which is the home directory</span>
+</pre></div>
+</div>
+<p>There are other useful utilities:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://linux.die.net/man/1/cp">cp</a> &#8211; copies files</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/rm">rm</a> &#8211; deletes (removes) files</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/touch">touch</a> &#8211; create empty file (actually
+change file timestamps)</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/pwd">pwd</a> print working directory</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/ls">ls</a> list files</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/mv">mv</a> move files</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/find">find</a> search for files in directory tree</li>
+</ul>
+<div class="section" id="filesystem-hierarcy-standard">
+<h3><a class="toc-backref" href="#id3">Filesystem hierarcy standard</a><a class="headerlink" href="#filesystem-hierarcy-standard" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">See <code class="docutils literal"><span class="pre">man</span> <span class="pre">hier</span></code> for more details</p>
+</div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">/</span></code><ul>
+<li><code class="docutils literal"><span class="pre">boot/</span></code> &#8211; stores boot files. It usually contains kernel, initramfs image,
+bootloader cofiguration files, etc</li>
+<li><code class="docutils literal"><span class="pre">etc/</span></code> &#8211; stores configuration files for both operating system and
+applications.</li>
+<li><code class="docutils literal"><span class="pre">bin/</span></code> &#8211; stores executable files (which have the highest important for
+operating system).</li>
+<li><code class="docutils literal"><span class="pre">sbin/</span></code> &#8211; like <code class="docutils literal"><span class="pre">/bin</span></code> holds less important executables for operating
+system start.</li>
+<li><code class="docutils literal"><span class="pre">lib/</span></code> &#8211; holds shared libraries that are necessary to boot the system and
+to run the commands in the root filesystem.</li>
+<li><code class="docutils literal"><span class="pre">root/</span></code> &#8211; home directory for <code class="docutils literal"><span class="pre">root</span></code> user</li>
+<li><code class="docutils literal"><span class="pre">usr/</span></code> &#8211; (UNIX System resources) holds all other resources, which are not
+included in other directories<ul>
+<li><code class="docutils literal"><span class="pre">bin/</span></code> &#8211; primary directory for executable programs</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">var/</span></code> &#8211; holds temporary operating system files like logs, pid files and
+temporary sockets.</li>
+<li><code class="docutils literal"><span class="pre">tmp/</span></code> &#8211; holds <em>user</em> temporary data</li>
+<li><code class="docutils literal"><span class="pre">mnt/</span></code> &#8211; mountpoints</li>
+<li><code class="docutils literal"><span class="pre">home/</span></code> &#8211; holds home directories for users</li>
+<li><code class="docutils literal"><span class="pre">media/</span></code> &#8211; mountpoints for external storages like usb sticks</li>
+<li><code class="docutils literal"><span class="pre">opt/</span></code> &#8211; additional appliations are installed here</li>
+<li><code class="docutils literal"><span class="pre">srv/</span></code> &#8211; storing network services files</li>
+<li><code class="docutils literal"><span class="pre">proc/</span></code> &#8211; virtual filesystem which holds info about running processes</li>
+<li><code class="docutils literal"><span class="pre">sys/</span></code> &#8211; virtual filesystem which grants access to system</li>
+<li><code class="docutils literal"><span class="pre">dev/</span></code> &#8211; stores device files for hardware devices</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="permission-management">
+<h3><a class="toc-backref" href="#id4">Permission management</a><a class="headerlink" href="#permission-management" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>There are three subjects for which permissions are set in UNIX/Linux systems for
+every file:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">u</span></code> &#8211; owner user</li>
+<li><code class="docutils literal"><span class="pre">g</span></code> &#8211; owner group</li>
+<li><code class="docutils literal"><span class="pre">o</span></code> &#8211; other users</li>
+</ul>
+<p>Main permissions are</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">r</span></code> &#8211; read permission</li>
+<li><code class="docutils literal"><span class="pre">w</span></code> &#8211; write permission</li>
+<li><code class="docutils literal"><span class="pre">x</span></code> &#8211; execute permission</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>$ ls -l
+total <span class="m">73</span>
+-r--r--r--   <span class="m">1</span> root  wheel  <span class="m">6199</span> Jul <span class="m">21</span> <span class="m">02</span>:11 COPYRIGHT
+drwxr-xr-x   <span class="m">2</span> root  wheel  <span class="m">1024</span> Jul <span class="m">21</span> <span class="m">02</span>:09 bin
+drwxr-xr-x   <span class="m">8</span> root  wheel  <span class="m">1536</span> Sep <span class="m">13</span> <span class="m">02</span>:39 boot
+dr-xr-xr-x  <span class="m">12</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">02</span>:39 dev
+-rw-------   <span class="m">1</span> root  wheel  <span class="m">4096</span> Sep <span class="m">13</span> <span class="m">02</span>:40 entropy
+drwxr-xr-x  <span class="m">27</span> root  wheel  <span class="m">2560</span> Sep <span class="m">13</span> <span class="m">02</span>:57 etc
+lrwxr-xr-x   <span class="m">1</span> root  wheel     <span class="m">8</span> Sep <span class="m">13</span> <span class="m">02</span>:05 home -&gt; usr/home
+drwxr-xr-x   <span class="m">4</span> root  wheel  <span class="m">1536</span> Jul <span class="m">21</span> <span class="m">02</span>:09 lib
+drwxr-xr-x   <span class="m">3</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">02</span>:03 libexec
+drwxr-xr-x   <span class="m">2</span> root  wheel   <span class="m">512</span> Jul <span class="m">21</span> <span class="m">02</span>:08 media
+drwxr-xr-x   <span class="m">2</span> root  wheel   <span class="m">512</span> Jul <span class="m">21</span> <span class="m">02</span>:08 mnt
+drwxr-xr-x   <span class="m">2</span> root  wheel   <span class="m">512</span> Jul <span class="m">21</span> <span class="m">02</span>:08 net
+dr-xr-xr-x   <span class="m">2</span> root  wheel   <span class="m">512</span> Jul <span class="m">21</span> <span class="m">02</span>:08 proc
+drwxr-xr-x   <span class="m">2</span> root  wheel  <span class="m">2560</span> Jul <span class="m">21</span> <span class="m">02</span>:09 rescue
+drwxr-xr-x   <span class="m">2</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">02</span>:57 root
+drwxr-xr-x   <span class="m">2</span> root  wheel  <span class="m">2560</span> Jul <span class="m">21</span> <span class="m">02</span>:10 sbin
+lrwxr-xr-x   <span class="m">1</span> root  wheel    <span class="m">11</span> Jul <span class="m">21</span> <span class="m">02</span>:11 sys -&gt; usr/src/sys
+drwxrwxrwt   <span class="m">7</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">03</span>:11 tmp
+drwxr-xr-x  <span class="m">17</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">02</span>:06 usr
+drwxr-xr-x  <span class="m">25</span> root  wheel   <span class="m">512</span> Sep <span class="m">13</span> <span class="m">02</span>:40 var
+</pre></div>
+</div>
+<p>First triplet is used for owner user permissions, second one is for owner group
+permissions and the last one is for other users permissions.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># owner can read and execute,</span>
+<span class="c1"># owner group can only read,</span>
+<span class="c1"># others can do nothing</span>
+<span class="n">r</span><span class="o">-</span><span class="n">xr</span><span class="o">-----</span>  <span class="o">...</span> <span class="n">file1</span>
+</pre></div>
+</div>
+<p>There is <a class="reference external" href="https://linux.die.net/man/1/chmod">chmod</a> command which is used for
+permissions management.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># add write permission for group:</span>
+chmod g+w file.txt
+<span class="c1"># add read and execute permissions for owner and group</span>
+chmod ug+rx file.txt
+<span class="c1"># add read permission for all</span>
+chmod ugo+r file.txt
+<span class="c1"># ugo can be replaced with a</span>
+chmod a+r file.txt  <span class="c1"># same as above</span>
+
+<span class="c1"># add write for user, read for others</span>
+chmod u+w,o+r file.txt
+</pre></div>
+</div>
+<p>Every tiplet can be represented as a bitmask:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">u</span>  <span class="n">g</span>  <span class="n">o</span>
+<span class="n">rwx</span><span class="o">------</span> <span class="o">...</span> <span class="n">file</span><span class="o">.</span><span class="n">txt</span>
+<span class="mi">421421421</span>
+</pre></div>
+</div>
+<p>Thus in order to allow read and execute for owner and read for group we can do
+the following:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>chmod u+rx,g+r file.txt
+chmod <span class="m">540</span> file.txt
+</pre></div>
+</div>
+<p>For directories <code class="docutils literal"><span class="pre">x</span></code> permission means the ability to enter the directory.</p>
+</div>
+<div class="section" id="processes">
+<h3><a class="toc-backref" href="#id5">Processes</a><a class="headerlink" href="#processes" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p><strong>Process</strong> is some code which is sored in the RAM and is being executed.
+Most of processes are run in the background. In order to move process to
+foreground there is <a class="reference external" href="https://linux.die.net/man/1/fg">fg</a> command. To move
+process to background there is <a class="reference external" href="https://linux.die.net/man/1/bg">bg</a> command.
+There is a possibility to start process in the background explicitly: all you
+have to do is to add ampersand character at the end of command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># note the ampersand character at the end of the command</span>
+run_my_script --arg1 --arg2<span class="o">=</span>foo <span class="p">&amp;</span>
+</pre></div>
+</div>
+<p>Widely used utilities to manage processes in UNIX/Linux systems are:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://linux.die.net/man/1/jobs">jobs</a> &#8211; lists jobs running in the
+current terminal</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/nohup">nohup</a> &#8211; runs the process which will
+not die after terminal is detached</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/kill">kill</a> &#8211; sends signals to the processes.
+Signals which are used to stop the processes are <code class="docutils literal"><span class="pre">SIGTERM</span></code> and <code class="docutils literal"><span class="pre">SIGKILL</span></code>.
+<code class="docutils literal"><span class="pre">kill</span></code> utility works with processes ids (PIDs)</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/killall">killall</a> &#8211; similar to <code class="docutils literal"><span class="pre">kill</span></code>, but
+works with process name.</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/top">top</a> &#8211; displays Linux/UNIX processes.</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/ps">ps</a> &#8211; reports a snapshot of the current
+processes. <code class="docutils literal"><span class="pre">ps</span></code> is usually invoked with <code class="docutils literal"><span class="pre">aux</span></code> keys.</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/pstree">pstree</a> &#8211; displays a tree of processes</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/uptime">uptime</a> &#8211; tells how long the system
+has been running.</li>
+<li><a class="reference external" href="https://linux.die.net/man/1/free">free</a> &#8211; displays amount of free and used
+memory in the system.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-open-systems-interconnection-model">
+<h2><a class="toc-backref" href="#id6">The Open Systems Interconnection model</a><a class="headerlink" href="#the-open-systems-interconnection-model" title="Постійне посилання на цей заголовок">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Protocol:</th><td class="field-body">is the set of rules and conventions which are used for interaction between the
+same layer of different nodes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Interface:</th><td class="field-body">is the set of rules which are used for interaction between adjacent layers of
+the same node</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Encapsulation:</th><td class="field-body">is the inclusion of the data from the upper layer into the special data
+structure of the lower layer. <strong>Decapsulation</strong> is the reverse procedure.</td>
+</tr>
+</tbody>
+</table>
+<p>OSI model descibes 7 layers of network organization and the purpose of each
+layer. Protocols are not described in the OSI model.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">№</th>
+<th class="head">Name</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>7</td>
+<td>Application</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>Presentation</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>Session</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>Transport</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>Network</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>Data link</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>Physical</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="osi-layers-functions">
+<h3><a class="toc-backref" href="#id7">OSI layers functions</a><a class="headerlink" href="#osi-layers-functions" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="section" id="physical-layer">
+<h4>Physical layer<a class="headerlink" href="#physical-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Bit transfer via physicall channels.</p>
+<ul class="simple">
+<li>forming electric sugnals</li>
+<li>data encoding</li>
+<li>synchronization</li>
+<li>modulation</li>
+<li>physical topology</li>
+<li>physical characteristics of interfaces</li>
+</ul>
+<p>All of these are implemented in the hardware.</p>
+</div>
+<div class="section" id="data-link-layer">
+<h4>Data link layer<a class="headerlink" href="#data-link-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Reliable data frame delivery between two adjacent stations in the network with
+any topology or between any two stations in the network with typical topology.</p>
+<ul class="simple">
+<li>environment availability checks</li>
+<li>grouping data into frames</li>
+<li>computation and verification of the checksum</li>
+<li>physical addressing (MAC addresses)</li>
+<li>data flow management</li>
+</ul>
+<p>These functions are implemented both in hardware and programmatically.</p>
+</div>
+<div class="section" id="network-layer">
+<h4>Network layer<a class="headerlink" href="#network-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Packet delivery</p>
+<ul class="simple">
+<li>between any two nodes of the network with any kind of topology</li>
+<li>between any two networks in the composite network</li>
+<li>logical addressing</li>
+<li>package data size coordination</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Network:</th><td class="field-body">is the set of computers which use single network technology for data
+exchange</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Route:</th><td class="field-body">is the sequence of routers which are passed by the data package in the
+composite network</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="transort-layer">
+<h4>Transort layer<a class="headerlink" href="#transort-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Data delivery with the determined reliability between any two processes in the
+network.</p>
+<ul class="simple">
+<li>splitting message into chunks and their numeration</li>
+<li>buffering</li>
+<li>ordering of the incoming packages</li>
+<li>application processes addressing</li>
+<li>flow management</li>
+<li>integrity check</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">The unique identifier of process in the node in terms of TCP/IP terminology
+is called <strong>port</strong></p>
+</div>
+</div>
+<div class="section" id="session-layer">
+<h4>Session layer<a class="headerlink" href="#session-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">Explicit implementation of this layer is missing in most of TCP/IP stack
+implementation. Thus only ideas of session layer are described here.</p>
+</div>
+<p>Managing application layer objects&#8217; dialog. (Synchronization between processes
+on different nodes).</p>
+<ul class="simple">
+<li>Sets message exchange methods (duplex/half-duplex)</li>
+<li>Message exchange synchronization</li>
+<li>Dialog check-points</li>
+</ul>
+<p>Protocol data unit of session layer is <code class="docutils literal"><span class="pre">message</span></code>.</p>
+</div>
+<div class="section" id="presentation-layer">
+<h4>Presentation layer<a class="headerlink" href="#presentation-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">As well as session layer, presentation layer is not explicitly implemented in
+most TCP/IP implementations.</p>
+</div>
+<p>Coordination of data presentation for interprocess communication.</p>
+<ul class="simple">
+<li>Translates data from external format into internal format.</li>
+<li>Encrypts and decrypts data</li>
+<li>Data compression</li>
+</ul>
+</div>
+<div class="section" id="application-layer">
+<h4>Application layer<a class="headerlink" href="#application-layer" title="Постійне посилання на цей заголовок">¶</a></h4>
+<p>Set of all network services which can be used by the end users.</p>
+<ul class="simple">
+<li>User authentication and authorization</li>
+<li>File services, email, remote access, printing, etc</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="tcp-ip-protocol-stack">
+<h2><a class="toc-backref" href="#id8">TCP/IP protocol stack</a><a class="headerlink" href="#tcp-ip-protocol-stack" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>TCP/IP protocol stack is the implementation of the model. It includes only 4
+layers:</p>
+<ul class="simple">
+<li>Application layer</li>
+<li>Transport layer</li>
+<li>Network layer</li>
+<li>Network interfaces layer</li>
+</ul>
+<p>There are no network interfaces layer protocols in TCP/IP stack. There are only
+interfaces between network and network interfaces layers.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Layer</th>
+<th class="head">Protocols and standards</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Application</td>
+<td>HTTP, SMTP, DNS, FTP</td>
+</tr>
+<tr class="row-odd"><td>Transport</td>
+<td>TCP, UDP</td>
+</tr>
+<tr class="row-even"><td>Network</td>
+<td>IP, ICMP</td>
+</tr>
+<tr class="row-odd"><td>Network
+interfaces</td>
+<td>Ethernet, WiFi</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="ip-protocol">
+<h2><a class="toc-backref" href="#id9">IP Protocol</a><a class="headerlink" href="#ip-protocol" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>IP (Internet Protocol) is a internetwork protocol described in <a class="reference external" href="https://tools.ietf.org/html/rfc791">RFC 791</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">internet:</th><td class="field-body">is a joint network</td>
+</tr>
+<tr class="field-even field"><th class="field-name">subnet:</th><td class="field-body">is a part of the network</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">internetworking:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">networks union</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Internet:</th><td class="field-body">name of the most well-known network</td>
+</tr>
+</tbody>
+</table>
+<p>Internet Protocol is the base on which Internet is built.</p>
+<p>IP functions:</p>
+<ul class="simple">
+<li>routing</li>
+<li>logical addressing</li>
+<li>coordinating MTUs</li>
+<li>uniting networks</li>
+<li>quality of service</li>
+</ul>
+<p>Header format:</p>
+<a class="reference external image-reference" href="http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg"><img alt="http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg" src="http://flylib.com/books/2/296/1/html/2/images/01fig02.jpg" /></a>
+</div>
+<div class="section" id="control-protocols">
+<h2><a class="toc-backref" href="#id10">Control Protocols</a><a class="headerlink" href="#control-protocols" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>In order to debug network layer and IP (internet protocol) such protocols as
+ICMP (Internet Control Message Protocol) and ARP (Address Resolution Protocol)
+were introduced. Please note that ARP works between Network and Network
+Interfaces layers.</p>
+<p>There is also DHCP protocol which works on Application layer but is a auxiliary
+protocol for Network Layer.</p>
+<div class="section" id="icmp">
+<h3><a class="toc-backref" href="#id11">ICMP</a><a class="headerlink" href="#icmp" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>Protocol specification can be found in <a href="#id13"><span class="problematic" id="id14">`RFC 792
+&lt;https://tools.ietf.org/html/rfc792`_</span></a>. ICMP  is mostly used as diagnostic tool
+to determine whether Network layer works correctly, hovewer the original purpose
+was much wider.</p>
+<p>All information about package delivery (by IP) can be sent to the sender using
+ICMP.</p>
+<p>Earlier ICMP was used to manage network nodes (get address resolution table, set
+up routing, etc), however better tools appeared later thus deprecating such
+purpose of ICMP.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">ICMP packet is icluded into the IP packet</p>
+</div>
+<p>ICMP cannot be used to debuug ICMP error messages, as the node which determines
+issue with the ICMP error message must not generate ICMP message.</p>
+<p>ICMP does not fix problems and does not retry sending messages.</p>
+<p>Header format:</p>
+<a class="reference external image-reference" href="http://processors.wiki.ti.com/images/6/61/Frame_format_icmp.png"><img alt="http://processors.wiki.ti.com/images/6/61/Frame_format_icmp.png" src="http://processors.wiki.ti.com/images/6/61/Frame_format_icmp.png" /></a>
+<p>ICMP message types:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Echo response</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Destination host unreachable</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Source suppression</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Route redirection (Informing that better route to host exists)
+Disabled in modern systems due to security concerns</td>
+</tr>
+<tr class="row-even"><td>8</td>
+<td>Echo request</td>
+</tr>
+<tr class="row-odd"><td>11</td>
+<td>Packet TTL expired</td>
+</tr>
+<tr class="row-even"><td>12</td>
+<td>Malformed parameters</td>
+</tr>
+<tr class="row-odd"><td>13</td>
+<td>Timestamp request (Currently this is NTP functionality)</td>
+</tr>
+<tr class="row-even"><td>14</td>
+<td>Timestamp response (Currently this is NTP functionality)</td>
+</tr>
+<tr class="row-odd"><td>17</td>
+<td>Mask request</td>
+</tr>
+<tr class="row-even"><td>18</td>
+<td>Mask response</td>
+</tr>
+</tbody>
+</table>
+<p>ICMP Error types are different for each message type.</p>
+<p>Most widely used tools for network diagnostics (which use ICMP) are:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">ping</span></code></p>
+<p>This is a very simple network diagnostics tool.</p>
+<p>Uses ICMP message types 0 and 8. <code class="docutils literal"><span class="pre">ping</span></code> is used to determine concrete
+host availability in the network.</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">traceroute</span></code></p>
+<p>Shows the route to the destination host. Please note that IP protocol <strong>does
+not</strong> have built-in utilities for determining routes, thus tools like
+<code class="docutils literal"><span class="pre">traceroute</span></code>  cannot be 100% precise. For example, <code class="docutils literal"><span class="pre">traceroute</span></code> does it by
+sequentially sending packets with increasing ttl thus generating ttl expired
+error on every host in the route.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="arp-address-resolution-protocol">
+<h3><a class="toc-backref" href="#id12">ARP (Address Resolution Protocol)</a><a class="headerlink" href="#arp-address-resolution-protocol" title="Постійне посилання на цей заголовок">¶</a></h3>
+<p>ARP is used to map IP addresses (logical addressing) to MAC addresses (physical
+addressing). The protocol is described in <a class="reference external" href="https://tools.ietf.org/html/rfc826">RFC 826</a></p>
+<a class="reference external image-reference" href="http://www.erg.abdn.ac.uk/users/gorry/course/images/arp-header.gif"><img alt="http://www.erg.abdn.ac.uk/users/gorry/course/images/arp-header.gif" src="http://www.erg.abdn.ac.uk/users/gorry/course/images/arp-header.gif" /></a>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">IP-32 Blog</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навігація</h3>
+<p class="caption"><span class="caption-text">Зміст:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../s04/index.html">Семестр 4 (2 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s05/index.html">Семестр 5 (3 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s06/index.html">Семестр 6 (3 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s07/index.html">Семестр 7 (4 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s08/index.html">Семестр 8 (4 курс, 2 семестр)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Семестр 9 (5 курс, 1 семестр)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="compilers.html">Програмне забезпечення комп&#8217;ютерних систем. Програмування та компіляція</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Network technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="big_data.html">Технології BigData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pedagogy.html">Педагогіка вищої школи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="startup_management.html">Менеджмент стартапів</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Семестр 9 (5 курс, 1 семестр)</a><ul>
+      <li>Previous: <a href="compilers.html" title="Попередній розділ">Програмне забезпечення комп&#8217;ютерних систем. Програмування та компіляція</a></li>
+      <li>Next: <a href="big_data.html" title="наступний розділ">Технології BigData</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Швидкий пошук</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Вперед" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, IP-32 Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/s09/networks.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

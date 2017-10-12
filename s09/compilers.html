@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="uk_UA">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Програмне забезпечення комп’ютерних систем. Програмування та компіляція &#8212; Code for life</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'latest',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Індекс" href="../genindex.html" />
+    <link rel="search" title="Пошук" href="../search.html" />
+    <link rel="next" title="Network technologies" href="networks.html" />
+    <link rel="prev" title="Семестр 9 (5 курс, 1 семестр)" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1><a class="toc-backref" href="#id4">Програмне забезпечення комп&#8217;ютерних систем. Програмування та компіляція</a><a class="headerlink" href="#id1" title="Постійне посилання на цей заголовок">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Лектор:</th><td class="field-body"><a class="reference external" href="http://comsys.kpi.ua/ukrainian/teachers/76/">Русанова Ольга Веніамінівна</a></td>
+</tr>
+</tbody>
+</table>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#id1" id="id4">Програмне забезпечення комп&#8217;ютерних систем. Програмування та компіляція</a><ul>
+<li><a class="reference internal" href="#o1" id="id5">Лекція №1</a></li>
+<li><a class="reference internal" href="#o2" id="id6">Лекція №2</a><ul>
+<li><a class="reference internal" href="#id3" id="id7">Класифікація комп&#8217;ютерних систем</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#o4" id="id8">Лекція №4</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="o1">
+<h2><a class="toc-backref" href="#id5">Лекція №1</a><a class="headerlink" href="#o1" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Характеристики архітектур систем:</p>
+<ul class="simple">
+<li>Зернистість (є системи, які підтримують дрібно-, середньо-, крупно-зернистий
+паралелізм, причому управління такими системами здійснюється по-різному)</li>
+<li>Спосіб управління (централізований/розподілений)</li>
+<li>Синхронність (чи існує в <strong>системі</strong> єдиний синхросигнал, по якому починають
+роботу вузли системи). Переважна більшість потужних систем &#8211; асинхронні.</li>
+<li>Тип пам&#8217;яті (спільна/розділювана, локальна/розподілена, DSM-системи)</li>
+<li>Масштабованість системи (обмежена/необмежена масштабованість)</li>
+<li>Степінь зв&#8217;язності системи (слабко-зв&#8217;язні, сильно-зв&#8217;язні; <em>лектор виділяє ще
+і третю категорію: зв&#8217;язні &#8211; щось середнє між слабко-зв&#8217;язними і
+сильно-зв&#8217;язними</em>)</li>
+</ul>
+</div>
+<div class="section" id="o2">
+<h2><a class="toc-backref" href="#id6">Лекція №2</a><a class="headerlink" href="#o2" title="Постійне посилання на цей заголовок">¶</a></h2>
+<div class="section" id="id3">
+<h3><a class="toc-backref" href="#id7">Класифікація комп&#8217;ютерних систем</a><a class="headerlink" href="#id3" title="Постійне посилання на цей заголовок">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Примітка</p>
+<p class="last">за основу взято рис. 1.1. із методички.</p>
+</div>
+<ul class="simple">
+<li>За ступенем зв&#8217;язності<ul>
+<li>Паралельні системи (сильно-зв&#8217;язні)<ul>
+<li>За типом керування<ul>
+<li>КС, що керується потоком даних (Data-Flow systems)</li>
+<li>КС, що керуються потоком команд<ul>
+<li>За типом обробки<ul>
+<li>SIMD (Single Instruction Multiple Data)<ul>
+<li>Матричні</li>
+<li>Асоціативні</li>
+<li>Векторні</li>
+</ul>
+</li>
+<li>Конвеєрні системи (Pipeline)</li>
+<li>Системи із наддовгим командним словом (VLIW)</li>
+<li>MIMD (Multiple Instruction Multiple Data)<ul>
+<li>За типом пам&#8217;яті<ul>
+<li>SMP (системи з масовим паралелізмом)</li>
+<li>HPP</li>
+<li>DSM</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Спеціалізовані ПКС</li>
+<li>Гібридні ПКС</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Кластерні системи (зв&#8217;язні)</li>
+<li>Розподілені, GRID, та Cloud системи (слабко-зв&#8217;язні)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="o4">
+<h2><a class="toc-backref" href="#id8">Лекція №4</a><a class="headerlink" href="#o4" title="Постійне посилання на цей заголовок">¶</a></h2>
+<p>Гіпотеза Мінського (?). &#8211; Швидкодія і продуктивність систем зрозстають
+у логарифмічній залежності від кількості процесорів (обчислювальних вузлів).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="o">^</span>
+<span class="n">P</span><span class="o">|</span>
+<span class="n">e</span><span class="o">|</span>
+<span class="n">r</span><span class="o">|</span>
+<span class="n">f</span><span class="o">|</span>
+<span class="n">o</span><span class="o">|</span>                           <span class="n">xxxxxxxxxx</span>
+<span class="n">r</span><span class="o">|</span>             <span class="n">lg</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="n">xxxxxxxx</span>
+<span class="n">m</span><span class="o">|</span>             <span class="n">xxxxxx</span>
+<span class="n">a</span><span class="o">|</span>         <span class="n">xxxx</span>
+<span class="n">n</span><span class="o">|</span>       <span class="n">xx</span>
+<span class="n">c</span><span class="o">|</span>    <span class="n">xx</span>
+<span class="n">e</span><span class="o">|</span>  <span class="n">x</span>
+ <span class="o">|</span> <span class="n">x</span>
+ <span class="o">|</span><span class="n">x</span>
+ <span class="o">+------------------------------------------&gt;</span> <span class="n">N</span>
+</pre></div>
+</div>
+<p>Така залежність обумовлена тим, що в більшості програм необхідна синхронізація
+та обмін даними між обчислювальними вузлами. З іншої сторони, на швидкодію
+впливають також обрані алгоритми, засоби синхронізації, тощо.</p>
+<p>Засоби, які застосовуютсья для паралельної обробки в різних системах:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="28%" />
+<col width="32%" />
+<col width="10%" />
+<col width="13%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">Синхронні мови ПП</th>
+<th class="head" colspan="4">Асинхронні мови ПП</th>
+</tr>
+<tr class="row-even"><th class="head">Тип КС</th>
+<th class="head">Операції над масивами</th>
+<th class="head">опис
+проц.</th>
+<th class="head">ps init
+ps fin</th>
+<th class="head">res
+sync</th>
+<th class="head">msg
+sync</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>век і матричні КС</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+<td>&#8211;</td>
+</tr>
+<tr class="row-even"><td>SMP</td>
+<td>-+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td>MPP</td>
+<td>-+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>+-</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Задачі:</p>
+<ul class="simple">
+<li>Обрання мови та засобів синхронізації</li>
+<li>I/O параелельно до обчислень</li>
+<li>Розбиття задачі на підзадачі у випадку, коли розмірність задачі перевищує
+розмірність системи.</li>
+<li>Файли конфігурації розподілених систем</li>
+<li>Співвідношення розмірностей системи та задачі</li>
+<li>Оцінка розробленої паралельної програми (масштабованість, прискорення,
+ефективність)</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">IP-32 Blog</a></h1>
+
+
+
+
+
+
+
+
+<h3>Навігація</h3>
+<p class="caption"><span class="caption-text">Зміст:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../s04/index.html">Семестр 4 (2 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s05/index.html">Семестр 5 (3 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s06/index.html">Семестр 6 (3 курс, 2 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s07/index.html">Семестр 7 (4 курс, 1 семестр)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../s08/index.html">Семестр 8 (4 курс, 2 семестр)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Семестр 9 (5 курс, 1 семестр)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Програмне забезпечення комп&#8217;ютерних систем. Програмування та компіляція</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networks.html">Network technologies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="big_data.html">Технології BigData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pedagogy.html">Педагогіка вищої школи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="startup_management.html">Менеджмент стартапів</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Семестр 9 (5 курс, 1 семестр)</a><ul>
+      <li>Previous: <a href="index.html" title="Попередній розділ">Семестр 9 (5 курс, 1 семестр)</a></li>
+      <li>Next: <a href="networks.html" title="наступний розділ">Network technologies</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Швидкий пошук</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Вперед" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, IP-32 Group.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/s09/compilers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
